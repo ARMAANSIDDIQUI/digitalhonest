@@ -3,14 +3,14 @@ import { FiCheckCircle, FiUsers, FiTrendingUp, FiMapPin } from 'react-icons/fi';
 
 export default function About() {
   return (
-    <div className="pt-32 pb-24 bg-brand-bg min-h-screen">
+    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
       <Helmet><title>About Us | Digital Honest & Shri Media</title></Helmet>
 
       {/* Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div className="section-padding !py-12 mb-16">
         <div className="text-center">
-          <h1 className="text-4xl lg:text-5xl font-black text-brand-text mb-6">Apne Brand Ko Bada Banao</h1>
-          <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full mb-8"></div>
+          <h1 className="text-4xl lg:text-6xl mb-6">Apne Brand Ko <span className="premium-gradient-text">Bada Banao</span></h1>
+          <div className="w-24 h-1 bg-brand-primary mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Welcome to Digital Honest & Shri Media, Dehradun's premier 360° marketing agency. We bridge the gap between traditional high-impact outdoor branding and hyper-targeted digital marketing.
           </p>

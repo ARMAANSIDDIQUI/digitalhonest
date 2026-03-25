@@ -27,17 +27,17 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center text-white font-bold text-xl leading-none">
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl leading-none group-hover:scale-105 transition-transform">
               DH
             </div>
             <div>
-              <h1 className="text-xl font-bold leading-tight font-poppins text-brand-blue">Digital Honest</h1>
-              <p className="text-[10px] uppercase tracking-wider text-brand-orange font-semibold">Advertising Agency</p>
+              <h1 className="text-xl font-bold leading-tight font-display text-brand-text-main">Digital Honest</h1>
+              <p className="text-[10px] uppercase tracking-wider text-brand-secondary font-bold">Advertising Agency</p>
             </div>
           </Link>
 
@@ -47,19 +47,19 @@ export default function Navbar() {
               <Link 
                 key={link.name} 
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-brand-orange ${pathname === link.path ? 'text-brand-orange' : 'text-gray-700'}`}
+                className={`text-sm font-semibold transition-colors hover:text-brand-primary ${pathname === link.path ? 'text-brand-primary' : 'text-brand-text-muted'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" className="bg-brand-orange hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-orange-500/30 flex items-center gap-2">
+            <Link to="/contact" className="btn-conversion !py-2.5 !px-6 flex items-center gap-2">
               <FiPhoneCall /> Contact Us
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button 
-            className="md:hidden text-2xl text-brand-blue p-2"
+            className="md:hidden text-2xl text-brand-text-main p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <FiX /> : <FiMenu />}
@@ -74,19 +74,19 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden shadow-xl"
+            className="md:hidden bg-white border-b border-brand-bg overflow-hidden shadow-xl"
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`block text-lg font-medium p-2 rounded-lg ${pathname === link.path ? 'bg-orange-50 text-brand-orange' : 'text-gray-700'}`}
+                  className={`block text-lg font-bold p-3 rounded-xl transition-all ${pathname === link.path ? 'bg-brand-primary/5 text-brand-primary' : 'text-brand-text-muted hover:bg-brand-bg'}`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" className="block w-full text-center bg-brand-orange text-white px-6 py-3 rounded-xl font-medium mt-4 shadow-lg shadow-orange-500/20">
+              <Link to="/contact" className="block w-full text-center bg-brand-secondary text-white px-6 py-4 rounded-xl font-bold mt-4 shadow-lg shadow-brand-secondary/20">
                 Get Started
               </Link>
             </div>

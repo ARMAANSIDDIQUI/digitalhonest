@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheckCircle } from 'react-icons/fi';
+import { FiArrowRight, FiCheckCircle, FiZap } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { services } from '../constants/services';
 
@@ -13,105 +13,94 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-brand-bg relative overflow-hidden">
-        {/* Soft Background Gradient Blobs */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-orange-100/50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/4"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-100/50 rounded-full blur-3xl -z-10 -translate-x-1/4 translate-y-1/4"></div>
+      <section className="relative pt-24 pb-24 bg-brand-bg overflow-hidden">
+        {/* Soft Background Blobs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="section-padding !py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Content */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="z-10"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="z-10 text-center lg:text-left"
             >
-              <div className="inline-block bg-white border border-gray-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
-                <span className="text-brand-orange font-semibold text-sm">#1 Digital + Outdoor Branding</span>
+              <div className="inline-flex items-center gap-2 bg-white border border-brand-bg rounded-full px-4 py-1.5 mb-8 shadow-sm">
+                <span className="text-brand-primary font-bold text-xs uppercase tracking-tight">#1 Digital + Outdoor Branding Agency</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-black leading-tight text-brand-text mb-6">
+              <h1 className="text-5xl lg:text-7xl mb-8 leading-[1.05]">
                 Offline Ho Ya Online – <br/>
-                <span className="gradient-text">Brand Sab Jagah!</span>
+                <span className="premium-gradient-text">Brand Sab Jagah!</span>
               </h1>
               
-              <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed font-medium">
-                Most Trusted & Reliable Advertising Agency of Dehradun, Uttarakhand. Under One Roof.
+              <p className="text-xl text-brand-text-muted mb-10 max-w-lg leading-relaxed lg:mx-0 mx-auto font-medium">
+                Most Trusted & Reliable Advertising Agency under one roof. We scale your business with architectural authority.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/contact" className="bg-brand-blue hover:bg-blue-900 text-white px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-xl shadow-blue-900/20 text-center">
-                  Start Advertising Today
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/contact" className="btn-conversion shadow-lg shadow-brand-secondary/20">
+                  Grow Your Brand
                 </Link>
-                <Link to="/services" className="bg-white hover:bg-gray-50 text-brand-blue border-2 border-brand-blue/20 px-8 py-4 rounded-full font-bold text-lg transition-all text-center flex items-center justify-center gap-2">
-                  View Services <FiArrowRight />
+                <Link to="/services" className="btn-primary !bg-white !text-brand-text-main border border-brand-bg shadow-sm">
+                  Explore Services
                 </Link>
               </div>
 
               {/* Trust badges */}
-              <div className="mt-12 flex items-center gap-6">
-                <div className="flex -space-x-3">
+              <div className="mt-12 flex items-center gap-6 justify-center lg:justify-start">
+                <div className="flex -space-x-4">
                   {[1,2,3,4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200"></div>
+                    <div key={i} className={`w-12 h-12 rounded-full border-4 border-white bg-brand-bg shadow-sm flex items-center justify-center font-bold text-brand-primary text-xs`}>
+                      DH
+                    </div>
                   ))}
                 </div>
-                <div className="text-sm font-medium text-gray-600">
-                  <span className="text-brand-orange font-bold text-lg">500+</span><br/>Brands Grown
+                <div className="text-left">
+                  <p className="text-xs uppercase font-bold text-brand-text-muted tracking-widest">Global Reach</p>
+                  <p className="text-lg font-bold text-brand-text-main">500+ Top Indian Brands Trusted Us</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Visual (Placeholder for 3D Gen) */}
+            {/* Right Visual - Clean & Professional */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative h-[500px] lg:h-[600px] w-full"
+              className="relative hidden lg:block"
             >
-              {/* Floating Mockup Replacements CSS until image generation works */}
-              <motion.div 
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute top-10 right-0 w-3/4 h-64 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col blur-[0.5px] hover:blur-none transition-all"
-              >
-                <div className="h-12 bg-gray-100 border-b border-gray-200 flex items-center px-4"><div className="w-1/3 h-4 bg-gray-300 rounded"></div></div>
-                <div className="flex-grow bg-gradient-brand flex items-center justify-center p-6 text-center">
-                  <div>
-                    <h3 className="text-3xl font-black text-white mb-2">YOUR BRAND</h3>
-                    <div className="w-1/2 h-1 bg-brand-yellow mx-auto"></div>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="glass-card p-4 aspect-[4/3] relative overflow-hidden group">
+                 {/* Visual Representation Area */}
+                 <div className="w-full h-full bg-brand-bg rounded-2xl flex flex-col items-center justify-center p-12 text-center group-hover:scale-[1.01] transition-transform duration-700">
+                    <div className="w-24 h-24 bg-brand-primary/10 rounded-3xl flex items-center justify-center mb-8">
+                       <FiZap className="text-brand-primary" size={48} />
+                    </div>
+                    <h3 className="text-3xl mb-4 font-display">360° Vision</h3>
+                    <p className="text-brand-text-muted max-w-xs mx-auto">Architecture-first approach to brand visibility and lead conversion.</p>
+                 </div>
 
-              <motion.div 
-                animate={{ y: [10, -10, 10] }}
-                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-                className="absolute bottom-20 left-0 w-2/3 h-48 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden flex"
-              >
-                <div className="w-1/3 bg-brand-orange flex items-center justify-center text-white font-bold p-4 text-center leading-tight">MOBILE VAN</div>
-                <div className="w-2/3 p-4 bg-gray-50 flex flex-col justify-center">
-                  <div className="w-3/4 h-3 bg-gray-200 rounded mb-2"></div>
-                  <div className="w-1/2 h-3 bg-gray-200 rounded mb-4"></div>
-                  <div className="w-full h-16 bg-brand-blue/10 rounded flex items-center justify-center text-brand-blue font-black text-xl">AD SPACE</div>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                animate={{ y: [-5, 5, -5] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-10 right-10 w-32 h-64 bg-black rounded-3xl shadow-2xl border-4 border-gray-800 overflow-hidden"
-              >
-                <div className="w-full h-full bg-white flex flex-col">
-                  <div className="h-10 border-b border-gray-100 flex items-center justify-center"><div className="w-1/2 h-2 bg-gray-200 rounded-full"></div></div>
-                  <div className="flex-grow p-4 flex flex-col gap-3">
-                    <div className="w-full h-24 bg-brand-yellow rounded-lg"></div>
-                    <div className="w-3/4 h-3 bg-gray-200 rounded"></div>
-                    <div className="w-full h-10 bg-brand-blue rounded-lg mt-auto"></div>
-                  </div>
-                </div>
-              </motion.div>
+                 {/* Floating Detail Elements */}
+                 <motion.div 
+                  animate={{ y: [0, -15, 0] }} 
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  className="absolute top-10 right-10 glass-card p-6 border-l-4 border-brand-secondary animate-pulse"
+                 >
+                   <p className="text-xs font-bold text-brand-text-muted mb-1 uppercase">Live Metrics</p>
+                   <p className="text-2xl font-bold">+240% Growth</p>
+                 </motion.div>
+
+                 <motion.div 
+                   animate={{ x: [0, 15, 0] }}
+                   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                   className="absolute bottom-12 -left-6 glass-card p-5 !bg-brand-primary text-white shadow-2xl"
+                 >
+                   <p className="font-bold flex items-center gap-2">Professional Strategy <FiArrowRight /></p>
+                 </motion.div>
+              </div>
             </motion.div>
             
           </div>

@@ -1,61 +1,94 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #1F3C88;
-  --color-brand-orange: #FF6A00;
-  --color-brand-yellow: #FFC107;
-  --color-brand-bg: #FBFAF7;
-  --color-brand-text: #333333;
+  /* Professional Light Palette */
+  --color-brand-bg: #F8FAFC;
+  --color-brand-primary: #1E40AF;
+  --color-brand-secondary: #EA580C;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-text-main: #0F172A;
+  --color-brand-text-muted: #475569;
+  
+  /* Aliases */
+  --color-brand-blue: #1E40AF;
+  --color-brand-orange: #EA580C;
+  --color-brand-light-blue: #3B82F6;
 
-  --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  /* Typography */
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
-  --radius-2xl: 1rem;
+  /* Shadows */
+  --shadow-premium: 0 10px 30px -10px rgba(30, 64, 175, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 }
 
 @layer base {
   body {
-    background-color: var(--color-brand-bg);
-    color: var(--color-brand-text);
-    font-family: var(--font-inter);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    @apply bg-brand-bg text-brand-text-main font-body antialiased selection:bg-brand-primary/10 selection:text-brand-primary;
+    margin: 0;
+    padding: 0;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-poppins);
+    @apply font-display font-black tracking-tight leading-tight;
   }
 }
 
-@layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+@layer components {
+  .section-padding {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
-  .glass-dark {
-    background: rgba(31, 60, 136, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white shadow-glass rounded-3xl transition-all duration-500;
   }
-  
-  .gradient-text {
-    background: linear-gradient(90deg, var(--color-brand-blue) 0%, var(--color-brand-orange) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  .glass-card:hover {
+    @apply bg-white shadow-premium -translate-y-1;
   }
-  
+
+  .premium-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary;
+  }
+
   .bg-gradient-brand {
-    background: linear-gradient(135deg, var(--color-brand-blue) 0%, #172d66 100%);
+    @apply bg-gradient-to-br from-brand-primary to-brand-light-blue;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3.5 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2;
+    @apply bg-brand-primary text-white hover:bg-brand-blue hover:shadow-lg hover:shadow-brand-primary/20 active:scale-95;
+  }
+
+  .btn-conversion {
+    @apply px-8 py-3.5 rounded-full font-bold transition-all duration-300 flex items-center justify-center gap-2;
+    @apply bg-brand-secondary text-white hover:shadow-lg hover:shadow-brand-secondary/20 active:scale-95;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-brand-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full border-4 border-brand-bg;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-primary;
+  }
+
+  /* Dropdown Utility */
+  .nav-dropdown {
+    @apply absolute top-full left-0 mt-2 min-w-[200px] bg-white rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible translate-y-2 transition-all duration-300 z-50 p-2;
+  }
+  .nav-group:hover .nav-dropdown {
+    @apply opacity-100 visible translate-y-0 text-brand-text-main;
   }
 }
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-

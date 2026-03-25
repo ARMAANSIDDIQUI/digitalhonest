@@ -1,24 +1,23 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { FiTruck, FiLayers, FiMonitor, FiStar } from 'react-icons/fi';
 
 export default function Portfolio() {
-  // Mock portfolio data
   const campaigns = [
-    { type: 'Hoarding', brand: 'Premium Car Brand', desc: 'Highway Billboard Dehradun' },
-    { type: 'Transit', brand: 'Life Insurance Co.', desc: 'Full Bus Wrap Advertising' },
-    { type: 'Digital', brand: 'Local E-commerce', desc: 'Meta Ads Lead Generation' },
-    { type: 'Event', brand: 'Music Festival', desc: 'Kiosk & Stage Branding' },
-    { type: 'Transit', brand: 'EdTech App', desc: 'Auto Rickshaw Fleet Branding' },
-    { type: 'Outdoor', brand: 'Real Estate', desc: 'Airport Lightbox Display' },
+    { type: 'Hoarding', brand: 'Premium Car Brand', desc: 'Highway Billboard Dehradun', icon: <FiLayers size={40} /> },
+    { type: 'Transit', brand: 'Life Insurance Co.', desc: 'Full Bus Wrap Advertising', icon: <FiTruck size={40} /> },
+    { type: 'Digital', brand: 'Local E-commerce', desc: 'Meta Ads Lead Generation', icon: <FiMonitor size={40} /> },
+    { type: 'Event', brand: 'Music Festival', desc: 'Kiosk & Stage Branding', icon: <FiStar size={40} /> },
+    { type: 'Transit', brand: 'EdTech App', desc: 'Auto Rickshaw Fleet Branding', icon: <FiTruck size={40} /> },
+    { type: 'Outdoor', brand: 'Real Estate', desc: 'Airport Lightbox Display', icon: <FiLayers size={40} /> },
   ];
 
   return (
-    <div className="pt-32 pb-24 bg-brand-bg min-h-screen">
+    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
       <Helmet><title>Portfolio | Our Advertising Campaigns</title></Helmet>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
-        <h1 className="text-4xl lg:text-5xl font-black text-brand-text mb-6">Our Work Speaks</h1>
-        <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full mb-8"></div>
+      <div className="section-padding !py-12 mb-12 text-center">
+        <h1 className="text-4xl lg:text-6xl mb-6">Our Work <span className="premium-gradient-text">Speaks</span></h1>
+        <div className="w-24 h-1 bg-brand-primary mx-auto rounded-full mb-8"></div>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Take a look at how we've helped brands dominate local offline markets and rapidly scale digital growth.
         </p>
