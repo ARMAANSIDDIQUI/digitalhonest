@@ -12,10 +12,10 @@ export default function About() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Editorial */}
-      <section className="section-padding py-8 relative overflow-hidden">
+      <section className="relative py-12 lg:py-24 flex items-center pt-24 pb-20 overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-6">
+        <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -27,7 +27,7 @@ export default function About() {
               <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-6xl lg:text-[7rem] mb-10 leading-[0.9] tracking-tighter">
+            <h1 className="text-5xl lg:text-7xl mb-10 leading-[1] tracking-tighter">
               Apne Brand Ko <br />
               <span className="premium-gradient-text italic font-serif">Bada Banao</span>
             </h1>

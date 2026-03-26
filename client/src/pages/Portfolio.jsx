@@ -32,7 +32,7 @@ export default function Portfolio() {
             <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
             <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Proven Excellence</span>
           </div>
-          <h1 className="text-6xl lg:text-7xl mb-8 tracking-tighter leading-none">
+          <h1 className="text-5xl lg:text-7xl mb-8 tracking-tighter leading-none">
             Our Work <span className="premium-gradient-text italic font-serif">Speaks</span>
           </h1>
           <p className="text-xl text-brand-text-muted font-medium leading-relaxed">

@@ -42,7 +42,7 @@ export default function Services() {
             transition={{ duration: 0.8 }}
           >
             <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-6">Capabilities</p>
-            <h1 className="text-6xl lg:text-8xl tracking-tighter mb-8 leading-none">
+            <h1 className="text-5xl lg:text-7xl tracking-tighter mb-8 leading-[1]">
               Strategic <br/><span className="premium-gradient-text italic font-serif">Powerhouses</span>
             </h1>
             <p className="text-xl text-brand-text-muted max-w-2xl mx-auto font-medium leading-relaxed mb-16">
@@ -112,7 +112,7 @@ export default function Services() {
                         <p className="text-[9px] uppercase tracking-widest font-black text-brand-secondary mb-2">{service.tag}</p>
                         <h3 className="text-2xl text-white font-bold leading-tight whitespace-pre-line">{service.title}</h3>
                       </div>
-                      <Link to={`/contact?service=${service.id}`} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-primary shadow-lg hover:scale-110 transition-transform">
+                      <Link to={`/services/${service.id}`} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-primary shadow-lg hover:scale-110 transition-transform">
                         <FiArrowRight />
                       </Link>
                     </div>

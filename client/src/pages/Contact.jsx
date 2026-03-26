@@ -44,7 +44,7 @@ export default function Contact() {
             <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
             <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Start Your Dominance</span>
           </div>
-          <h1 className="text-6xl lg:text-7xl mb-8 tracking-tighter leading-none">
+          <h1 className="text-5xl lg:text-7xl mb-8 tracking-tighter leading-none">
             Let's Scale Your <br />
             <span className="premium-gradient-text italic font-serif">Authority</span>
           </h1>
