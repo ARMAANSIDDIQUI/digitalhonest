@@ -171,9 +171,9 @@ export default function Services() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square bg-white rounded-[3rem] p-4 shadow-xl rotate-3">
-                 <div className="w-full h-full bg-brand-bg rounded-[2.5rem] flex flex-col items-center justify-center p-12 text-center">
-                    <p className="text-6xl font-black premium-gradient-text mb-4">100%</p>
+              <div className="aspect-square rounded-[3rem] shadow-xl rotate-3">
+                 <div className="w-full h-full bg-brand-primary rounded-[3rem] flex flex-col items-center justify-center p-12 text-center overflow-hidden">
+                    <p className="text-6xl font-black text-brand-secondary mb-4">100%</p>
                     <p className="text-xs uppercase tracking-widest font-black text-brand-text-muted italic leading-relaxed">
                       Commitment to <br/>Honest Growth & <br/>Direct Conversions
                     </p>

@@ -9,19 +9,19 @@ export default function Footer() {
     <footer className="relative bg-brand-text-main text-white pt-32 pb-12 overflow-hidden border-t border-white/5">
       {/* Background Decor */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[120px] -z-0 translate-x-1/2 translate-y-1/2"></div>
-      
+
       <div className="section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
 
           {/* Brand Column */}
           <div className="space-y-10">
             <Link to="/" className="flex items-center gap-4 group">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-500">
-                <img src={logo} alt="Digital Honest" className="w-10 h-10 object-contain" />
+              <div className="w-16 h-16 bg-white rounded-2xl flex-none flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-500 overflow-hidden">
+                <img src={logo} alt="Digital Honest" className="w-11 h-11 aspect-square object-contain" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold leading-none font-display tracking-tight">Digital Honest</h2>
-                <p className="text-[9px] uppercase tracking-[0.4em] text-brand-secondary font-black mt-2">Precision Agency</p>
+                <p className="text-[9px] uppercase tracking-[0.4em] text-brand-accent font-black mt-2">DIGITAL MARKETING AGENCY</p>
               </div>
             </Link>
             <p className="text-brand-text-muted leading-relaxed max-w-xs font-medium text-sm">
@@ -57,10 +57,11 @@ export default function Footer() {
             <ul className="space-y-6">
               {[
                 'Digital Performance',
-                'Outdoor (OOH) Scaling',
-                'Transit Moving Media',
-                'Hyper-Local Strategy',
-                'Event Architecture'
+                'High Impact OOH',
+                'Moving Branding',
+                'Local Dominance',
+                'Live Activation',
+                'Omnichannel Hybrid'
               ].map((cap) => (
                 <li key={cap} className="text-sm font-bold text-white/50 hover:text-white transition-colors cursor-default">
                   {cap}
@@ -94,11 +95,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] uppercase tracking-[0.3em] font-black text-white/30">
-          <p>&copy; {currentYear} Digital Honest. Built for Architectural Growth.</p>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <p>&copy; {currentYear} Digital Honest. Brand Sab Jagah!</p>
+            <a href="https://armaansiddiqui.online" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:text-white transition-colors">Architecture by Armaan Siddiqui</a>
+          </div>
           <div className="flex space-x-10">
             <Link to="/privacy" className="hover:text-brand-secondary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-brand-secondary transition-colors">Terms of Service</Link>
-            <Link to="/admin/login" className="px-4 py-2 bg-white/5 rounded-full hover:bg-white/10 transition-all border border-white/5">Studio Registry</Link>
+            {/* <Link to="/admin/login" className="px-4 py-2 bg-white/5 rounded-full hover:bg-white/10 transition-all border border-white/5">Studio Registry</Link> */}
           </div>
         </div>
       </div>

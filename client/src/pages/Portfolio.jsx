@@ -64,7 +64,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="group relative bg-white rounded-[3.5rem] overflow-hidden shadow-glass hover:shadow-premium transition-all duration-700 border border-white"
+                className="group relative bg-white rounded-[3.5rem] overflow-hidden shadow-glass hover:shadow-premium transition-all duration-700"
               >
                 <div className="aspect-[4/3] overflow-hidden relative">
                   <img 

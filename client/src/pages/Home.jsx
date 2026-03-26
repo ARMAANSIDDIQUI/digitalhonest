@@ -51,7 +51,7 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section - High Fidelity Editorial */}
-      <section className="relative min-h-[85vh] flex items-center pt-24 pb-20">
+      <section className="section-padding py-12 lg:py-24 relative overflow-hidden lg:overflow-visible min-h-[85vh] flex items-center pt-24 pb-20">
         {/* Abstract Background Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -68,7 +68,7 @@ export default function Home() {
               <span className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text-muted">Marketing That Moves</span>
             </div>
             
-            <h2 className="text-6xl lg:text-[7rem] mb-10 leading-none tracking-tighter">
+            <h2 className="text-5xl lg:text-7xl mb-10 leading-none tracking-tighter transition-all">
               Offline Ho <br/>Ya Online <br/>
               <span className="premium-gradient-text italic font-serif">Brand Sab Jagah!</span>
             </h2>
@@ -94,8 +94,8 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="glass-card !rounded-[4rem] overflow-hidden relative shadow-2xl">
-              <ServiceMedia />
+            <div className="rounded-[3.5rem] overflow-hidden relative shadow-2xl">
+              <Carousel />
             </div>
             
             {/* Stats Overlay */}

@@ -36,8 +36,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 flex items-center justify-center bg-white rounded-2xl shadow-sm group-hover:shadow-premium transition-all duration-500 group-hover:scale-105">
-              <img src={logo} alt="Digital Honest" className="w-8 h-8 object-contain" />
+            <div className="w-12 h-12 flex-none flex items-center justify-center bg-white rounded-2xl shadow-sm group-hover:shadow-premium transition-all duration-500 group-hover:scale-105 overflow-hidden">
+              <img src={logo} alt="Digital Honest" className="w-9 h-9 aspect-square object-contain" />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold leading-none font-display text-brand-text-main group-hover:text-brand-secondary transition-colors">Digital Honest</h1>
