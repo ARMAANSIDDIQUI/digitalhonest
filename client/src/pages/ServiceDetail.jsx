@@ -69,7 +69,7 @@ const ServiceDetail = () => {
               <span 
                 className="inline-block bg-clip-text text-transparent text-[clamp(3rem,9vw,6.5rem)] uppercase leading-[1.1] pb-2"
                 style={{ 
-                  backgroundImage: 'linear-gradient(to right, #ff851b 0%, #ff851b 40%, #000613 65%, #000613 100%)',
+                  backgroundImage: 'linear-gradient(to right, #ff851b 0%, #ff851b 35%, #000613 65%, #000613 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
