@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CTARibbon from './components/layout/CTARibbon';
+import ScrollToTop from './components/layout/ScrollToTop';
+import FloatingActions from './components/common/FloatingActions';
 
 // Pages
 import Home from './pages/Home';
@@ -18,8 +20,9 @@ import AdminDashboard from './pages/AdminDashboard';
 function App() {
   return (
     <div className="min-h-screen flex flex-col font-inter">
+      <ScrollToTop />
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
@@ -35,6 +38,7 @@ function App() {
       </main>
       <Footer />
       <CTARibbon />
+      <FloatingActions />
     </div>
   );
 }

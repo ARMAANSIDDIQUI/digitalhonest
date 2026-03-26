@@ -37,57 +37,46 @@ const ServiceDetail = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="scroll-container"
+      className="scroll-container bg-brand-bg min-h-screen"
     >
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 overflow-hidden bg-brand-bg">
-        <div className="section-padding !py-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={itemVariants} className="space-y-6">
+      <section className="relative pt-14 pb-16 overflow-hidden">
+        <div className="section-padding !py-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div variants={itemVariants} className="space-y-8">
             <Link 
               to="/services" 
-              className="inline-flex items-center gap-2 text-brand-primary font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-brand-primary font-bold text-xs uppercase tracking-widest hover:gap-3 transition-all"
             >
-              <FiArrowLeft /> All Services
+              <FiArrowLeft /> 360° Strategy Hub
             </Link>
-            <h1 className="text-5xl lg:text-6xl font-display leading-[1.1]">
-              <span className="premium-gradient-text">{service.title}</span>
+            <h1 className="text-5xl lg:text-7xl leading-tight">
+              <span className="premium-gradient-text italic font-serif">{service.title}</span>
             </h1>
-            <p className="text-xl text-brand-text-muted leading-relaxed max-w-lg">
+            <p className="text-xl text-brand-text-muted leading-relaxed max-w-lg font-medium">
               {service.shortDesc}
             </p>
-            {service.tagline && (
-              <div className="p-4 bg-brand-bg rounded-lg border-l-4 border-brand-secondary">
-                <p className="font-semibold text-brand-text-main italic">"{service.tagline}"</p>
-              </div>
-            )}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <button className="btn-conversion flex items-center gap-2">
-                <FiMessageCircle size={20} /> Consult Now
-              </button>
-              <a href="tel:7310688048" className="btn-primary flex items-center gap-2 bg-white text-brand-text-main border border-brand-bg hover:bg-brand-bg">
-                <FiPhoneCall size={20} /> Call Expert
+            
+            <div className="flex flex-wrap gap-6 pt-4">
+              <Link to="/contact" className="btn-conversion shadow-2xl shadow-brand-secondary/20 whitespace-nowrap">
+                 Launch My Campaign
+              </Link>
+              <a href="tel:+917310688048" className="btn-primary !bg-white !text-brand-text-main border border-brand-bg shadow-sm">
+                Call Strategist
               </a>
             </div>
           </motion.div>
 
-          {/* Asset Placeholder / Visual Area */}
           <motion.div 
             variants={itemVariants} 
-            className="relative lg:h-[500px] rounded-3xl overflow-hidden glass-card p-2"
+            className="relative lg:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl group"
           >
-            <div className="w-full h-full bg-brand-bg rounded-[1.4rem] flex items-center justify-center text-brand-text-muted p-12 text-center">
-              <div>
-                <p className="mb-4 opacity-50 font-display">Service Visualization</p>
-                <div className="w-20 h-1 bg-brand-primary/20 mx-auto rounded-full mb-6"></div>
-                <p className="text-sm">High-fidelity {service.title} integration assets are being finalized for premium display.</p>
-              </div>
-            </div>
-            {/* Lead Pulse Element */}
-            <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/40 animate-bounce">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <p className="text-xs font-bold text-brand-text-main">Recently Requested in {service.features[0]}</p>
-              </div>
+            <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-text-main/60 via-transparent to-transparent"></div>
+            
+            {/* Trust Badge */}
+            <div className="absolute top-8 right-8 glass-card p-6 !bg-white/90 border-l-4 border-brand-secondary">
+               <p className="text-xs font-black uppercase tracking-widest text-brand-text-muted mb-1">Live Evidence</p>
+               <p className="text-sm font-bold text-brand-text-main">Proven ROI in {service.features[0]}</p>
             </div>
           </motion.div>
         </div>

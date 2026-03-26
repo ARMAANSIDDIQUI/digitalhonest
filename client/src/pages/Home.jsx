@@ -1,8 +1,40 @@
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle, FiZap } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { services } from '../constants/services';
+import { useState, useEffect } from 'react';
+
+const Carousel = () => {
+  const [index, setIndex] = useState(0);
+  const imgs = services.map(s => s.image);
+
+  useEffect(() => {
+    const timer = setInterval(() => setIndex(i => (i + 1) % imgs.length), 5000);
+    return () => clearInterval(timer);
+  }, [imgs.length]);
+
+  return (
+    <div className="w-full h-full relative group">
+      <AnimatePresence mode="wait">
+        <motion.img 
+          key={index}
+          src={imgs[index]} 
+          className="w-full h-full object-cover"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+      <div className="absolute bottom-12 left-12 text-white">
+        <p className="text-xs font-bold uppercase tracking-widest mb-3 text-brand-secondary border-l-4 border-brand-secondary pl-4">{services[index].tag || "Service Focus"}</p>
+        <h3 className="text-4xl font-display leading-tight whitespace-pre-line">{services[index].title}</h3>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -13,96 +45,66 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-24 bg-brand-bg overflow-hidden">
+      <section className="relative pt-12 pb-20 bg-brand-bg overflow-hidden">
         {/* Soft Background Blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-        <div className="section-padding !py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="section-padding !py-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Content */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="z-10 text-center lg:text-left"
+              className="z-10 text-center lg:text-left lg:pt-12"
             >
               <div className="inline-flex items-center gap-2 bg-white border border-brand-bg rounded-full px-4 py-1.5 mb-8 shadow-sm">
-                <span className="text-brand-primary font-bold text-xs uppercase tracking-tight">#1 Digital + Outdoor Branding Agency</span>
+                <span className="text-brand-primary font-bold text-xs uppercase tracking-tight">#1 Marketing Agency In Uttarakhand</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl mb-8 leading-[1.05]">
+              <h1 className="text-5xl lg:text-7xl mb-8">
                 Offline Ho Ya Online – <br/>
-                <span className="premium-gradient-text">Brand Sab Jagah!</span>
+                <span className="premium-gradient-text italic">Brand Sab Jagah!</span>
               </h1>
               
               <p className="text-xl text-brand-text-muted mb-10 max-w-lg leading-relaxed lg:mx-0 mx-auto font-medium">
-                Most Trusted & Reliable Advertising Agency under one roof. We scale your business with architectural authority.
+                The most trusted advertising hub in Dehradun. Architectural branding and precision digital scaling.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link to="/contact" className="btn-conversion shadow-lg shadow-brand-secondary/20">
-                  Grow Your Brand
+                  Grow Your Brand Today
                 </Link>
-                <Link to="/services" className="btn-primary !bg-white !text-brand-text-main border border-brand-bg shadow-sm">
-                  Explore Services
+                <Link to="/services" className="btn-primary !bg-white !text-brand-text-main border border-brand-bg shadow-sm hover:border-brand-primary/20">
+                  Our Services
                 </Link>
               </div>
 
-              {/* Trust badges */}
+              {/* Stats/Badges */}
               <div className="mt-12 flex items-center gap-6 justify-center lg:justify-start">
-                <div className="flex -space-x-4">
-                  {[1,2,3,4].map((i) => (
-                    <div key={i} className={`w-12 h-12 rounded-full border-4 border-white bg-brand-bg shadow-sm flex items-center justify-center font-bold text-brand-primary text-xs`}>
-                      DH
-                    </div>
-                  ))}
-                </div>
-                <div className="text-left">
-                  <p className="text-xs uppercase font-bold text-brand-text-muted tracking-widest">Global Reach</p>
-                  <p className="text-lg font-bold text-brand-text-main">500+ Top Indian Brands Trusted Us</p>
-                </div>
+                 <div className="flex -space-x-3">
+                    {services.slice(0, 4).map((s, i) => (
+                      <img key={i} src={s.image} alt="work" className="w-12 h-12 rounded-full border-4 border-white object-cover shadow-sm bg-gray-100" />
+                    ))}
+                 </div>
+                 <div className="text-left">
+                    <p className="text-lg font-bold text-brand-text-main">500+ Local & National Campaigns</p>
+                    <p className="text-xs uppercase font-bold text-brand-primary tracking-widest">100% Conversion Focused</p>
+                 </div>
               </div>
             </motion.div>
 
-            {/* Right Visual - Clean & Professional */}
+            {/* Right Visual - Interactive Image Carousel */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative hidden lg:block"
+              className="relative rounded-[3rem] overflow-hidden shadow-2xl glass-card aspect-square max-w-[550px] mx-auto hidden lg:block"
             >
-              <div className="glass-card p-4 aspect-[4/3] relative overflow-hidden group">
-                 {/* Visual Representation Area */}
-                 <div className="w-full h-full bg-brand-bg rounded-2xl flex flex-col items-center justify-center p-12 text-center group-hover:scale-[1.01] transition-transform duration-700">
-                    <div className="w-24 h-24 bg-brand-primary/10 rounded-3xl flex items-center justify-center mb-8">
-                       <FiZap className="text-brand-primary" size={48} />
-                    </div>
-                    <h3 className="text-3xl mb-4 font-display">360° Vision</h3>
-                    <p className="text-brand-text-muted max-w-xs mx-auto">Architecture-first approach to brand visibility and lead conversion.</p>
-                 </div>
-
-                 {/* Floating Detail Elements */}
-                 <motion.div 
-                  animate={{ y: [0, -15, 0] }} 
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                  className="absolute top-10 right-10 glass-card p-6 border-l-4 border-brand-secondary animate-pulse"
-                 >
-                   <p className="text-xs font-bold text-brand-text-muted mb-1 uppercase">Live Metrics</p>
-                   <p className="text-2xl font-bold">+240% Growth</p>
-                 </motion.div>
-
-                 <motion.div 
-                   animate={{ x: [0, 15, 0] }}
-                   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                   className="absolute bottom-12 -left-6 glass-card p-5 !bg-brand-primary text-white shadow-2xl"
-                 >
-                   <p className="font-bold flex items-center gap-2">Professional Strategy <FiArrowRight /></p>
-                 </motion.div>
-              </div>
+              <Carousel />
             </motion.div>
-            
           </div>
         </div>
       </section>
@@ -111,9 +113,9 @@ export default function Home() {
       <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-brand-text mb-4">Our Premium Services</h2>
+            <h2 className="text-4xl font-black text-brand-text mb-4">Our Service Pillars</h2>
             <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">Complete 360° marketing solutions to explode your brand growth.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">Integrated "Digital + Outdoor" solutions with Full Support strategy.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

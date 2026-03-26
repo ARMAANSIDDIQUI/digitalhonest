@@ -8,7 +8,7 @@
   --color-brand-surface: #FFFFFF;
   --color-brand-text-main: #0F172A;
   --color-brand-text-muted: #475569;
-  
+
   /* Aliases */
   --color-brand-blue: #1E40AF;
   --color-brand-orange: #EA580C;
@@ -21,7 +21,7 @@
   /* Shadows */
   --shadow-premium: 0 10px 30px -10px rgba(30, 64, 175, 0.1);
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
-  
+
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   --radius-3xl: 2rem;
@@ -34,7 +34,28 @@
     padding: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Custom Scrollbar - High Contrast Branded */
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ea580c;
+    border-radius: 10px;
+    border: 3px solid #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c2410c;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-black tracking-tight leading-tight;
   }
 }
@@ -53,7 +74,7 @@
   }
 
   .premium-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-secondary via-brand-orange to-brand-primary inline-block pr-1;
   }
 
   .bg-gradient-brand {
@@ -70,24 +91,11 @@
     @apply bg-brand-secondary text-white hover:shadow-lg hover:shadow-brand-secondary/20 active:scale-95;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-brand-bg;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full border-4 border-brand-bg;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand-primary;
-  }
-
   /* Dropdown Utility */
   .nav-dropdown {
     @apply absolute top-full left-0 mt-2 min-w-[200px] bg-white rounded-2xl shadow-xl border border-gray-100 opacity-0 invisible translate-y-2 transition-all duration-300 z-50 p-2;
   }
+
   .nav-group:hover .nav-dropdown {
     @apply opacity-100 visible translate-y-0 text-brand-text-main;
   }

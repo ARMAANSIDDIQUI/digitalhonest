@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiPhoneCall } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import logo from '../../assets/logo.png';
+
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Portfolio', path: '/portfolio' },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,43 +17,37 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setIsOpen(false);
-  }, [pathname]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'About', path: '/about' },
-  ];
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-3'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center text-white font-bold text-xl leading-none group-hover:scale-105 transition-transform">
-              DH
-            </div>
-            <div>
-              <h1 className="text-xl font-bold leading-tight font-display text-brand-text-main">Digital Honest</h1>
-              <p className="text-[10px] uppercase tracking-wider text-brand-secondary font-bold">Advertising Agency</p>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logo} alt="Digital Honest" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold leading-tight font-display text-brand-text-main group-hover:text-brand-primary transition-colors">Digital Honest</h1>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-brand-text-muted font-black">Advertising Agency</p>
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
+              <Link
+                key={link.name}
                 to={link.path}
                 className={`text-sm font-semibold transition-colors hover:text-brand-primary ${pathname === link.path ? 'text-brand-primary' : 'text-brand-text-muted'}`}
               >
@@ -58,7 +60,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             className="md:hidden text-2xl text-brand-text-main p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -70,7 +72,7 @@ export default function Navbar() {
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

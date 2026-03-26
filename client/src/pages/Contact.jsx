@@ -10,7 +10,7 @@ export default function Contact() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Convert FormData to JSON
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
@@ -32,56 +32,57 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-32 pb-24 bg-brand-bg min-h-screen">
+    <div className="pt-16 pb-24 bg-brand-bg min-h-screen">
       <Helmet>
-        <title>Contact Us | Digital Honest Dehradun</title>
+        <title>Contact Us | Digital Honest</title>
       </Helmet>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-black text-brand-text mb-4">Let's Grow Your Brand</h1>
-          <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-600 text-lg">Send us a message or request a callback to discuss your advertising needs.</p>
+
+      <div className="section-padding !py-12">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <h1 className="text-4xl lg:text-6xl mb-6">Let's Grow Your <span className="premium-gradient-text italic">Brand</span></h1>
+          <div className="w-24 h-1 bg-brand-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-brand-text-muted text-xl font-medium leading-relaxed">Send us a message or request a specific media audit to discuss your branding dominance.</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-3xl shadow-xl overflow-hidden shadow-brand-blue/5">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-[3rem] shadow-premium overflow-hidden border border-white">
+
           {/* Contact Info (Left) */}
-          <div className="bg-gradient-brand p-12 text-white flex flex-col justify-between">
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
-              <p className="text-blue-100 mb-12 text-lg">
-                Offline ho ya Online – Brand Sab Jagah! Book your advertising spots or digital campaigns with Dehradun's most trusted agency.
+          <div className="bg-brand-text-main p-12 lg:p-16 text-white relative overflow-hidden flex flex-col justify-between">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/20 rounded-full blur-[80px]"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl font-bold mb-8 font-display">Contact Details</h2>
+              <p className="text-brand-text-muted mb-12 text-lg font-medium leading-relaxed">
+                Offline ho ya Online – Brand Sab Jagah! Book your high-impact advertising spots or performance digital campaigns today.
               </p>
-              
-              <div className="space-y-8">
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <FiPhone className="text-2xl text-brand-yellow" />
+
+              <div className="space-y-10">
+                <div className="flex items-center gap-6 group">
+                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-brand-secondary group-hover:border-transparent transition-all duration-300">
+                    <FiPhone className="text-2xl text-brand-secondary group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-blue-200">Call for immediate response</p>
-                    <a href="tel:+917310688048" className="text-2xl font-bold hover:text-brand-yellow transition-colors">+91 73106 88048</a>
+                    <p className="text-xs uppercase tracking-widest font-bold text-brand-text-muted mb-1">24/7 Hotline</p>
+                    <a href="tel:+917310688048" className="text-2xl font-bold hover:text-brand-secondary transition-colors font-display">+91 73106 88048</a>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <FiMail className="text-2xl text-brand-orange" />
+
+                <div className="flex items-center gap-6 group">
+                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-brand-primary group-hover:border-transparent transition-all duration-300">
+                    <FiMail className="text-2xl text-brand-primary group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-blue-200">Email Us</p>
-                    <a href="mailto:hello@digitalhonest.in" className="text-xl font-bold hover:text-brand-orange transition-colors">hello@digitalhonest.in</a>
+                    <p className="text-xs uppercase tracking-widest font-bold text-brand-text-muted mb-1">Support Email</p>
+                    <a href="mailto:digitalhonest@gmail.com" className="text-xl font-bold hover:text-brand-primary transition-colors">digitalhonest@gmail.com</a>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20 shrink-0">
-                    <FiMapPin className="text-2xl text-brand-orange" />
+
+                <div className="flex items-center gap-6 group">
+                  <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0 group-hover:bg-brand-blue group-hover:border-transparent transition-all duration-300">
+                    <FiMapPin className="text-2xl text-brand-blue group-hover:text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-blue-200">Visit Agency HQ</p>
-                    <p className="text-lg font-bold">ISBT Road, Dehradun,<br/>Uttarakhand 248001</p>
+                    <p className="text-xs uppercase tracking-widest font-bold text-brand-text-muted mb-1">Agency HQ</p>
+                    <p className="text-lg font-bold font-display">ISBT Road Mandi, Dehradun, Uttarakhand</p>
                   </div>
                 </div>
               </div>
@@ -89,59 +90,48 @@ export default function Contact() {
           </div>
 
           {/* Form (Right) */}
-          <div className="p-10 lg:p-12">
-            <h3 className="text-2xl font-bold text-brand-text mb-8">Send an Enquiry</h3>
-            
-            <form onSubmit={onSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                  <input type="text" name="name" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue" placeholder="John Doe" />
+          <div className="p-10 lg:p-16 bg-brand-bg/30">
+            <h3 className="text-2xl font-bold text-brand-text-main mb-10 font-display">Project Enquiry</h3>
+
+            <form onSubmit={onSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Full Name *</label>
+                  <input type="text" name="name" required className="w-full bg-white border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="John Doe" />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                  <input type="tel" name="phone" required pattern="[0-9]{10}" title="10 digit phone number" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue" placeholder="9876543210" />
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Phone Number *</label>
+                  <input type="tel" name="phone" required pattern="[0-9]{10}" title="10 digit phone number" className="w-full bg-white border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="9876543210" />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Business Type</label>
-                  <input type="text" name="businessType" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue" placeholder="Real Estate, Retail, EdTech..." />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Business Type</label>
+                  <input type="text" name="businessType" className="w-full bg-white border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="Real Estate, Retail..." />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
-                  <select name="budget" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue">
-                    <option value="Under 50k">Under ₹50,000</option>
-                    <option value="50k-1L">₹50,000 - ₹1,00,000</option>
-                    <option value="1L-5L">₹1,00,000 - ₹5,00,000</option>
-                    <option value="5L+">₹5,00,000+</option>
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Service Interested *</label>
+                  <select name="serviceInterested" required className="w-full bg-white border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all appearance-none cursor-pointer">
+                    <option value="Outdoor Branding">Outdoor / Highway Branding</option>
+                    <option value="Transit Branding">Transit Branding (Auto/Bus)</option>
+                    <option value="Digital Marketing">Digital Performance Ads</option>
+                    <option value="Full 360 Campaign">Full 360 Marketing Bundle</option>
                   </select>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Service Interested In *</label>
-                <select name="serviceInterested" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue">
-                  <option value="Events & Premium Branding">Events & Premium Branding</option>
-                  <option value="Transit Branding">Transit Branding (Auto/Bus/Metro)</option>
-                  <option value="Outdoor Branding">Outdoor Hoardings / Highway Boards</option>
-                  <option value="Digital Marketing">Digital Marketing (Ads/SEO)</option>
-                  <option value="Full 360 Campaign">Full 360 Marketing Campaign</option>
-                </select>
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Project Message</label>
+                <textarea name="message" rows="4" className="w-full bg-white border border-transparent rounded-3xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all resize-none" placeholder="Tell us about your brand goals..."></textarea>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                <textarea name="message" rows="4" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue resize-none" placeholder="Tell us about your brand goals..."></textarea>
-              </div>
-
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-brand-orange text-white py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors shadow-lg shadow-brand-orange/20 flex items-center justify-center gap-2 disabled:bg-opacity-70 disabled:cursor-not-allowed"
+                className="w-full btn-conversion !py-5 shadow-2xl shadow-brand-secondary/20 disabled:scale-100 disabled:opacity-50"
               >
-                {isSubmitting ? 'Sending Request...' : <><FiSend /> Book Advertising Now</>}
+                {isSubmitting ? 'Architecting Strategy...' : <><FiSend /> Launch Your Campaign</>}
               </button>
             </form>
           </div>

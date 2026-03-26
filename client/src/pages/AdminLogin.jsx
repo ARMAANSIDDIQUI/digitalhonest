@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
@@ -43,48 +44,48 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-brand-bg flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-20 pb-24 bg-brand-bg flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <Helmet><title>Admin Login | Digital Honest</title></Helmet>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="w-16 h-16 bg-brand-blue rounded-2xl mx-auto flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-          DH
+        <div className="w-20 h-20 bg-white rounded-3xl mx-auto flex items-center justify-center shadow-premium border border-white/50 p-3">
+          <img src={logo} alt="Digital Honest" className="w-full h-full object-contain" />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-text">
+        <h2 className="mt-8 text-center text-4xl font-display font-bold text-brand-text-main">
           Agency Portal
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Authorized personnel only
+        <p className="mt-4 text-center text-xs uppercase tracking-widest font-black text-brand-text-muted">
+          Authorized Studio Personnel Only
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-2xl sm:px-10 border border-gray-100">
-          <form className="space-y-6" onSubmit={handleLogin}>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Email address</label>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-10 px-6 shadow-premium sm:rounded-[2.5rem] sm:px-12 border border-white">
+          <form className="space-y-8" onSubmit={handleLogin}>
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Security Identifier</label>
               <div className="mt-1">
-                <input name="email" type="email" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:border-brand-blue" />
+                <input name="email" type="email" required className="w-full bg-brand-bg/50 border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="admin@digitalhonest.in" />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Access Key</label>
               <div className="mt-1">
-                <input name="password" type="password" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:border-brand-blue" />
+                <input name="password" type="password" required className="w-full bg-brand-bg/50 border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="••••••••" />
               </div>
             </div>
 
-            <div>
+            <div className="pt-2">
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-brand-blue hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue transition-colors"
+                className="w-full btn-conversion !py-5 shadow-2xl shadow-brand-secondary/20 disabled:scale-100 disabled:opacity-50"
               >
-                {loading ? 'Authenticating...' : 'Sign in'}
+                {loading ? 'Validating Link...' : 'Enter Studio Domain'}
               </button>
             </div>
-            <p className="text-center text-xs text-brand-orange mt-4">(Hint: use admin@dh / admin123 to bypass UI testing for now)</p>
+            <p className="text-center text-[10px] font-bold text-brand-orange mt-6 bg-brand-orange/5 p-3 rounded-lg border border-brand-orange/10">Verification Note: Secure tunnel required for live access.</p>
           </form>
         </div>
       </div>
