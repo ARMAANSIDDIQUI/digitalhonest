@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { FiLogOut, FiTrash2, FiClock, FiCheckCircle } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMail, FiUser, FiPhone, FiTag, FiClock, FiSearch, FiLogOut, FiLayout, FiInbox, FiSettings, FiTrash2, FiCheckCircle } from 'react-icons/fi';
+import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
+import api from '../utils/api';
 
 export default function AdminDashboard() {
   const [enquiries, setEnquiries] = useState([]);
@@ -19,9 +20,7 @@ export default function AdminDashboard() {
 
     const fetchEnquiries = async () => {
       try {
-        const res = await axios.get('/api/admin/enquiries', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        const res = await api.get('/admin/enquiries');
         setEnquiries(res.data);
       } catch (err) {
         if (err.response?.status === 401) {
@@ -49,9 +48,7 @@ export default function AdminDashboard() {
     }
 
     try {
-      await axios.patch(`/api/admin/enquiries/${id}`, { status: newStatus }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
+      await api.patch(`/admin/enquiries/${id}`, { status: newStatus });
       setEnquiries(enquiries.map(e => e._id === id ? { ...e, status: newStatus } : e));
       toast.success('Status updated');
     } catch (err) {
@@ -69,9 +66,7 @@ export default function AdminDashboard() {
     }
 
     try {
-      await axios.delete(`/api/admin/enquiries/${id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
+      await api.delete(`/admin/enquiries/${id}`);
       setEnquiries(enquiries.filter(e => e._id !== id));
       toast.success('Enquiry deleted');
     } catch (err) {

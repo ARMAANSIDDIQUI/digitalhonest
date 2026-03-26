@@ -119,29 +119,40 @@ export default function Home() {
               All Services <FiArrowRight className="text-brand-secondary" />
             </Link>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service, idx) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700"
-              >
-                <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
-                
-                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                  <p className="text-[10px] uppercase tracking-widest font-black text-brand-secondary mb-3">{service.tag}</p>
-                  <h3 className="text-3xl text-white mb-6 group-hover:translate-x-2 transition-transform duration-500 whitespace-pre-line">{service.title}</h3>
-                  <Link to={`/services?s=${service.id}`} className="w-12 h-12 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <FiArrowRight className="text-brand-primary" />
-                  </Link>
+          {/* Infinite Sliding Carousel */}
+          <div className="relative overflow-hidden -mx-6 sm:-mx-10 lg:-mx-12">
+            <motion.div 
+              className="flex gap-8 px-6 sm:px-10 lg:px-12"
+              animate={{ 
+                x: [0, -2292] 
+              }}
+              transition={{ 
+                duration: 50,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              style={{ width: 'fit-content' }}
+              whileHover={{ animationPlayState: 'paused' }}
+            >
+              {/* Double the list for seamless loop */}
+              {[...services, ...services].map((service, idx) => (
+                <div
+                  key={`${service.id}-${idx}`}
+                  className="relative h-[500px] w-[350px] flex-shrink-0 rounded-[3rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 group"
+                >
+                  <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
+                  
+                  <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                    <p className="text-[10px] uppercase tracking-widest font-black text-brand-secondary mb-3">{service.tag}</p>
+                    <h3 className="text-3xl text-white mb-6 group-hover:translate-x-2 transition-transform duration-500 whitespace-pre-line">{service.title}</h3>
+                    <Link to={`/services?s=${service.id}`} className="w-12 h-12 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                      <FiArrowRight className="text-brand-primary" />
+                    </Link>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>

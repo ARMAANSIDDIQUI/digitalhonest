@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { motion } from 'framer-motion';
+import api from '../utils/api';
 import logo from '../assets/logo.png';
 
 export default function AdminLogin() {
@@ -25,9 +25,9 @@ export default function AdminLogin() {
     const password = formData.get('password');
 
     try {
-      const res = await axios.post('/api/admin/login', { email, password });
+      const res = await api.post('/admin/login', { email, password });
       localStorage.setItem('token', res.data.token);
-      toast.success('Login Successful');
+      toast.success('Access Granted');
       navigate('/admin/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.msg || 'Invalid Credentials');

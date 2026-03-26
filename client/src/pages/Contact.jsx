@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
-import axios from 'axios';
+import api from '../utils/api';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,7 +15,7 @@ export default function Contact() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      await axios.post('/api/enquiries', data);
+      await api.post('/enquiries', data);
       toast.success('Strategy session requested! We will reach out shortly.');
       e.target.reset();
     } catch (error) {
