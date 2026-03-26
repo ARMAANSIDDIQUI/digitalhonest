@@ -19,7 +19,7 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     const formData = new FormData(e.target);
     const email = formData.get('email');
     const password = formData.get('password');
@@ -31,13 +31,6 @@ export default function AdminLogin() {
       navigate('/admin/dashboard');
     } catch (err) {
       toast.error(err.response?.data?.msg || 'Invalid Credentials');
-      
-      // Fallback for UI testing before backend is ready
-      if (email === 'admin@dh' && password === 'admin123') {
-        localStorage.setItem('token', 'mock_token_for_UI');
-        toast.success('[MOCK] Login bypass for testing');
-        navigate('/admin/dashboard');
-      }
     } finally {
       setLoading(false);
     }
@@ -60,32 +53,30 @@ export default function AdminLogin() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-10 px-6 shadow-premium sm:rounded-[2.5rem] sm:px-12 border border-white">
+        <div className="glass-card !bg-white/80 backdrop-blur-xl py-10 px-6 shadow-premium sm:rounded-[3rem] sm:px-12 border border-white">
           <form className="space-y-8" onSubmit={handleLogin}>
-            <div className="space-y-2">
+            <div className="space-y-3">
               <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Security Identifier</label>
-              <div className="mt-1">
-                <input name="email" type="email" required className="w-full bg-brand-bg/50 border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="admin@digitalhonest.in" />
-              </div>
+              <input name="email" type="email" required className="luxury-input" placeholder="ADMIN ID" />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Access Key</label>
-              <div className="mt-1">
-                <input name="password" type="password" required className="w-full bg-brand-bg/50 border border-transparent rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-primary shadow-sm transition-all" placeholder="••••••••" />
-              </div>
+              <input name="password" type="password" required className="luxury-input" placeholder="••••••••••••" />
             </div>
 
-            <div className="pt-2">
+            <div className="pt-6">
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full btn-conversion !py-5 shadow-2xl shadow-brand-secondary/20 disabled:scale-100 disabled:opacity-50"
+                className="w-full btn-conversion !py-6 shadow-2xl shadow-brand-secondary/20 disabled:scale-100 disabled:opacity-50"
               >
-                {loading ? 'Validating Link...' : 'Enter Studio Domain'}
+                {loading ? 'Authenticating...' : 'Sign In to Studio'}
               </button>
             </div>
-            <p className="text-center text-[10px] font-bold text-brand-orange mt-6 bg-brand-orange/5 p-3 rounded-lg border border-brand-orange/10">Verification Note: Secure tunnel required for live access.</p>
+            <div className="mt-8 pt-8 border-t border-gray-100 text-center">
+              <p className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-text-muted opacity-50">© 2026 Digital Honest Studio Portal</p>
+            </div>
           </form>
         </div>
       </div>

@@ -12,11 +12,11 @@ router.post('/login', async (req, res) => {
 
   try {
     let admin = await Admin.findOne({ email });
-    
+
     // Auto-create default admin if none exists (for easy local setup)
-    if (!admin && email === 'admin@dh.com' && password === 'admin123') {
-       admin = new Admin({ email, password });
-       await admin.save();
+    if (!admin && email === 'digitalhonest@gmail.com' && password === 'admin123') {
+      admin = new Admin({ email, password });
+      await admin.save();
     } else if (!admin) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
     }

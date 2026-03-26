@@ -36,138 +36,132 @@ const Carousel = () => {
   );
 };
 
+// Placeholder for ServiceMedia component, assuming it will be defined elsewhere or is a new component.
+// For the purpose of this edit, we'll assume it's a simple component that renders the Carousel.
+const ServiceMedia = () => {
+  return <Carousel />;
+};
+
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-brand-bg">
       <Helmet>
         <title>Digital Honest | Best Advertising Agency in Dehradun</title>
         <meta name="description" content="Offline Ho Ya Online - Brand Sab Jagah! High visibility outdoor branding, transit branding, and digital marketing agency in Dehradun." />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-20 bg-brand-bg overflow-hidden">
-        {/* Soft Background Blobs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
-
-        <div className="section-padding !py-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - High Fidelity Editorial */}
+      <section className="relative min-h-[85vh] flex items-center pt-24 pb-20">
+        {/* Abstract Background Accents */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div className="section-padding grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+              <span className="w-2 h-2 bg-brand-secondary rounded-full animate-ping"></span>
+              <span className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text-muted">Marketing That Moves</span>
+            </div>
             
-            {/* Left Content */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="z-10 text-center lg:text-left lg:pt-12"
-            >
-              <div className="inline-flex items-center gap-2 bg-white border border-brand-bg rounded-full px-4 py-1.5 mb-8 shadow-sm">
-                <span className="text-brand-primary font-bold text-xs uppercase tracking-tight">#1 Marketing Agency In Uttarakhand</span>
-              </div>
-              
-              <h1 className="text-5xl lg:text-7xl mb-8">
-                Offline Ho Ya Online – <br/>
-                <span className="premium-gradient-text italic">Brand Sab Jagah!</span>
-              </h1>
-              
-              <p className="text-xl text-brand-text-muted mb-10 max-w-lg leading-relaxed lg:mx-0 mx-auto font-medium">
-                The most trusted advertising hub in Dehradun. Architectural branding and precision digital scaling.
-              </p>
+            <h2 className="text-6xl lg:text-[7rem] mb-10 leading-none tracking-tighter">
+              Offline Ho <br/>Ya Online <br/>
+              <span className="premium-gradient-text italic font-serif">Brand Sab Jagah!</span>
+            </h2>
+            
+            <p className="text-xl text-brand-text-muted leading-relaxed max-w-lg mb-12 font-medium">
+              We don't just run ads; we build architectures for growth. From premium OOH hoarding to data-driven digital campaigns.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link to="/services" className="btn-conversion !px-12">
+                Our Services <FiArrowRight />
+              </Link>
+              <Link to="/portfolio" className="btn-primary !px-12">
+                View Portfolio
+              </Link>
+            </div>
+          </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/contact" className="btn-conversion shadow-lg shadow-brand-secondary/20">
-                  Grow Your Brand Today
-                </Link>
-                <Link to="/services" className="btn-primary !bg-white !text-brand-text-main border border-brand-bg shadow-sm hover:border-brand-primary/20">
-                  Our Services
-                </Link>
-              </div>
-
-              {/* Stats/Badges */}
-              <div className="mt-12 flex items-center gap-6 justify-center lg:justify-start">
-                 <div className="flex -space-x-3">
-                    {services.slice(0, 4).map((s, i) => (
-                      <img key={i} src={s.image} alt="work" className="w-12 h-12 rounded-full border-4 border-white object-cover shadow-sm bg-gray-100" />
-                    ))}
-                 </div>
-                 <div className="text-left">
-                    <p className="text-lg font-bold text-brand-text-main">500+ Local & National Campaigns</p>
-                    <p className="text-xs uppercase font-bold text-brand-primary tracking-widest">100% Conversion Focused</p>
-                 </div>
-              </div>
-            </motion.div>
-
-            {/* Right Visual - Interactive Image Carousel */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="relative rounded-[3rem] overflow-hidden shadow-2xl glass-card aspect-square max-w-[550px] mx-auto hidden lg:block"
-            >
-              <Carousel />
-            </motion.div>
-          </div>
+          {/* Right Media Section */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <div className="glass-card !rounded-[4rem] overflow-hidden relative shadow-2xl">
+              <ServiceMedia />
+            </div>
+            
+            {/* Stats Overlay */}
+            <div className="absolute -bottom-8 -left-8 glass-card !rounded-3xl p-8 shadow-2xl reveal-up" style={{ animationDelay: '0.8s' }}>
+              <p className="text-4xl font-black text-brand-secondary">8+</p>
+              <p className="text-[10px] uppercase tracking-widest font-bold text-brand-text-muted">Operational States</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-brand-text mb-4">Our Service Pillars</h2>
-            <div className="w-24 h-1 bg-brand-orange mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">Integrated "Digital + Outdoor" solutions with Full Support strategy.</p>
+      {/* Services Showcase - Editorial Layout */}
+      <section className="py-24 bg-white">
+        <div className="section-padding">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+            <div className="max-w-xl">
+              <p className="text-xs uppercase tracking-[0.4em] font-black text-brand-secondary mb-4">Core Offerings</p>
+              <h2 className="text-5xl lg:text-6xl tracking-tighter">Everything you need to <span className="text-brand-text-muted/30">Dominate</span> the market.</h2>
+            </div>
+            <Link to="/services" className="group flex items-center gap-3 font-black text-xs uppercase tracking-widest border-b-2 border-brand-secondary pb-2 mb-2 hover:gap-5 transition-all">
+              All Services <FiArrowRight className="text-brand-secondary" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, idx) => (
-              <motion.div 
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.slice(0, 3).map((service, idx) => (
+              <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-brand-bg rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group"
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700"
               >
-                <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center ${service.color === 'blue' ? 'bg-blue-100 text-brand-blue' : service.color === 'orange' ? 'bg-orange-100 text-brand-orange' : 'bg-yellow-100 text-yellow-600'} text-2xl font-black group-hover:scale-110 transition-transform`}>
-                  {idx + 1}
+                <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
+                
+                <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                  <p className="text-[10px] uppercase tracking-widest font-black text-brand-secondary mb-3">{service.tag}</p>
+                  <h3 className="text-3xl text-white mb-6 group-hover:translate-x-2 transition-transform duration-500 whitespace-pre-line">{service.title}</h3>
+                  <Link to={`/services?s=${service.id}`} className="w-12 h-12 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <FiArrowRight className="text-brand-primary" />
+                  </Link>
                 </div>
-                <h3 className="text-xl font-bold font-poppins mb-3 text-brand-text">{service.title}</h3>
-                <p className="text-sm font-medium text-brand-orange mb-4">{service.shortDesc}</p>
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                      <FiCheckCircle className="text-green-500 mt-1 shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link to={`/services#${service.id}`} className="text-brand-blue font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Know More <FiArrowRight />
-                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-brand relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNDAzOTRhIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8cGF0aCBkPSJNMCAwbDhfOFpNOCAwTDBfOHoiIHN0cm9rZT0iIzlmYTliMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]"></div>
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-            Ready to make your brand visible to millions?
-          </h2>
-          <p className="text-xl text-blue-100 mb-10">
-            Apne brand ki advertising shuru karein aaj hi!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="bg-brand-yellow hover:bg-yellow-400 text-brand-text px-10 py-4 rounded-full font-black text-lg transition-transform hover:scale-105 shadow-xl">
-              Get a Free Quote
-            </Link>
-            <a href="tel:+917310688048" className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2">
-              Call 73106 88048
-            </a>
-          </div>
+      {/* Brand Trust Bar */}
+      <section className="py-24 bg-brand-bg relative overflow-hidden">
+        <div className="section-padding">
+           <div className="glass-card !rounded-[3rem] p-16 text-center relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/5 rounded-full blur-[100px]"></div>
+             <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Ready to make your brand <br/><span className="premium-gradient-text italic font-serif">Visible to Millions?</span></h2>
+             <p className="text-xl text-brand-text-muted mb-12 max-w-2xl mx-auto">Apne brand ki advertising shuru karein aaj hi! Book your high-impact campaigns today.</p>
+             <div className="flex flex-col sm:flex-row gap-6 justify-center">
+               <Link to="/contact" className="btn-conversion !px-12">
+                 Get a Free Quote <FiZap className="ml-2" />
+               </Link>
+               <a href="tel:+917310688048" className="btn-primary !px-12 !bg-white !text-brand-text-main border border-gray-100 shadow-sm">
+                 Call Now
+               </a>
+             </div>
+           </div>
         </div>
       </section>
     </div>

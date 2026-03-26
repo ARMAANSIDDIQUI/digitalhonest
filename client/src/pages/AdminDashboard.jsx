@@ -17,15 +17,6 @@ export default function AdminDashboard() {
       return;
     }
 
-    if (token === 'mock_token_for_UI') {
-      setEnquiries([
-        { _id: '1', name: 'Ramesh Singh', phone: '9876543210', serviceInterested: 'Outdoor Branding', budget: '1L-5L', status: 'new', createdAt: new Date().toISOString() },
-        { _id: '2', name: 'Priya Sharma', phone: '8765432109', serviceInterested: 'Digital Marketing', budget: 'Under 50k', status: 'contacted', createdAt: new Date(Date.now() - 86400000).toISOString() },
-      ]);
-      setLoading(false);
-      return;
-    }
-
     const fetchEnquiries = async () => {
       try {
         const res = await axios.get('/api/admin/enquiries', {
@@ -89,70 +80,70 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-20 bg-gray-50">
+    <div className="min-h-screen pt-32 pb-20 bg-brand-bg">
       <Helmet><title>Dashboard | Agency Portal</title></Helmet>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div className="flex justify-between items-center mb-12 glass-card !p-8 !rounded-[2.5rem]">
           <div>
-            <h1 className="text-2xl font-bold text-brand-text">Leads Dashboard</h1>
-            <p className="text-sm text-gray-500">Manage incoming business enquiries</p>
+            <h1 className="text-3xl tracking-tighter">Leads <span className="premium-gradient-text italic font-serif">Inbox</span></h1>
+            <p className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted mt-1">Operational Command Center</p>
           </div>
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-100 transition-colors"
+            className="flex items-center gap-2 group text-brand-text-muted hover:text-red-500 transition-colors font-black text-[10px] uppercase tracking-widest"
           >
-            <FiLogOut /> Logout
+            <FiLogOut className="group-hover:-translate-x-1 transition-transform" /> Exit Portal
           </button>
         </div>
 
         {loading ? (
-          <div className="text-center py-20"><div className="animate-spin w-10 h-10 border-4 border-brand-blue border-t-white rounded-full mx-auto"></div></div>
+          <div className="text-center py-24"><div className="animate-spin w-12 h-12 border-4 border-brand-secondary border-t-transparent rounded-full mx-auto"></div></div>
         ) : enquiries.length === 0 ? (
-          <div className="bg-white p-12 rounded-2xl text-center shadow-sm border border-gray-100">
-            <h3 className="text-xl font-bold text-gray-400">No enquiries yet</h3>
+          <div className="glass-card !p-12 !rounded-[3rem] text-center">
+            <h3 className="text-xl font-bold text-brand-text-muted/40 italic">No incoming requests founded.</h3>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="glass-card !p-0 !rounded-[3rem] overflow-hidden border border-white">
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+              <table className="min-w-full divide-y divide-gray-100">
+                <thead className="bg-gray-50/50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Date</th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Client Info</th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Service & Budget</th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-brand-text-muted uppercase tracking-widest">Date</th>
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-brand-text-muted uppercase tracking-widest">Strategic Partner</th>
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-brand-text-muted uppercase tracking-widest">Mission Scope</th>
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-brand-text-muted uppercase tracking-widest">Status</th>
+                    <th className="px-8 py-5 text-left text-[10px] font-black text-brand-text-muted uppercase tracking-widest">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white/40 divide-y divide-gray-100 italic font-medium">
                   {enquiries.map((enq) => (
-                    <tr key={enq._id} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {new Date(enq.createdAt).toLocaleDateString()}
+                    <tr key={enq._id} className="hover:bg-white/60 transition-colors">
+                      <td className="px-8 py-6 whitespace-nowrap text-xs text-brand-text-muted">
+                        {new Date(enq.createdAt).toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' })}
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm font-bold text-gray-900">{enq.name}</div>
-                        <div className="text-sm text-gray-500">{enq.phone}</div>
+                      <td className="px-8 py-6">
+                        <div className="text-sm font-bold text-brand-text-main">{enq.name}</div>
+                        <div className="text-[10px] text-brand-text-muted mt-1 font-black">{enq.phone}</div>
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm font-medium text-brand-blue">{enq.serviceInterested}</div>
-                        <div className="text-xs text-brand-orange mt-1">{enq.budget}</div>
+                      <td className="px-8 py-6">
+                        <div className="text-sm font-bold text-brand-secondary">{enq.serviceInterested}</div>
+                        <div className="text-[10px] text-brand-text-muted mt-1 uppercase tracking-widest opacity-60">Value: {enq.budget || 'N/A'}</div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold
-                          ${enq.status === 'new' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}
+                      <td className="px-8 py-6 whitespace-nowrap">
+                        <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest uppercase
+                          ${enq.status === 'new' ? 'bg-orange-100 text-brand-secondary' : 'bg-gray-100 text-brand-text-muted'}
                         `}>
                           {enq.status === 'new' ? <FiClock /> : <FiCheckCircle />}
-                          {enq.status.toUpperCase()}
+                          {enq.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center gap-3">
+                      <td className="px-8 py-6 whitespace-nowrap text-sm font-medium flex items-center gap-4">
                         {enq.status === 'new' && (
-                          <button onClick={() => updateStatus(enq._id, 'contacted')} className="text-brand-blue hover:text-blue-900 bg-blue-50 px-3 py-1 rounded-lg">Mark Contacted</button>
+                          <button onClick={() => updateStatus(enq._id, 'contacted')} className="text-brand-secondary hover:text-brand-text-main font-black text-[9px] uppercase tracking-widest bg-orange-50 px-4 py-2 rounded-xl transition-all">Engage</button>
                         )}
-                        <button onClick={() => deleteEnquiry(enq._id)} className="text-red-600 hover:text-red-900 p-2 hover:bg-red-50 rounded-lg">
-                          <FiTrash2 />
+                        <button onClick={() => deleteEnquiry(enq._id)} className="text-red-400 hover:text-red-600 transition-colors">
+                          <FiTrash2 size={16} />
                         </button>
                       </td>
                     </tr>

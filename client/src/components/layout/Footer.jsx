@@ -6,36 +6,44 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-text-main text-white pt-24 pb-24 lg:pb-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+    <footer className="relative bg-brand-text-main text-white pt-32 pb-12 overflow-hidden border-t border-white/5">
+      {/* Background Decor */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[120px] -z-0 translate-x-1/2 translate-y-1/2"></div>
+      
+      <div className="section-padding relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
 
-          {/* Brand Col */}
-          <div className="space-y-8">
+          {/* Brand Column */}
+          <div className="space-y-10">
             <Link to="/" className="flex items-center gap-4 group">
-              <img src={logo} alt="Digital Honest" className="w-16 h-16 object-contain bg-white rounded-2xl p-2 group-hover:scale-110 transition-transform duration-500" />
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-500">
+                <img src={logo} alt="Digital Honest" className="w-10 h-10 object-contain" />
+              </div>
               <div>
-                <h2 className="text-2xl font-bold leading-tight font-display tracking-tight text-white/90 group-hover:text-white transition-colors">Digital Honest</h2>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-brand-secondary font-black">Advertising Agency</p>
+                <h2 className="text-2xl font-bold leading-none font-display tracking-tight">Digital Honest</h2>
+                <p className="text-[9px] uppercase tracking-[0.4em] text-brand-secondary font-black mt-2">Precision Agency</p>
               </div>
             </Link>
-            <p className="text-brand-text-muted leading-relaxed max-w-xs font-medium">
-              India's premier 360° marketing hub. Dominating the physical and digital landscape with "Full Support" strategy.
+            <p className="text-brand-text-muted leading-relaxed max-w-xs font-medium text-sm">
+              India's premier 360° marketing hub. Dominating the physical and digital landscape with architectural precision and "Full Support" growth strategy.
             </p>
-            <div className="flex space-x-4 pt-2">
-              <a href="#" className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all duration-300 border border-white/10"><FiFacebook /></a>
-              <a href="#" className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-brand-secondary hover:text-white transition-all duration-300 border border-white/10"><FiInstagram /></a>
-              <a href="#" className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all duration-300 border border-white/10"><FiTwitter /></a>
+            <div className="flex space-x-4">
+              {[FiFacebook, FiInstagram, FiTwitter].map((Icon, i) => (
+                <a key={i} href="#" className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-white hover:text-brand-text-main transition-all duration-500 border border-white/10 shadow-sm">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Links Col */}
+          {/* Navigation Column */}
           <div>
-            <h3 className="text-xl font-bold mb-8 font-display text-white">Our Universe</h3>
-            <ul className="space-y-4">
+            <h3 className="text-xs uppercase tracking-[0.3em] font-black text-brand-secondary mb-10">Navigation</h3>
+            <ul className="space-y-5">
               {['Home', 'Services', 'Portfolio', 'About', 'Contact'].map((link) => (
                 <li key={link}>
-                  <Link to={`/${link.toLowerCase() === 'home' ? '' : link.toLowerCase()}`} className="text-brand-text-muted hover:text-brand-secondary transition-colors inline-block font-medium">
+                  <Link to={`/${link.toLowerCase() === 'home' ? '' : link.toLowerCase()}`} className="text-sm font-bold text-white/50 hover:text-white transition-colors flex items-center gap-2 group">
+                    <span className="w-0 h-px bg-brand-secondary group-hover:w-4 transition-all duration-300"></span>
                     {link}
                   </Link>
                 </li>
@@ -43,44 +51,54 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services Col */}
+          {/* Capabilities Column */}
           <div>
-            <h3 className="text-xl font-bold mb-8 font-display text-white">Capabilities</h3>
-            <ul className="space-y-4 text-brand-text-muted font-medium">
-              <li className="hover:text-white transition-colors cursor-pointer">Digital Marketing & Growth</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Outdoor (OOH) Branding</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Transit Moving Media</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Hyper-Local Marketing</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Event & Launch Management</li>
+            <h3 className="text-xs uppercase tracking-[0.3em] font-black text-brand-secondary mb-10">Capabilities</h3>
+            <ul className="space-y-6">
+              {[
+                'Digital Performance',
+                'Outdoor (OOH) Scaling',
+                'Transit Moving Media',
+                'Hyper-Local Strategy',
+                'Event Architecture'
+              ].map((cap) => (
+                <li key={cap} className="text-sm font-bold text-white/50 hover:text-white transition-colors cursor-default">
+                  {cap}
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Col */}
+          {/* Contact Column */}
           <div>
-            <h3 className="text-xl font-bold mb-8 font-display text-white">Get In Touch</h3>
-            <ul className="space-y-6 text-brand-text-muted font-medium">
-              <li className="flex items-start gap-3 text-white font-bold">
-                Primary Hub: Dehradun, Uttarakhand
-              </li>
-              <li className="flex items-start gap-3">
+            <h3 className="text-xs uppercase tracking-[0.3em] font-black text-brand-secondary mb-10">Connect</h3>
+            <ul className="space-y-8">
+              <li className="flex items-start gap-4">
                 <FiMapPin className="mt-1 text-brand-secondary shrink-0" />
-                <span>ISBT Road Mandi, Dehradun,<br />Uttarakhand 248001 India</span>
+                <span className="text-sm font-medium text-white/70 leading-relaxed">
+                  ISBT Road Mandi, Dehradun,<br /> Uttarakhand 248001 India
+                </span>
               </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-center gap-4">
                 <FiPhone className="text-brand-secondary shrink-0" />
-                <a href="tel:+917310688048" className="hover:text-white transition-colors">+91 73106 88048</a>
+                <a href="tel:+917310688048" className="text-lg font-black hover:text-brand-secondary transition-colors">+91 73106 88048</a>
+              </li>
+              <li className="flex items-center gap-4">
+                <FiMail className="text-brand-secondary shrink-0" />
+                <a href="mailto:digitalhonest@gmail.com" className="text-sm font-bold border-b border-white/10 hover:border-brand-secondary transition-colors pb-1">digitalhonest@gmail.com</a>
               </li>
             </ul>
           </div>
 
         </div>
 
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-black text-brand-text-muted">
-          <p>&copy; {currentYear} Digital Honest. Architecture-First Marketing.</p>
-          <div className="flex space-x-8">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-            <Link to="/admin/login" className="hover:text-white transition-colors">Studio Login</Link>
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] uppercase tracking-[0.3em] font-black text-white/30">
+          <p>&copy; {currentYear} Digital Honest. Built for Architectural Growth.</p>
+          <div className="flex space-x-10">
+            <Link to="/privacy" className="hover:text-brand-secondary transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-brand-secondary transition-colors">Terms of Service</Link>
+            <Link to="/admin/login" className="px-4 py-2 bg-white/5 rounded-full hover:bg-white/10 transition-all border border-white/5">Studio Registry</Link>
           </div>
         </div>
       </div>

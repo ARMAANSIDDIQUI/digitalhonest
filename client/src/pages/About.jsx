@@ -5,137 +5,138 @@ import aboutImg from '../assets/office_branding_concept_1774478165389.png';
 
 export default function About() {
   return (
-    <div className="pt-16 pb-24 bg-brand-bg min-h-screen">
-      <Helmet><title>About Us | Digital Honest</title></Helmet>
+    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
+      <Helmet>
+        <title>Our Story | Digital Honest - Marketing Architecture</title>
+        <meta name="description" content="Discover the philosophy behind Dehradun's most trusted 360° marketing agency. We build architectures for brand growth." />
+      </Helmet>
 
-      {/* Hero Section - Editorial Style */}
-      <section className="section-padding !py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Hero Section - High-Fidelity Editorial */}
+      <section className="section-padding py-12 relative">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mt-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="order-2 lg:order-1"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-2 text-brand-primary font-bold text-xs uppercase tracking-widest mb-6">
-              <FiAward /> The Authority in 360° Marketing
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+              <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Marketing Architecture</span>
             </div>
-            <h1 className="text-5xl lg:text-7xl mb-8">
+            
+            <h1 className="text-6xl lg:text-[7rem] mb-10 leading-[0.9] tracking-tighter">
               Apne Brand Ko <br />
               <span className="premium-gradient-text italic font-serif">Bada Banao</span>
             </h1>
-            <p className="text-xl text-brand-text-muted leading-relaxed font-medium mb-8">
-              Digital Honest is Dehradun's premier marketing powerhouse. We bridge the gap between traditional high-impact outdoor branding and hyper-targeted digital precision.
+            
+            <p className="text-xl text-brand-text-muted leading-relaxed font-medium mb-12 max-w-xl">
+              Digital Honest is not just an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
             </p>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 glass-card !border-none !bg-brand-primary/5">
-                <h4 className="text-3xl text-brand-primary mb-1">500+</h4>
-                <p className="text-xs uppercase font-bold tracking-widest text-brand-text-muted">Brands Elevated</p>
+            
+            <div className="grid grid-cols-2 gap-8">
+              <div className="glass-card !p-8 !rounded-[2.5rem] border-none">
+                <p className="text-5xl font-black text-brand-secondary mb-2">500+</p>
+                <p className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted opacity-60">Brands Elevated</p>
               </div>
-              <div className="p-6 glass-card !border-none !bg-brand-secondary/5">
-                <h4 className="text-3xl text-brand-secondary mb-1">10+</h4>
-                <p className="text-xs uppercase font-bold tracking-widest text-brand-text-muted">Years Experience</p>
+              <div className="glass-card !p-8 !rounded-[2.5rem] border-none">
+                <p className="text-5xl font-black text-brand-primary mb-2">10+</p>
+                <p className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted opacity-60">Years Tenure</p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2 relative"
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
           >
-            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative">
-              <img src={aboutImg} alt="Our Office" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/40 to-transparent"></div>
+            <div className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative border-[12px] border-white">
+              <img src={aboutImg} alt="Our Philosophy" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 via-transparent to-transparent"></div>
             </div>
-            {/* Floating Badge */}
-            <div className="absolute -bottom-10 -left-10 glass-card p-8 border-l-8 border-brand-secondary max-w-[280px]">
-              <p className="text-lg font-bold leading-tight uppercase tracking-tight italic">"Offline ho ya Online — Brand Sab Jagah!"</p>
+            <div className="absolute -bottom-10 -left-10 glass-card !p-10 !rounded-[3rem] shadow-2xl max-w-[320px] reveal-up">
+              <p className="text-2xl font-serif italic text-brand-text-main leading-tight mb-4">"Brand Sab Jagah!"</p>
+              <p className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary">Core Philosophy</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Core Values / Mission */}
-      <section className="bg-white py-24">
+      {/* Values Section */}
+      <section className="bg-white py-32 mt-20">
         <div className="section-padding">
-          <div className="max-w-3xl mb-16">
-            <h2 className="text-4xl mb-6">High Impact <br /><span className="text-brand-primary">Honest Results.</span></h2>
-            <p className="text-lg text-brand-text-muted font-medium">We don't just sell ad space; we deliver growth. From massive highway hoardings and premium transit assets to precision-targeted digital scaling, we manage your brand's full lifecycle with "Full Support" from Launch to Promotion.</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24">
+            <div className="max-w-2xl">
+              <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-6">Our DNA</p>
+              <h2 className="text-5xl lg:text-7xl tracking-tighter leading-[0.9]">High Impact. <br/><span className="text-brand-text-muted/30">Honest Results.</span></h2>
+            </div>
+            <p className="text-lg text-brand-text-muted font-medium max-w-sm leading-relaxed">
+              We eliminate the noise. No fluff, no vanity metrics. Just direct architectural growth for your business.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+          <div className="grid md:grid-cols-3 gap-16">
             {[
               {
-                title: "End-to-End Support",
-                desc: "Assistance from the Brand Launch phase to the final Promotion. We handle everything from creative conceptualization to live activations.",
+                title: "360° Lifecycle",
+                desc: "Assistance from Brand Launch to national Promotion. We handle the entire growth pipeline.",
                 icon: <FiTrendingUp size={32} />
               },
               {
-                title: "Mass Visibility Network",
-                desc: "Access prestigious placements at Airports, Malls, and PVR Cinemas, alongside a dominant network of Highway Hoardings.",
+                title: "Asset Dominance",
+                desc: "High-impact highway hoardings, transit moving media, and premium cinema placements.",
                 icon: <FiMapPin size={32} />
               },
               {
-                title: "Performance Scaling",
-                desc: "Our performance marketing team focuses on the 'Sahi Audience' to ensure guaranteed lead generation and brand growth.",
+                title: "Data Precision",
+                desc: "Custom audience targeting ensuring zero waste and maximum conversion on digital spends.",
                 icon: <FiCheckCircle size={32} />
               }
             ].map((item, i) => (
-              <div key={i} className="group cursor-default">
-                <div className="w-16 h-16 rounded-2xl bg-brand-bg flex items-center justify-center text-brand-primary mb-6 transition-all duration-300 group-hover:bg-brand-primary group-hover:text-white group-hover:-translate-y-2">
+              <div key={i} className="group">
+                <div className="w-20 h-20 rounded-3xl bg-brand-bg flex items-center justify-center text-brand-secondary mb-8 transition-all duration-500 group-hover:bg-brand-secondary group-hover:text-white group-hover:scale-110 shadow-sm">
                   {item.icon}
                 </div>
-                <h4 className="text-xl mb-3">{item.title}</h4>
-                <p className="text-brand-text-muted text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
+                <p className="text-brand-text-muted leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
-          </div>
-
-          {/* Operational Presence */}
-          <div className="bg-brand-bg rounded-[3rem] p-10 lg:p-16">
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
-              <div className="flex-1">
-                <h3 className="text-3xl mb-6">Regional Power, <br /><span className="text-brand-primary">National Reach.</span></h3>
-                <p className="text-brand-text-muted mb-8 leading-relaxed">Headquartered in Dehradun, we command a strong presence across 8 major Indian states, ensuring your brand "moves" and "grows" wherever the crowd is.</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 text-brand-text-main font-bold">
-                    <div className="w-2 h-2 bg-brand-primary rounded-full"></div> North India Presence
-                  </div>
-                  <div className="flex items-center gap-3 text-brand-text-main font-bold">
-                    <div className="w-2 h-2 bg-brand-primary rounded-full"></div> West & Central Hubs
-                  </div>
-                </div>
-              </div>
-              <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {[
-                  { region: 'North', states: 'Uttarakhand, UP, Delhi NCR, Punjab, Haryana, Rajasthan' },
-                  { region: 'Central', states: 'Madhya Pradesh' },
-                  { region: 'West', states: 'Maharashtra' }
-                ].map((loc, i) => (
-                  <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-white">
-                    <p className="text-[10px] uppercase tracking-widest font-black text-brand-primary mb-2">{loc.region} India</p>
-                    <p className="text-xs text-brand-text-muted leading-relaxed font-bold">{loc.states}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding !py-24">
-        <div className="bg-brand-text-main rounded-[4rem] p-12 lg:p-20 relative overflow-hidden text-center text-white">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/20 rounded-full blur-[100px]"></div>
-          <div className="relative z-10">
-            <h2 className="text-4xl lg:text-6xl mb-8">Ready to <span className="text-brand-secondary italic">Dominate</span> <br />Your Market?</h2>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="btn-conversion shadow-none hover:shadow-2xl hover:shadow-brand-secondary/40">Get A Free Audit</button>
-              <button className="btn-primary !bg-white/10 backdrop-blur-md border border-white/20 hover:!bg-white/20">View Case Studies</button>
-            </div>
-          </div>
+      {/* States / Presence Bar */}
+      <section className="py-24 bg-brand-bg">
+        <div className="section-padding">
+           <div className="glass-card !rounded-[4rem] p-16 relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/5 rounded-full blur-[80px]"></div>
+             <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                  <h3 className="text-4xl tracking-tighter mb-6 underline decoration-brand-secondary/30 underline-offset-8">National Footprint</h3>
+                  <p className="text-brand-text-muted font-medium text-lg leading-relaxed mb-10">Headquartered in Dehradun, our operational network expands across 8+ states, dominating major transit routes and city hubs.</p>
+                  <div className="flex flex-wrap gap-3">
+                    {['UK', 'UP', 'Delhi', 'PB', 'HR', 'RJ', 'MP', 'MH'].map(s => (
+                       <span key={s} className="px-5 py-2 bg-white rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-100 shadow-sm">{s}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                   <div className="aspect-square bg-white rounded-3xl p-8 flex flex-col justify-center shadow-premium rotate-3">
+                      <p className="text-4xl font-black text-brand-primary">8+</p>
+                      <p className="text-[10px] uppercase font-black text-brand-text-muted tracking-widest mt-2">Active States</p>
+                   </div>
+                   <div className="aspect-square bg-brand-text-main rounded-3xl p-8 flex flex-col justify-center shadow-xl -rotate-3">
+                      <p className="text-4xl font-black text-brand-secondary">24/7</p>
+                      <p className="text-[10px] uppercase font-black text-white/50 tracking-widest mt-2">Operational Hub</p>
+                   </div>
+                </div>
+             </div>
+           </div>
         </div>
       </section>
     </div>

@@ -31,37 +31,40 @@ export default function Navbar() {
   }, [scrolled]);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-3'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed w-full z-50 transition-all duration-500 px-6 sm:px-10 lg:px-12 ${scrolled ? 'pt-4' : 'pt-8'}`}>
+      <div className={`max-w-7xl mx-auto transition-all duration-500 ${scrolled ? 'glass-card py-3 !rounded-full px-8' : 'py-0 px-0'}`}>
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Digital Honest" className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" />
+            <div className="w-12 h-12 flex items-center justify-center bg-white rounded-2xl shadow-sm group-hover:shadow-premium transition-all duration-500 group-hover:scale-105">
+              <img src={logo} alt="Digital Honest" className="w-8 h-8 object-contain" />
+            </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-bold leading-tight font-display text-brand-text-main group-hover:text-brand-primary transition-colors">Digital Honest</h1>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-brand-text-muted font-black">Advertising Agency</p>
+              <h1 className="text-xl font-bold leading-none font-display text-brand-text-main group-hover:text-brand-secondary transition-colors">Digital Honest</h1>
+              <p className="text-[9px] uppercase tracking-[0.3em] text-brand-accent font-black mt-1">DIGITAL MARKETING AGENCY</p>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-semibold transition-colors hover:text-brand-primary ${pathname === link.path ? 'text-brand-primary' : 'text-brand-text-muted'}`}
+                className={`text-xs uppercase tracking-widest font-black transition-all hover:text-brand-secondary relative group ${pathname === link.path ? 'text-brand-secondary' : 'text-brand-text-main/70'}`}
               >
                 {link.name}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-secondary transition-all duration-300 group-hover:w-full ${pathname === link.path ? 'w-full' : ''}`}></span>
               </Link>
             ))}
-            <Link to="/contact" className="btn-conversion !py-2.5 !px-6 flex items-center gap-2">
-              <FiPhoneCall /> Contact Us
+            <Link to="/contact" className="btn-conversion !py-3 !px-8 !text-[11px] uppercase tracking-widest shadow-xl shadow-brand-secondary/10">
+              Get Started
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-2xl text-brand-text-main p-2"
+            className="md:hidden text-2xl text-brand-text-main p-2 hover:text-brand-secondary transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <FiX /> : <FiMenu />}
@@ -73,23 +76,24 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-brand-bg overflow-hidden shadow-xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden mt-4 glass-card overflow-hidden shadow-2xl p-4"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`block text-lg font-bold p-3 rounded-xl transition-all ${pathname === link.path ? 'bg-brand-primary/5 text-brand-primary' : 'text-brand-text-muted hover:bg-brand-bg'}`}
+                  onClick={() => setIsOpen(false)}
+                  className={`block text-center text-sm uppercase tracking-widest font-black p-4 rounded-2xl transition-all ${pathname === link.path ? 'bg-brand-secondary/10 text-brand-secondary' : 'text-brand-text-muted hover:bg-brand-bg'}`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" className="block w-full text-center bg-brand-secondary text-white px-6 py-4 rounded-xl font-bold mt-4 shadow-lg shadow-brand-secondary/20">
-                Get Started
+              <Link to="/contact" onClick={() => setIsOpen(false)} className="block w-full text-center bg-brand-primary text-white px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-widest mt-4">
+                Contact Us
               </Link>
             </div>
           </motion.div>
