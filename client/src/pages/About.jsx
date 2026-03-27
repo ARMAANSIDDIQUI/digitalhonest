@@ -61,18 +61,18 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="rounded-[2rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-[4/3] sm:aspect-auto h-[400px] md:h-[500px]">
+            <div className="rounded-[2rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-[4/3] sm:aspect-auto sm:h-[500px]">
               <img src={aboutImg} alt="Marketing Architecture" className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent"></div>
             </div>
               
-              {/* Branding Stamp */}
-              <div className="absolute top-8 right-8 md:top-12 md:right-12 w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md rotate-12">
-                 <p className="text-[7px] md:text-[8px] font-black text-white/30 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
+              {/* Branding Stamp - Opaque Greyish White */}
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 w-20 h-20 md:w-24 md:h-24 rounded-full border border-slate-300 flex items-center justify-center -rotate-12 bg-slate-200 shadow-xl z-10">
+                 <p className="text-[7px] md:text-[8px] font-black text-slate-600 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
               </div>
 
-            {/* Quote Overlay - Shifted Upward */}
-            <div className="absolute -top-56 -right-12 md:-top-24 md:-right-20 z-50 glass-card !bg-brand-secondary !p-4 md:!p-10 !rounded-[1.25rem] md:!rounded-[2.5rem] shadow-premium max-w-[180px] md:max-w-[320px] scale-[0.65] md:scale-[0.85] origin-bottom-left border-none group hover:-translate-y-4 hover:rotate-2 transition-all duration-700">
+            {/* Quote Overlay - Calibrated Positioning */}
+            <div className="absolute -top-56 -right-12 md:-top-24 md:-right-24 z-50 glass-card !bg-brand-secondary !p-4 md:!p-10 !rounded-[1.25rem] md:!rounded-[2.5rem] shadow-premium max-w-[180px] md:max-w-[320px] scale-[0.65] md:scale-[0.85] origin-bottom-left border-none group hover:-translate-y-4 hover:rotate-2 transition-all duration-700">
               <p className="text-sm md:text-2xl font-serif italic text-white leading-tight mb-2 md:mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
               <div className="flex items-center gap-2 md:gap-3">
                  <div className="w-6 md:w-10 h-0.5 bg-white/30"></div>
