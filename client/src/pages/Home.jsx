@@ -101,8 +101,8 @@ export default function Home() {
                 <Carousel />
               </div>
 
-              {/* Sophisticated Glass Stats Card - Calibrated Positioning */}
-              <div className="absolute -top-64 -right-12 md:-top-24 md:-right-20 z-50 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[1.25rem] md:!rounded-[2.5rem] p-3 md:p-8 shadow-premium scale-[0.65] md:scale-[0.85] origin-bottom-left transition-all duration-700">
+              {/* Sophisticated Glass Stats Card - Hidden on Mobile */}
+              <div className="absolute -top-64 -right-12 md:-top-24 md:-right-20 z-50 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[1.25rem] md:!rounded-[2.5rem] p-3 md:p-8 shadow-premium scale-[0.65] md:scale-[0.85] origin-bottom-left transition-all duration-700 hidden md:block">
                 <div className="flex items-center gap-3 md:gap-6 mb-2 md:mb-4">
                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
                       <FiZap size={16} className="md:w-[28px] md:h-[28px]" />

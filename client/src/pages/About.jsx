@@ -71,8 +71,8 @@ export default function About() {
                  <p className="text-[7px] md:text-[8px] font-black text-slate-600 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
               </div>
 
-            {/* Quote Overlay - Calibrated Positioning */}
-            <div className="absolute -top-56 -right-12 md:-top-24 md:-right-24 z-50 glass-card !bg-brand-secondary !p-4 md:!p-10 !rounded-[1.25rem] md:!rounded-[2.5rem] shadow-premium max-w-[180px] md:max-w-[320px] scale-[0.65] md:scale-[0.85] origin-bottom-left border-none group hover:-translate-y-4 hover:rotate-2 transition-all duration-700">
+            {/* Quote Overlay - Hidden on Mobile */}
+            <div className="absolute -top-56 -right-12 md:-top-24 md:-right-24 z-50 glass-card !bg-brand-secondary !p-4 md:!p-10 !rounded-[1.25rem] md:!rounded-[2.5rem] shadow-premium max-w-[180px] md:max-w-[320px] scale-[0.65] md:scale-[0.85] origin-bottom-left border-none group hover:-translate-y-4 hover:rotate-2 transition-all duration-700 hidden md:block">
               <p className="text-sm md:text-2xl font-serif italic text-white leading-tight mb-2 md:mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
               <div className="flex items-center gap-2 md:gap-3">
                  <div className="w-6 md:w-10 h-0.5 bg-white/30"></div>
