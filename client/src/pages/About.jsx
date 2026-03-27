@@ -32,7 +32,7 @@ export default function About() {
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Digital Honest Philosophy</span>
             </div>
-            <h1 className="text-2xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Apne Brand Ko <br />
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Bada Banao</span>
             </h1>

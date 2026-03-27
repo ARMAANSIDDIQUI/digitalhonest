@@ -52,10 +52,10 @@ const CurtainLoader = () => {
               </div>
             </div>
             
-            <h1 className="text-white text-2xl font-display font-black tracking-[0.5em] uppercase mb-2">
+            <h1 className="text-white text-2xl font-display font-black tracking-[0.8em] md:tracking-[1.2em] uppercase mb-4 translate-x-[0.4em] md:translate-x-[0.6em]">
               Digital Honest
             </h1>
-            <p className="text-white/30 text-[8px] uppercase tracking-[0.8em] font-black">
+            <p className="text-white/30 text-[8px] md:text-[10px] uppercase tracking-[1em] md:tracking-[1.5em] font-black translate-x-[0.5em] md:translate-x-[0.75em]">
               Architecting Visibility
             </p>
           </motion.div>
