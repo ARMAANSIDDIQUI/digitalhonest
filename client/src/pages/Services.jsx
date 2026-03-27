@@ -33,7 +33,7 @@ export default function Services() {
 
       {/* Header Section */}
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-hidden bg-brand-primary">
         {/* Background Depth & Movement */}
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/5 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[140px] -z-10 -translate-x-1/3 translate-y-1/3"></div>
@@ -46,17 +46,17 @@ export default function Services() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl group">
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl group">
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full animate-ping"></span>
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Capabilities</span>
             </div>
             
             <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
                360° <br/>
-               <span className="premium-gradient-text italic font-serif block mt-3">Dominance</span>
+               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Dominance</span>
             </h1>
             
-            <p className="text-xs lg:text-base text-white/50 leading-relaxed font-medium mb-12 lg:mb-14 max-w-2xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
+            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-2xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
                Engineering brand momentum from high-velocity physical visibility to precision-targeted digital scaling. Total market architecture.
             </p>
 
@@ -129,7 +129,7 @@ export default function Services() {
       </section>
 
       {/* Operational Sites Section (Special) */}
-      <section className="section-padding mb-32 py-24">
+      <section className="section-padding mb-16 py-12">
         <div className="glass-card !bg-brand-text-main !p-12 !rounded-[3.5rem] relative overflow-hidden">
            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-[100px]"></div>
            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">
@@ -153,7 +153,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding">
+      <section className="section-padding py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           <AnimatePresence mode="popLayout">
             {filteredServices.map((service, index) => (
@@ -171,7 +171,7 @@ export default function Services() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/40 to-transparent"></div>
                   
                   <div className="absolute inset-x-4 md:inset-x-8 bottom-6 md:bottom-8 glass-card !p-6 md:!p-8 !rounded-[2rem] md:!rounded-[2.5rem] translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <div className="flex justify-between items-end">
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                       <div>
                         <p className="text-[8px] md:text-[9px] uppercase tracking-widest font-black text-brand-secondary mb-2">{service.tag}</p>
                         <h3 className="text-xl md:text-2xl text-white font-bold leading-tight whitespace-pre-line">{service.title}</h3>

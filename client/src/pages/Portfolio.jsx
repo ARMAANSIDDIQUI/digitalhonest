@@ -34,17 +34,17 @@ export default function Portfolio() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl group">
+              <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl group">
                 <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
                 <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Proven Impact Portfolio</span>
               </div>
 
               <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
                 Success <br />
-                <span className="premium-gradient-text italic font-serif block mt-3">Stories</span>
+                <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Stories</span>
               </h1>
 
-              <p className="text-xs lg:text-base text-white/50 leading-relaxed font-medium mb-12 lg:mb-14 max-w-xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
+              <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
                 Architecting visibility for brands that demand the spotlight. From national OOH blitzes to precision digital scaling.
               </p>
 
@@ -148,7 +148,7 @@ export default function Portfolio() {
       </div>
 
       {/* Operational Sites Section (Special) */}
-      <section className="mt-32 section-padding relative overflow-hidden">
+      <section className="section-padding min-h-[90vh] lg:min-h-[95vh] py-12 lg:py-24 relative overflow-hidden flex items-center bg-brand-primary">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10"></div>
 
         <div className="glass-card !bg-white/40 backdrop-blur-3xl !p-12 md:!p-20 !rounded-[4rem] border border-white">

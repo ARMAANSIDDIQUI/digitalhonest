@@ -39,7 +39,7 @@ export default function Contact() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-hidden bg-brand-primary text-center">
         {/* Background Depth & Animated Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -50,17 +50,17 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl group mx-auto">
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl group mx-auto">
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
             </div>
 
             <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Start Your <br />
-              <span className="premium-gradient-text italic font-serif block mt-3">Growth Audit</span>
+              <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Growth Audit</span>
             </h1>
 
-            <p className="text-xs lg:text-base text-white/50 leading-relaxed font-medium mb-12 lg:mb-14 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-8 lg:pt-10">
+            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-8 lg:pt-10">
               Request a priority strategy session to engineer your brand's mass-visibility and digital expansion architecture.
             </p>
           </motion.div>

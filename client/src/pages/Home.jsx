@@ -51,7 +51,7 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-screen w-full flex items-center py-24 bg-brand-primary">
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-visible bg-brand-primary tracking-normal">
         {/* Background Depth Layers */}
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/10 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -64,7 +64,7 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl overflow-hidden group">
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl overflow-hidden group">
               <span className="w-2 h-2 bg-brand-secondary rounded-full animate-ping"></span>
               <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
             
-            <p className="text-xs lg:text-base text-white/50 leading-relaxed max-w-xl mb-10 lg:mb-12 font-medium border-l-2 border-brand-secondary/30 pl-6 lg:pl-8">
+            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed max-w-xl mb-6 lg:mb-12 font-medium border-l-2 border-brand-secondary/30 pl-4 lg:pl-8">
               We don't just run ads; we engineer architectures for growth. From premium OOH hoarding to data-driven digital infrastructure.
             </p>
             
