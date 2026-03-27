@@ -7,7 +7,7 @@ import reachImg from '../assets/refined_national_reach_map_1774478777301.png';
 export const services = [
   {
     id: 'digital-marketing',
-    title: 'Digital Marketing & Growth',
+    title: 'Digital Marketing &\nGrowth Architecture',
     icon: 'digital',
     image: digitalImg,
     color: 'orange',
@@ -57,7 +57,7 @@ export const services = [
   },
   {
     id: 'transit-branding',
-    title: 'Transit (Moving) Branding',
+    title: 'Transit (Moving) &\nKinetic Branding',
     icon: 'transit',
     image: transitImg,
     color: 'orange',
@@ -82,7 +82,7 @@ export const services = [
   },
   {
     id: 'hyper-local',
-    title: 'Hyper-Local Marketing',
+    title: 'Hyper-Local &\nMicro-Targeting',
     icon: 'local',
     image: reachImg,
     color: 'blue',
@@ -107,7 +107,7 @@ export const services = [
   },
   {
     id: 'event-management',
-    title: 'Event & Launch Management',
+    title: 'Event &\nLaunch Management',
     icon: 'events',
     image: eventImg,
     color: 'orange',
@@ -132,7 +132,7 @@ export const services = [
   },
   {
     id: 'integrated-strategy',
-    title: 'Integrated Strategy (Hybrid)',
+    title: 'Integrated Strategy &\nHybrid Omnichannel',
     icon: 'map',
     image: reachImg,
     color: 'blue',

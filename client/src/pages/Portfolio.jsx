@@ -16,40 +16,42 @@ export default function Portfolio() {
   );
 
   return (
-    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
+    <div className="bg-white min-h-screen">
       <Helmet><title>Portfolio | Our Best Campaigns | Digital Honest</title></Helmet>
       
-      <section className="section-padding relative py-12 overflow-hidden">
+      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden">
         {/* Decor */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-secondary/5 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
 
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
-            <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
-            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Proven Excellence</span>
-          </div>
-          <h1 className="text-5xl lg:text-7xl mb-8 tracking-tighter leading-none">
-            Our Work <span className="premium-gradient-text italic font-serif">Speaks</span>
-          </h1>
-          <p className="text-xl text-brand-text-muted font-medium leading-relaxed">
-            Delivering 360° marketing dominance for regional and national brands. High impact, high conversion.
-          </p>
-        </motion.div>
+        <div className="flex flex-col items-center w-full z-10">
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+              <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Proven Excellence</span>
+            </div>
+            <h1 className="text-5xl lg:text-7xl mb-8 tracking-tighter leading-none">
+              Our Work <span className="premium-gradient-text italic font-serif">Speaks</span>
+            </h1>
+            <p className="text-xl text-brand-text-muted font-medium leading-relaxed">
+              Delivering 360° marketing dominance for regional and national brands. High impact, high conversion.
+            </p>
+          </motion.div>
 
-        {/* Search Bar */}
-        <div className="max-w-xl mx-auto mb-20 relative group">
-          <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-text-muted text-xl group-focus-within:text-brand-secondary transition-colors" />
-          <input 
-            type="text" 
-            placeholder="Search campaigns, brands, or categories..." 
-            className="w-full luxury-input !pl-16 !py-6 shadow-xl"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          {/* Search Bar */}
+          <div className="w-full max-w-xl mx-auto mb-20 relative group">
+            <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-text-muted text-xl group-focus-within:text-brand-secondary transition-colors" />
+            <input 
+              type="text" 
+              placeholder="Search campaigns, brands, or categories..." 
+              className="w-full luxury-input !pl-16 !py-6 shadow-xl"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
       </section>
 

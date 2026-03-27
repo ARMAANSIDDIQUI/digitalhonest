@@ -5,14 +5,14 @@ import aboutImg from '../assets/office_branding_concept_1774478165389.png';
 
 export default function About() {
   return (
-    <div className="pt-24 pb-24 bg-brand-bg min-h-screen overflow-x-hidden">
+    <div className="bg-white min-h-screen font-body">
       <Helmet>
         <title>Our Story | Digital Honest - Marketing Architecture</title>
         <meta name="description" content="Discover the philosophy behind Dehradun's most trusted 360° marketing agency. We build architectures for brand growth." />
       </Helmet>
 
       {/* Hero Section - High-Fidelity Editorial */}
-      <section className="relative py-12 lg:py-24 flex items-center pt-24 pb-20 overflow-hidden bg-white">
+      <section className="relative min-h-screen w-full flex items-center py-24 overflow-hidden bg-white">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         
         <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

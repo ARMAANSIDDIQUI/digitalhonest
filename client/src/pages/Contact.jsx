@@ -28,13 +28,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
+    <div className="bg-white min-h-screen">
       <Helmet>
         <title>Start Your Growth | Digital Honest - Marketing Architecture</title>
         <meta name="description" content="Request a strategy session with India's premier 360° marketing agency. Let's build your brand architecture." />
       </Helmet>
 
-      <div className="section-padding relative overflow-hidden">
+      <div className="relative min-h-screen w-full flex flex-col justify-center py-24 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2"></div>

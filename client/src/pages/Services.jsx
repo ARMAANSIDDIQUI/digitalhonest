@@ -25,21 +25,22 @@ export default function Services() {
   );
 
   return (
-    <div className="pt-24 pb-24 bg-brand-bg min-h-screen">
+    <div className="bg-white min-h-screen">
       <Helmet>
         <title>Our Services | Full 360 Marketing Agency | Digital Honest</title>
         <meta name="description" content="Explore our premium advertising services. From highway hoardings to digital performance marketing, we cover it all." />
       </Helmet>
 
       {/* Header Section */}
-      <section className="relative py-12 overflow-hidden">
+      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         
-        <div className="section-padding text-center">
+        <div className="flex flex-col items-center w-full section-padding">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center"
           >
             <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-6">Capabilities</p>
             <h1 className="text-5xl lg:text-7xl tracking-tighter mb-8 leading-[1]">
@@ -51,7 +52,7 @@ export default function Services() {
           </motion.div>
 
           {/* Search Bar */}
-          <div className="max-w-xl mx-auto relative group mb-12">
+          <div className="w-full max-w-xl mx-auto relative group mb-12">
             <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-text-muted text-xl group-focus-within:text-brand-secondary transition-colors" />
             <input 
               type="text" 
