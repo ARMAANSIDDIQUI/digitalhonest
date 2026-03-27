@@ -33,5 +33,11 @@ app.use('/api/enquiries', require('./routes/enquiries'));
 // Define Routes for API endpoints in one file for simplicity
 app.get('/api/health', (req, res) => res.json({ status: 'ok', message: 'Digital Honest API Running' }));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+// Conditional listen for local dev
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+}
+
+// Export for Vercel
+module.exports = app;
