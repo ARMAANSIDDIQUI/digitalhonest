@@ -55,12 +55,12 @@ export default function Contact() {
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
             </div>
 
-            <h1 className="text-5xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+            <h1 className="text-[2.75rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Start Your <br />
-              <span className="premium-gradient-text italic font-serif block mt-4">Growth Audit</span>
+              <span className="premium-gradient-text italic font-serif block mt-3">Growth Audit</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-10">
+            <p className="text-xs lg:text-base text-white/50 leading-relaxed font-medium mb-12 lg:mb-14 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-8 lg:pt-10">
               Request a priority strategy session to engineer your brand's mass-visibility and digital expansion architecture.
             </p>
           </motion.div>

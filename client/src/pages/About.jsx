@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiUsers, FiTrendingUp, FiMapPin, FiAward } from 'react-icons/fi';
-import aboutImg from '../assets/office_branding_concept_1774478165389.png';
+import aboutImg from '../assets/extreme_photorealistic_billboard_1774478569369.png';
 
 export default function About() {
   return (
@@ -32,13 +32,12 @@ export default function About() {
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Digital Honest Philosophy</span>
             </div>
-            
-            <h1 className="text-5xl md:text-8xl lg:text-[7rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+            <h1 className="text-[2.75rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Apne Brand Ko <br />
-              <span className="premium-gradient-text italic font-serif block mt-4">Bada Banao</span>
+              <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Bada Banao</span>
             </h1>
             
-            <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
+            <p className="text-xs lg:text-base text-white/50 leading-relaxed font-medium mb-10 lg:mb-12 max-w-2xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
               Digital Honest is more than an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
             </p>
             
@@ -62,22 +61,22 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="aspect-square lg:aspect-[4/5] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-3xl relative border border-white/5">
-              <img src={aboutImg} alt="Marketing Architecture" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
+            <div className="rounded-[2rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-[4/3] sm:aspect-auto h-[400px] md:h-[500px]">
+              <img src={aboutImg} alt="Marketing Architecture" className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent"></div>
+            </div>
               
               {/* Branding Stamp */}
               <div className="absolute top-8 right-8 md:top-12 md:right-12 w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md rotate-12">
                  <p className="text-[7px] md:text-[8px] font-black text-white/30 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
               </div>
-            </div>
 
-            {/* Quote Overlay */}
-            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-left-10 glass-card !bg-brand-secondary !p-8 md:!p-12 !rounded-[2.5rem] md:!rounded-[3rem] shadow-3xl max-w-[280px] md:max-w-[320px] reveal-up border-none group hover:-translate-y-4 hover:rotate-2">
-              <p className="text-xl md:text-2xl font-serif italic text-white leading-tight mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
-              <div className="flex items-center gap-4">
-                 <div className="w-8 md:w-10 h-0.5 bg-white/30"></div>
-                 <p className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black text-white/60">Honest Mantra</p>
+            {/* Quote Overlay - Shifted Upward */}
+            <div className="absolute -top-56 -right-12 md:-top-24 md:-right-20 z-50 glass-card !bg-brand-secondary !p-4 md:!p-10 !rounded-[1.25rem] md:!rounded-[2.5rem] shadow-premium max-w-[180px] md:max-w-[320px] scale-[0.65] md:scale-[0.85] origin-bottom-left border-none group hover:-translate-y-4 hover:rotate-2 transition-all duration-700">
+              <p className="text-sm md:text-2xl font-serif italic text-white leading-tight mb-2 md:mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
+              <div className="flex items-center gap-2 md:gap-3">
+                 <div className="w-6 md:w-10 h-0.5 bg-white/30"></div>
+                 <p className="text-[6px] md:text-[10px] uppercase tracking-[0.4em] font-black text-white/60">Honest Mantra</p>
               </div>
             </div>
           </motion.div>

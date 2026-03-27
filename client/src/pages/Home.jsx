@@ -51,7 +51,7 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-screen w-full flex items-center py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-screen w-full flex items-center py-24 bg-brand-primary">
         {/* Background Depth Layers */}
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/10 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -69,12 +69,12 @@ export default function Home() {
               <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-5xl md:text-8xl lg:text-[6.5rem] mb-12 leading-[0.9] tracking-tighter text-white font-black">
+            <h1 className="text-[2.75rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Offline Ho <br/>Ya Online <br/>
-              <span className="premium-gradient-text italic font-serif block mt-4">Brand Sab Jagah!</span>
+              <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
             
-            <p className="text-lg md:text-2xl text-white/50 leading-relaxed max-w-xl mb-14 font-medium border-l-2 border-brand-secondary/30 pl-8">
+            <p className="text-xs lg:text-base text-white/50 leading-relaxed max-w-xl mb-10 lg:mb-12 font-medium border-l-2 border-brand-secondary/30 pl-6 lg:pl-8">
               We don't just run ads; we engineer architectures for growth. From premium OOH hoarding to data-driven digital infrastructure.
             </p>
             
@@ -97,25 +97,25 @@ export default function Home() {
             transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="relative group">
-              <div className="rounded-[3rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-square sm:aspect-auto sm:h-[600px]">
+              <div className="rounded-[2rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-[4/3] sm:aspect-auto sm:h-[500px]">
                 <Carousel />
               </div>
 
-              {/* Sophisticated Glass Stats Card */}
-              <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-left-10 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[2.5rem] md:!rounded-[3rem] p-6 md:p-10 shadow-2xl reveal-up min-w-[240px] md:min-w-[280px]" style={{ animationDelay: '0.8s' }}>
-                <div className="flex items-center gap-4 md:gap-6 mb-4">
-                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
-                      <FiZap size={24} className="md:w-[28px] md:h-[28px]" />
+              {/* Sophisticated Glass Stats Card - Shifted Upward */}
+              <div className="absolute -top-72 -right-12 md:-top-24 md:-right-20 z-50 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[1.25rem] md:!rounded-[2.5rem] p-3 md:p-8 shadow-premium scale-[0.65] md:scale-[0.85] origin-bottom-left transition-all duration-700">
+                <div className="flex items-center gap-3 md:gap-6 mb-2 md:mb-4">
+                   <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
+                      <FiZap size={16} className="md:w-[28px] md:h-[28px]" />
                    </div>
                    <div>
-                      <p className="text-3xl md:text-5xl font-black text-white leading-none">8+</p>
+                      <p className="text-2xl md:text-5xl font-black text-white leading-none">8+</p>
                       <p className="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary mt-1">Operational States</p>
                    </div>
                 </div>
-                <div className="h-px w-full bg-white/10 my-4 md:my-6"></div>
-                <div className="flex items-center justify-between">
+                <div className="h-px w-full bg-white/10 my-3 md:my-6"></div>
+                <div className="flex items-center justify-between gap-6">
                    <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-white/40">Network Impact</p>
-                   <p className="text-brand-secondary text-[10px] md:text-xs font-black">10M+ Monthly Reach</p>
+                   <p className="text-brand-secondary text-[10px] md:text-xs font-black">10M+ Reach</p>
                 </div>
               </div>
             </div>

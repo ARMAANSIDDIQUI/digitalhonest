@@ -68,7 +68,7 @@
   }
 
   .premium-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-secondary via-orange-500 to-brand-primary inline-block pr-2 pb-2;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-secondary via-orange-400 to-white inline-block pr-2 pb-2;
   }
 
   .btn-primary {
