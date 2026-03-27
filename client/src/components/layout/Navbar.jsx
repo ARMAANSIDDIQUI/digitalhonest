@@ -30,18 +30,21 @@ export default function Navbar() {
     };
   }, [scrolled]);
 
+  const isServiceDetail = pathname.startsWith('/services/');
+  const forceDarkText = isServiceDetail && !scrolled;
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 px-6 sm:px-10 lg:px-12 ${scrolled ? 'pt-4' : 'pt-8'}`}>
       <div className={`max-w-7xl mx-auto transition-all duration-500 ${scrolled ? 'glass-card py-3 !rounded-full px-8' : 'py-0 px-0'}`}>
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 flex-none flex items-center justify-center bg-white rounded-2xl shadow-sm group-hover:shadow-premium transition-all duration-500 group-hover:scale-105 overflow-hidden">
-              <img src={logo} alt="Digital Honest" className="w-9 h-9 aspect-square object-contain" />
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex-none flex items-center justify-center bg-white rounded-xl sm:rounded-2xl shadow-sm group-hover:shadow-premium transition-all duration-500 group-hover:scale-105 overflow-hidden">
+              <img src={logo} alt="Digital Honest" className="w-7 h-7 sm:w-9 sm:h-9 aspect-square object-contain" />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold leading-none font-display text-brand-text-main group-hover:text-brand-secondary transition-colors">Digital Honest</h1>
-              <p className="text-[9px] uppercase tracking-[0.3em] text-brand-accent font-black mt-1">DIGITAL MARKETING AGENCY</p>
+            <div className="block">
+              <h1 className={`text-lg sm:text-xl font-bold leading-none font-display group-hover:text-brand-secondary transition-colors ${scrolled || forceDarkText ? 'text-brand-text-main' : 'text-white'}`}>Digital Honest</h1>
+              <p className="text-[7px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-brand-accent font-black mt-0.5 sm:mt-1">DIGITAL MARKETING AGENCY</p>
             </div>
           </Link>
 
@@ -51,7 +54,11 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-xs uppercase tracking-widest font-black transition-all hover:text-brand-secondary relative group ${pathname === link.path ? 'text-brand-secondary' : 'text-brand-text-main/70'}`}
+                className={`text-xs uppercase tracking-widest font-black transition-all hover:text-brand-secondary relative group ${
+                  pathname === link.path 
+                    ? 'text-brand-secondary' 
+                    : (scrolled || forceDarkText) ? 'text-brand-text-main/70' : 'text-white/70'
+                }`}
               >
                 {link.name}
                 <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-secondary transition-all duration-300 group-hover:w-full ${pathname === link.path ? 'w-full' : ''}`}></span>
@@ -64,13 +71,14 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-2xl text-brand-text-main p-2 hover:text-brand-secondary transition-colors"
+            className={`md:hidden text-2xl p-2 hover:text-brand-secondary transition-colors ${scrolled || forceDarkText ? 'text-brand-text-main' : 'text-white'}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
+
 
       {/* Mobile Nav */}
       <AnimatePresence>

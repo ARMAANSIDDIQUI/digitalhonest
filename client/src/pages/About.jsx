@@ -11,57 +11,74 @@ export default function About() {
         <meta name="description" content="Discover the philosophy behind Dehradun's most trusted 360° marketing agency. We build architectures for brand growth." />
       </Helmet>
 
-      {/* Hero Section - High-Fidelity Editorial */}
-      <section className="relative min-h-screen w-full flex items-center py-24 overflow-hidden bg-white">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
-        
-        <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      {/* Hero Section - High-Fidelity Architectural Monolith */}
+      <section className="relative min-h-[95vh] w-full flex items-center py-24 overflow-hidden bg-brand-primary">
+        {/* Background Depth */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3"></div>
+        </div>
+
+        <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Left Content Column */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            className="lg:col-span-7"
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
-              <span className="w-2 h-2 bg-brand-secondary rounded-full"></span>
-              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-text-muted">Marketing Architecture</span>
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl group">
+              <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
+              <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Digital Honest Philosophy</span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl mb-10 leading-[1] tracking-tighter">
+            <h1 className="text-6xl md:text-8xl lg:text-[7rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
               Apne Brand Ko <br />
-              <span className="premium-gradient-text italic font-serif">Bada Banao</span>
+              <span className="premium-gradient-text italic font-serif block mt-4">Bada Banao</span>
             </h1>
             
-            <p className="text-xl text-brand-text-muted leading-relaxed font-medium mb-12 max-w-xl">
-              Digital Honest is not just an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
+            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
+              Digital Honest is more than an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
             </p>
             
-            <div className="grid grid-cols-2 gap-8">
-              <div className="glass-card !p-8 !rounded-[2.5rem] border-none">
-                <p className="text-5xl font-black text-brand-secondary mb-2">500+</p>
-                <p className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted opacity-60">Brands Elevated</p>
+            <div className="grid grid-cols-2 gap-8 max-w-lg">
+              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-10 !rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
+                <p className="text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
+                <p className="text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Brands Elevated</p>
               </div>
-              <div className="glass-card !p-8 !rounded-[2.5rem] border-none">
-                <p className="text-5xl font-black text-brand-primary mb-2">10+</p>
-                <p className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted opacity-60">Years Tenure</p>
+              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-10 !rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
+                <p className="text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
+                <p className="text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Years Tenure</p>
               </div>
             </div>
           </motion.div>
 
+          {/* Right Media Column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="aspect-square lg:aspect-[4/4.5] rounded-[3.5rem] overflow-hidden shadow-2xl relative">
-              <img src={aboutImg} alt="Our Philosophy" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/60 via-transparent to-transparent"></div>
+            <div className="aspect-square lg:aspect-[4/5] rounded-[4rem] overflow-hidden shadow-3xl relative border border-white/5">
+              <img src={aboutImg} alt="Marketing Architecture" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
+              
+              {/* Branding Stamp */}
+              <div className="absolute top-12 right-12 w-24 h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md rotate-12">
+                 <p className="text-[8px] font-black text-white/30 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
+              </div>
             </div>
-            <div className="absolute bottom-8 -left-8 glass-card !p-8 !rounded-[2.5rem] shadow-2xl max-w-[280px] reveal-up">
-              <p className="text-xl font-serif italic text-brand-text-main leading-tight mb-4">"Brand Sab Jagah!"</p>
-              <p className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary">Core Philosophy</p>
+
+            {/* Quote Overlay */}
+            <div className="absolute -bottom-10 -left-10 glass-card !bg-brand-secondary !p-12 !rounded-[3rem] shadow-3xl max-w-[320px] reveal-up border-none group hover:-translate-y-4 hover:rotate-2">
+              <p className="text-2xl font-serif italic text-white leading-tight mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
+              <div className="flex items-center gap-4">
+                 <div className="w-10 h-0.5 bg-white/30"></div>
+                 <p className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60">Honest Mantra</p>
+              </div>
             </div>
           </motion.div>
         </div>

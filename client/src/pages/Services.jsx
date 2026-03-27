@@ -32,41 +32,104 @@ export default function Services() {
       </Helmet>
 
       {/* Header Section */}
-      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
-        
-        <div className="flex flex-col items-center w-full section-padding">
+      {/* Hero Section - High-Fidelity Architectural Monolith */}
+      <section className="relative min-h-screen w-full flex items-center justify-center py-24 overflow-hidden bg-brand-primary">
+        {/* Background Depth & Movement */}
+        <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/5 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[140px] -z-10 -translate-x-1/3 translate-y-1/3"></div>
+
+        <div className="section-padding relative z-10 w-full grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          {/* Left Content Column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+            className="lg:col-span-7"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-6">Capabilities</p>
-            <h1 className="text-5xl lg:text-7xl tracking-tighter mb-8 leading-[1]">
-              Strategic <br/><span className="premium-gradient-text italic font-serif">Powerhouses</span>
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl group">
+              <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full animate-ping"></span>
+              <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Capabilities</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+               360° <br/>
+               <span className="premium-gradient-text italic font-serif block mt-4">Dominance</span>
             </h1>
-            <p className="text-xl text-brand-text-muted max-w-2xl mx-auto font-medium leading-relaxed mb-16">
-              We merge architectural physical visibility with precision digital scaling to create unstoppable brand momentum.
+            
+            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
+               Engineering brand momentum from high-velocity physical visibility to precision-targeted digital scaling. Total market architecture.
             </p>
+
+            {/* Live Stats Row */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
+               <div className="group">
+                  <p className="text-4xl font-black text-brand-secondary mb-2 group-hover:translate-x-2 transition-transform">8+</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30">Active States</p>
+               </div>
+               <div className="group">
+                  <p className="text-4xl font-black text-white mb-2 group-hover:translate-x-2 transition-transform">24/7</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30">Ops Control</p>
+               </div>
+               <div className="group hidden md:block">
+                  <p className="text-4xl font-black text-white mb-2 group-hover:translate-x-2 transition-transform">Hybrid</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-white/30">Omnichannel</p>
+               </div>
+            </div>
+
+            {/* Search Bar Integration */}
+            <div className="max-w-xl relative group">
+               <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-white/40 text-xl group-focus-within:text-brand-secondary transition-colors" />
+               <input 
+                 type="text" 
+                 placeholder="Search our monolithic services..." 
+                 className="w-full bg-white/5 border border-white/10 rounded-[2rem] px-16 py-5 text-white placeholder:text-white/20 focus:outline-none focus:border-brand-secondary/50 transition-all backdrop-blur-md"
+                 value={searchTerm}
+                 onChange={(e) => setSearchTerm(e.target.value)}
+               />
+            </div>
           </motion.div>
 
-          {/* Search Bar */}
-          <div className="w-full max-w-xl mx-auto relative group mb-12">
-            <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-text-muted text-xl group-focus-within:text-brand-secondary transition-colors" />
-            <input 
-              type="text" 
-              placeholder="Searching for a specific medium?" 
-              className="w-full luxury-input !pl-16 !py-6 shadow-xl"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
+          {/* Right Pillar Visuals Column */}
+          <motion.div
+            className="lg:col-span-12 lg:col-start-8 lg:col-end-13 relative hidden lg:block"
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+             <div className="relative aspect-square">
+                {/* Floating Service Pillars in Glassmorphic Space */}
+                <div className="absolute top-0 right-0 w-full h-full bg-white/5 rounded-[4rem] border border-white/5 backdrop-blur-[2px] -rotate-3 overflow-hidden shadow-3xl">
+                   <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/10 via-transparent to-transparent"></div>
+                </div>
+
+                {/* Service Pillar 1: Outdoor */}
+                <div className="absolute top-10 left-10 glass-card !bg-white/10 !p-8 !rounded-[2.5rem] !border-white/10 shadow-2xl rotate-6 hover:rotate-0 transition-transform duration-500 group">
+                   <div className="w-14 h-14 rounded-2xl bg-brand-secondary flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-secondary/20">
+                      <FiTruck size={30} />
+                   </div>
+                   <p className="text-white font-black text-lg leading-tight uppercase tracking-tighter">Monolithic <br/>Outdoor</p>
+                </div>
+
+                {/* Service Pillar 2: Digital */}
+                <div className="absolute bottom-12 right-0 glass-card !bg-brand-primary !p-8 !rounded-[2.5rem] !border-white/10 shadow-3xl -rotate-12 hover:rotate-0 transition-transform duration-500">
+                   <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-brand-primary mb-6 shadow-xl">
+                      <FiMonitor size={30} />
+                   </div>
+                   <p className="text-white font-black text-lg leading-tight uppercase tracking-tighter">Precision <br/>Digital</p>
+                </div>
+
+                {/* Center Core Accents */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-brand-secondary/20 blur-[60px] animate-pulse"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-2 border-brand-secondary/40 flex items-center justify-center animate-spin-slow">
+                   <FiZap size={40} className="text-brand-secondary" />
+                </div>
+             </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Operational Sites Section (Special) */}
-      <section className="section-padding mb-32">
+      <section className="section-padding mb-32 py-24">
         <div className="glass-card !bg-brand-text-main !p-12 !rounded-[3.5rem] relative overflow-hidden">
            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-[100px]"></div>
            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">

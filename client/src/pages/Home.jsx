@@ -50,62 +50,83 @@ export default function Home() {
         <meta name="description" content="Offline Ho Ya Online - Brand Sab Jagah! High visibility outdoor branding, transit branding, and digital marketing agency in Dehradun." />
       </Helmet>
 
-      {/* Hero Section - High-Fidelity Editorial */}
-      <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-white pt-32 pb-24">
-        {/* Abstract Background Accents */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 translate-x-1/3 -translate-y-1/3 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-primary/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+      {/* Hero Section - High-Fidelity Architectural Monolith */}
+      <section className="relative min-h-screen w-full flex items-center py-24 overflow-hidden bg-brand-primary">
+        {/* Background Depth Layers */}
+        <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/10 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
         
-        <div className="section-padding grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+        <div className="section-padding grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          {/* Left Content Column */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+            <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-10 shadow-2xl overflow-hidden group">
               <span className="w-2 h-2 bg-brand-secondary rounded-full animate-ping"></span>
-              <span className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-text-muted">Marketing That Moves</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h2 className="text-5xl lg:text-7xl mb-10 leading-none tracking-tighter transition-all">
+            <h1 className="text-6xl md:text-8xl lg:text-[6.5rem] mb-12 leading-[0.9] tracking-tighter text-white font-black">
               Offline Ho <br/>Ya Online <br/>
-              <span className="premium-gradient-text italic font-serif">Brand Sab Jagah!</span>
-            </h2>
+              <span className="premium-gradient-text italic font-serif block mt-4">Brand Sab Jagah!</span>
+            </h1>
             
-            <p className="text-xl text-brand-text-muted leading-relaxed max-w-lg mb-12 font-medium">
-              We don't just run ads; we build architectures for growth. From premium OOH hoarding to data-driven digital campaigns.
+            <p className="text-xl md:text-2xl text-white/50 leading-relaxed max-w-xl mb-14 font-medium border-l-2 border-brand-secondary/30 pl-8">
+              We don't just run ads; we engineer architectures for growth. From premium OOH hoarding to data-driven digital infrastructure.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link to="/services" className="btn-conversion !px-12">
-                Our Services <FiArrowRight />
+              <Link to="/services" className="btn-conversion !px-12 !py-5 text-lg group">
+                Strategic Services 
+                <FiArrowRight className="group-hover:translate-x-2 transition-transform" />
               </Link>
-              <Link to="/portfolio" className="btn-primary !px-12">
-                View Portfolio
+              <Link to="/portfolio" className="btn-primary !bg-white/5 !text-white !px-12 !py-5 text-lg border border-white/10 hover:!bg-white/10 backdrop-blur-sm">
+                View Impact
               </Link>
             </div>
           </motion.div>
 
-          {/* Right Media Section */}
+          {/* Right Media Column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="rounded-[3.5rem] overflow-hidden relative shadow-2xl">
-              <Carousel />
-            </div>
-            
-            {/* Stats Overlay */}
-            <div className="absolute -bottom-8 -left-8 glass-card !rounded-3xl p-8 shadow-2xl reveal-up" style={{ animationDelay: '0.8s' }}>
-              <p className="text-4xl font-black text-brand-secondary">8+</p>
-              <p className="text-[10px] uppercase tracking-widest font-bold text-brand-text-muted">Operational States</p>
+            <div className="relative group">
+              <div className="rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5">
+                <Carousel />
+              </div>
+
+              {/* Sophisticated Glass Stats Card */}
+              <div className="absolute -bottom-10 -left-10 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[3rem] p-10 shadow-2xl reveal-up min-w-[280px]" style={{ animationDelay: '0.8s' }}>
+                <div className="flex items-center gap-6 mb-4">
+                   <div className="w-14 h-14 rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
+                      <FiZap size={28} />
+                   </div>
+                   <div>
+                      <p className="text-5xl font-black text-white leading-none">8+</p>
+                      <p className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary mt-1">Operational States</p>
+                   </div>
+                </div>
+                <div className="h-px w-full bg-white/10 my-6"></div>
+                <div className="flex items-center justify-between">
+                   <p className="text-[10px] uppercase tracking-widest font-bold text-white/40">Network Impact</p>
+                   <p className="text-brand-secondary text-xs font-black">10M+ Monthly Reach</p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Floating Geometric Elements */}
+        <div className="absolute top-1/4 left-10 w-24 h-24 border border-brand-secondary/20 rounded-3xl rotate-12 -z-10 opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-white/10 rounded-[3rem] -rotate-12 -z-10 opacity-10"></div>
       </section>
+
 
       {/* Services Showcase - Editorial Layout */}
       <section className="py-24 bg-white">

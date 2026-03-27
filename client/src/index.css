@@ -87,15 +87,24 @@
 }
 
 .luxury-select {
-  @apply w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-secondary/50 focus:ring-4 focus:ring-brand-secondary/5 shadow-sm transition-all duration-300 font-medium text-brand-text-main appearance-none cursor-pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23EA580C'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  @apply w-full bg-white border border-gray-100 rounded-2xl px-6 py-4 pr-12 focus:outline-none focus:border-brand-secondary focus:ring-4 focus:ring-brand-secondary/5 shadow-sm transition-all duration-300 font-medium text-brand-text-main appearance-none cursor-pointer overflow-hidden text-ellipsis whitespace-nowrap;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23EA580C'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 1.5rem center;
-  background-size: 1.25rem;
+  background-position: right 1.25rem center;
+  background-size: 1.5rem;
+}
+
+.luxury-select:focus {
+  @apply border-brand-secondary transform scale-[1.01];
 }
 
 .luxury-select option {
-  @apply py-4 bg-white text-brand-text-main;
+  @apply py-4 px-6 bg-white text-brand-text-main font-sans text-sm;
+  line-height: 2.5; /* Spacing for the dropdown list */
+}
+
+.luxury-select option:checked {
+  @apply bg-brand-secondary text-white;
 }
 
   /* Dropdown Utility */
@@ -117,5 +126,22 @@
       opacity: 1;
       translate-y: 0;
     }
+  }
+
+  /* Custom Scrollbar Utility */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8fafc; /* Suble gray to match background */
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-brand-secondary;
+    border-radius: 10px;
+    border: 3px solid #f8fafc; /* Creates space around the thumb */
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-orange-600;
   }
 }
