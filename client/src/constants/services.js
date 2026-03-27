@@ -3,6 +3,10 @@ import transitImg from '../assets/refined_transit_regional_bus_1774478793423.png
 import eventImg from '../assets/extreme_photorealistic_stage_1774478602352.png';
 import digitalImg from '../assets/extreme_photorealistic_dashboard_1774478618848.png';
 import reachImg from '../assets/refined_national_reach_map_1774478777301.png';
+import itImg from '../assets/it_services.png';
+import whatsappImg from '../assets/whatsapp_marketing.png';
+import portalImg from '../assets/management_portals.png';
+import erpImg from '../assets/erp_crm.png';
 
 export const services = [
   {
@@ -152,6 +156,106 @@ export const services = [
       stats: [
         { label: 'Overall Reach', value: '15M+' },
         { label: 'Lead Conversion', value: '+65%' }
+      ]
+    }
+  },
+  {
+    id: 'it-development',
+    title: 'Web & App\nDevelopment Architecture',
+    icon: 'digital',
+    image: itImg,
+    color: 'orange',
+    tag: 'Digital Infrastructure',
+    shortDesc: 'High-performance web and mobile solutions tailored for enterprise scale.',
+    detailedDescription: 'We dont just build websites; we architect digital destinations. Our development stack is engineered for speed, security, and absolute conversion, ensuring your home on the internet is as robust as your physical presence.',
+    roi: '+180% Tech Performance',
+    features: ['Next.js & MERN Stack', 'Premium e-Commerce Apps', 'Enterprise Web Portals', 'UX/UI Wireframing'],
+    methodology: [
+      { id: '01', title: 'Speed Engineering', desc: 'Optimizing core web vitals for instantaneous user engagement.' },
+      { id: '02', title: 'Security Architecture', desc: 'Hardened digital perimeters to protect user data and brand integrity.' },
+      { id: '03', title: 'Conversion Logic', desc: 'Deploying strategic UI flows that guide users toward high-value actions.' }
+    ],
+    caseStudy: {
+      title: 'The Enterprise Portal Pulse',
+      desc: 'Building a multi-region e-commerce ecosystem that scaled to 1M+ monthly active users.',
+      stats: [
+        { label: 'Load Speed Lift', value: '3.4x' },
+        { label: 'Conversion Rate', value: '+48%' }
+      ]
+    }
+  },
+  {
+    id: 'whatsapp-marketing',
+    title: 'Bulk WhatsApp &\nDirect Messaging',
+    icon: 'transit',
+    image: whatsappImg,
+    color: 'blue',
+    tag: 'Kinetic Reach',
+    shortDesc: 'Automated high-velocity messaging to reach customers directly on their screens.',
+    detailedDescription: 'Bypass the inbox noise. Our direct messaging architecture delivers your brand message directly to the one screen your customer never ignores. High deliverability, rich media support, and precision targeting.',
+    roi: '98% Open Rate Velocity',
+    features: ['Official WhatsApp API', 'Bulk Media Messaging', 'Automated Chatbot Logic', 'Hyper-Segmented Lists'],
+    methodology: [
+      { id: '01', title: 'Open-Rate Optimization', desc: 'Crafting initial hooks that trigger immediate user curiosity.' },
+      { id: '02', title: 'Automated Funnels', desc: 'Designing chatbot architectures that qualify leads in real-time.' },
+      { id: '03', title: 'Compliance Shield', desc: 'Ensuring all communications adhere to global anti-spam architectures.' }
+    ],
+    caseStudy: {
+      title: 'The Omni-Reach Messaging',
+      desc: 'Executing a festival-season messaging blitz that generated 12,000+ direct leads in 48 hours.',
+      stats: [
+        { label: 'Message Open Rate', value: '98.2%' },
+        { label: 'Direct ROI', value: '14.5x' }
+      ]
+    }
+  },
+  {
+    id: 'management-portals',
+    title: 'Custom Portals &\nManagement Dashboards',
+    icon: 'events',
+    image: portalImg,
+    color: 'orange',
+    tag: 'Control Systems',
+    shortDesc: 'Internal management systems designed to streamline complex business operations.',
+    detailedDescription: 'Control the chaos. We build custom internal architectures—ERP, CRM, and Management Portals—that provide a single source of truth for your entire business operation. Real-time data, absolute transparency.',
+    roi: '+55% Operational Efficiency',
+    features: ['Custom CRM Architecture', 'Resource (ERP) Planning', 'Employee/Client Dashboards', 'API Data Integration'],
+    methodology: [
+      { id: '01', title: 'Data Consolidation', desc: 'Merging fragmented spreadsheets into a single visual architecture.' },
+      { id: '02', title: 'Permission Logic', desc: 'Architecting tiered access systems for secure internal collaboration.' },
+      { id: '03', title: 'Visual Intelligence', desc: 'Turning raw metrics into high-impact, actionable visual narratives.' }
+    ],
+    caseStudy: {
+      title: 'The Internal System Overhaul',
+      desc: 'Developing a bespoke ERP for a regional logistics giant, reducing operational leakages by 22%.',
+      stats: [
+        { label: 'Process Speed', value: '+40%' },
+        { label: 'Cost Reduction', value: '18%' }
+      ]
+    }
+  },
+  {
+    id: 'erp-crm-solutions',
+    title: 'Enterprise ERP &\nCustom CRM Architectures',
+    icon: 'digital',
+    image: erpImg,
+    color: 'blue',
+    tag: 'Operational Backbone',
+    shortDesc: 'End-to-end business management software to unify your entire operational landscape.',
+    detailedDescription: 'Transform your business from a collection of departments into a single, unified organism. Our custom ERP and CRM architectures are built to automate the mundane and illuminate the critical, giving you total command over your growth velocity.',
+    roi: '+300% Scale Capacity',
+    features: ['Custom CRM Development', 'Inventory & Supply Architecture', 'Automated Lead Management', 'Comprehensive BI Reporting'],
+    methodology: [
+      { id: '01', title: 'Operational Audit', desc: 'Decoding your unique business physics to build a system that works like you do.' },
+      { id: '02', title: 'Seamless Unification', desc: 'Connecting separate data silos into a single, cohesive source of truth.' },
+      { id: '03', title: 'Structural Scalability', desc: 'Building systems that dont just handle your current load, but architect path for 10x growth.' }
+    ],
+    caseStudy: {
+      title: 'The Manufacturing Momentum',
+      desc: 'Implementing an end-to-end ERP for a multi-state manufacturing group, centralizing operations for 15+ plants.',
+      stats: [
+        { label: 'Inventory Accuracy', value: '99.8%' },
+        { label: 'Internal ROI', value: '4.5x' }
       ]
     }
   }
