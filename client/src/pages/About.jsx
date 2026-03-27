@@ -12,14 +12,14 @@ export default function About() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
         {/* Background Depth */}
         <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-secondary/5 rounded-full blur-[120px] -translate-x-1/3 translate-y-1/3"></div>
         </div>
 
-        <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="section-padding relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center">
           {/* Left Content Column */}
           <motion.div
             className="lg:col-span-7"

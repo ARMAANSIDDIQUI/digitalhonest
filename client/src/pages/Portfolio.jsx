@@ -20,13 +20,14 @@ export default function Portfolio() {
       <Helmet><title>Portfolio | Our Best Campaigns | Digital Honest</title></Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-screen w-full flex items-center py-24 overflow-hidden bg-brand-primary">
+      {/* Hero Section - High-Fidelity Architectural Monolith */}
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
         {/* Background Depth & Animated Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
         <div className="section-padding relative z-10 w-full">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Content Column */}
             <motion.div
               className="lg:col-span-7"
@@ -61,9 +62,8 @@ export default function Portfolio() {
               </div>
             </motion.div>
 
-            {/* Right Media Column - Editorial Layered Grid */}
             <motion.div
-              className="lg:col-span-5 relative hidden lg:block"
+              className="lg:col-span-5 relative mt-16 lg:mt-0"
               initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}

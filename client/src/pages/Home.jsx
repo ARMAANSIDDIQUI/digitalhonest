@@ -51,12 +51,12 @@ export default function Home() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-visible bg-brand-primary tracking-normal">
+      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center pt-32 pb-12 lg:py-24 overflow-visible bg-brand-primary tracking-normal">
         {/* Background Depth Layers */}
         <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-brand-secondary/10 rounded-full blur-[160px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
         
-        <div className="section-padding grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="section-padding grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center relative z-10">
           {/* Left Content Column */}
           <motion.div 
             className="lg:col-span-7"
