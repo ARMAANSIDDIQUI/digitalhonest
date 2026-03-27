@@ -59,7 +59,7 @@ export default function Home() {
         <div className="section-padding grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center relative z-10">
           {/* Left Content Column */}
           <motion.div 
-            className="lg:col-span-7"
+            className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -74,7 +74,7 @@ export default function Home() {
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
             
-            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed max-w-xl mb-6 lg:mb-12 font-medium border-l-2 border-brand-secondary/30 pl-4 lg:pl-8">
+            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed max-w-xl mb-6 lg:mb-12 font-medium border-brand-secondary/30 lg:border-l-2 pl-0 lg:pl-8">
               We don't just run ads; we engineer architectures for growth. From premium OOH hoarding to data-driven digital infrastructure.
             </p>
             

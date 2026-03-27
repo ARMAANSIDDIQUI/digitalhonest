@@ -41,7 +41,7 @@ export default function Services() {
         <div className="section-padding relative z-10 w-full grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           {/* Left Content Column */}
           <motion.div
-            className="lg:col-span-7"
+            className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -56,7 +56,7 @@ export default function Services() {
                <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Dominance</span>
             </h1>
             
-            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-2xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
+            <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-2xl border-brand-secondary/40 lg:border-l-2 pl-0 lg:pl-10">
                Engineering brand momentum from high-velocity physical visibility to precision-targeted digital scaling. Total market architecture.
             </p>
 

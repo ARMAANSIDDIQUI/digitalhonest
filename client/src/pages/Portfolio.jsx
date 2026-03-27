@@ -30,7 +30,7 @@ export default function Portfolio() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Content Column */}
             <motion.div
-              className="lg:col-span-7"
+              className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -45,7 +45,7 @@ export default function Portfolio() {
                 <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Stories</span>
               </h1>
 
-              <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-xl border-l-2 border-brand-secondary/40 pl-6 lg:pl-10">
+              <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-8 lg:mb-14 max-w-xl border-brand-secondary/40 lg:border-l-2 pl-0 lg:pl-10">
                 Architecting visibility for brands that demand the spotlight. From national OOH blitzes to precision digital scaling.
               </p>
 
