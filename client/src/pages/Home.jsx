@@ -28,9 +28,9 @@ const Carousel = () => {
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-      <div className="absolute bottom-12 left-12 text-white">
-        <p className="text-xs font-bold uppercase tracking-widest mb-3 text-brand-secondary border-l-4 border-brand-secondary pl-4">{services[index].tag || "Service Focus"}</p>
-        <h3 className="text-4xl font-display leading-tight whitespace-pre-line">{services[index].title}</h3>
+      <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 text-white">
+        <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3 text-brand-secondary border-l-4 border-brand-secondary pl-4">{services[index].tag || "Service Focus"}</p>
+        <h3 className="text-2xl md:text-4xl font-display leading-tight whitespace-pre-line">{services[index].title}</h3>
       </div>
     </div>
   );
@@ -69,7 +69,7 @@ export default function Home() {
               <span className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-2xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Offline Ho <br/>Ya Online <br/>
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
