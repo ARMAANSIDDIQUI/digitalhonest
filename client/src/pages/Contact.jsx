@@ -55,19 +55,19 @@ export default function Contact() {
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+            <h1 className="text-5xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
               Start Your <br />
               <span className="premium-gradient-text italic font-serif block mt-4">Growth Audit</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-10">
+            <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl mx-auto border-t border-brand-secondary/30 pt-10">
               Request a priority strategy session to engineer your brand's mass-visibility and digital expansion architecture.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <div className="section-padding -mt-32 relative z-20 pb-32">
+      <div className="section-padding -mt-16 md:-mt-32 relative z-20 pb-32">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-[3rem] sm:rounded-[4rem] shadow-premium border border-white/10 bg-brand-text-main relative z-30">
             {/* Contact Infrastructure (Left) */}

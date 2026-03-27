@@ -69,16 +69,16 @@ export default function Home() {
               <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl lg:text-[6.5rem] mb-12 leading-[0.9] tracking-tighter text-white font-black">
+            <h1 className="text-5xl md:text-8xl lg:text-[6.5rem] mb-12 leading-[0.9] tracking-tighter text-white font-black">
               Offline Ho <br/>Ya Online <br/>
               <span className="premium-gradient-text italic font-serif block mt-4">Brand Sab Jagah!</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/50 leading-relaxed max-w-xl mb-14 font-medium border-l-2 border-brand-secondary/30 pl-8">
+            <p className="text-lg md:text-2xl text-white/50 leading-relaxed max-w-xl mb-14 font-medium border-l-2 border-brand-secondary/30 pl-8">
               We don't just run ads; we engineer architectures for growth. From premium OOH hoarding to data-driven digital infrastructure.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-6 mb-16 lg:mb-0">
               <Link to="/services" className="btn-conversion !px-12 !py-5 text-lg group">
                 Strategic Services 
                 <FiArrowRight className="group-hover:translate-x-2 transition-transform" />
@@ -91,31 +91,31 @@ export default function Home() {
 
           {/* Right Media Column */}
           <motion.div
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative mt-20 lg:mt-0"
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="relative group">
-              <div className="rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5">
+              <div className="rounded-[3rem] md:rounded-[4rem] overflow-hidden relative shadow-3xl border border-white/5 aspect-square sm:aspect-auto sm:h-[600px]">
                 <Carousel />
               </div>
 
               {/* Sophisticated Glass Stats Card */}
-              <div className="absolute -bottom-10 -left-10 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[3rem] p-10 shadow-2xl reveal-up min-w-[280px]" style={{ animationDelay: '0.8s' }}>
-                <div className="flex items-center gap-6 mb-4">
-                   <div className="w-14 h-14 rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
-                      <FiZap size={28} />
+              <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-left-10 glass-card !bg-white/10 !backdrop-blur-[40px] !border-white/20 !rounded-[2.5rem] md:!rounded-[3rem] p-6 md:p-10 shadow-2xl reveal-up min-w-[240px] md:min-w-[280px]" style={{ animationDelay: '0.8s' }}>
+                <div className="flex items-center gap-4 md:gap-6 mb-4">
+                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-brand-secondary flex items-center justify-center text-white shadow-lg shadow-brand-secondary/20">
+                      <FiZap size={24} className="md:w-[28px] md:h-[28px]" />
                    </div>
                    <div>
-                      <p className="text-5xl font-black text-white leading-none">8+</p>
-                      <p className="text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary mt-1">Operational States</p>
+                      <p className="text-3xl md:text-5xl font-black text-white leading-none">8+</p>
+                      <p className="text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-black text-brand-secondary mt-1">Operational States</p>
                    </div>
                 </div>
-                <div className="h-px w-full bg-white/10 my-6"></div>
+                <div className="h-px w-full bg-white/10 my-4 md:my-6"></div>
                 <div className="flex items-center justify-between">
-                   <p className="text-[10px] uppercase tracking-widest font-bold text-white/40">Network Impact</p>
-                   <p className="text-brand-secondary text-xs font-black">10M+ Monthly Reach</p>
+                   <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-bold text-white/40">Network Impact</p>
+                   <p className="text-brand-secondary text-[10px] md:text-xs font-black">10M+ Monthly Reach</p>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function Home() {
         {/* Infinite Sliding Carousel - Full Screen Width */}
         <div className="relative w-full overflow-hidden">
           <motion.div 
-            className="flex gap-8"
+            className="flex gap-4 md:gap-8"
             animate={{ 
               x: ["0%", "-50%"] 
             }}
@@ -161,15 +161,15 @@ export default function Home() {
             {[...services, ...services].map((service, idx) => (
               <div
                 key={`${service.id}-${idx}`}
-                className="relative h-[500px] w-[350px] flex-shrink-0 rounded-[3rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 group"
+                className="relative h-[400px] md:h-[500px] w-[280px] md:w-[350px] flex-shrink-0 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-sm hover:shadow-premium transition-all duration-700 group"
               >
                 <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
                 
-                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                  <p className="text-[10px] uppercase tracking-widest font-black text-brand-secondary mb-3">{service.tag}</p>
-                  <h3 className="text-3xl text-white mb-6 group-hover:translate-x-2 transition-transform duration-500 whitespace-pre-line font-bold font-display leading-[1.1]">{service.title}</h3>
-                  <Link to={`/services/${service.id}`} className="w-12 h-12 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest font-black text-brand-secondary mb-3">{service.tag}</p>
+                  <h3 className="text-2xl md:text-3xl text-white mb-6 group-hover:translate-x-2 transition-transform duration-500 whitespace-pre-line font-bold font-display leading-[1.1]">{service.title}</h3>
+                  <Link to={`/services/${service.id}`} className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                     <FiArrowRight className="text-brand-primary" />
                   </Link>
                 </div>

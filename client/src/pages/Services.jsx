@@ -51,12 +51,12 @@ export default function Services() {
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Capabilities</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+            <h1 className="text-5xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
                360° <br/>
                <span className="premium-gradient-text italic font-serif block mt-4">Dominance</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
+            <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
                Engineering brand momentum from high-velocity physical visibility to precision-targeted digital scaling. Total market architecture.
             </p>
 
@@ -170,13 +170,13 @@ export default function Services() {
                   <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/40 to-transparent"></div>
                   
-                  <div className="absolute inset-x-8 bottom-8 glass-card !p-8 !rounded-[2.5rem] translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                  <div className="absolute inset-x-4 md:inset-x-8 bottom-6 md:bottom-8 glass-card !p-6 md:!p-8 !rounded-[2rem] md:!rounded-[2.5rem] translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                     <div className="flex justify-between items-end">
                       <div>
-                        <p className="text-[9px] uppercase tracking-widest font-black text-brand-secondary mb-2">{service.tag}</p>
-                        <h3 className="text-2xl text-white font-bold leading-tight whitespace-pre-line">{service.title}</h3>
+                        <p className="text-[8px] md:text-[9px] uppercase tracking-widest font-black text-brand-secondary mb-2">{service.tag}</p>
+                        <h3 className="text-xl md:text-2xl text-white font-bold leading-tight whitespace-pre-line">{service.title}</h3>
                       </div>
-                      <Link to={`/services/${service.id}`} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-primary shadow-lg hover:scale-110 transition-transform">
+                      <Link to={`/services/${service.id}`} className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-brand-primary shadow-lg hover:scale-110 transition-transform">
                         <FiArrowRight />
                       </Link>
                     </div>

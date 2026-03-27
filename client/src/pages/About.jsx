@@ -33,51 +33,51 @@ export default function About() {
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Digital Honest Philosophy</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl lg:text-[7rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+            <h1 className="text-5xl md:text-8xl lg:text-[7rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
               Apne Brand Ko <br />
               <span className="premium-gradient-text italic font-serif block mt-4">Bada Banao</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
+            <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-2xl border-l-2 border-brand-secondary/40 pl-10">
               Digital Honest is more than an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
             </p>
             
-            <div className="grid grid-cols-2 gap-8 max-w-lg">
-              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-10 !rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
-                <p className="text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Brands Elevated</p>
+            <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-lg mb-16 lg:mb-0">
+              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
+                <p className="text-3xl md:text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
+                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Brands Elevated</p>
               </div>
-              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-10 !rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
-                <p className="text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Years Tenure</p>
+              <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
+                <p className="text-3xl md:text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
+                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Years Tenure</p>
               </div>
             </div>
           </motion.div>
 
           {/* Right Media Column */}
           <motion.div
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative mt-16 lg:mt-0"
             initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="aspect-square lg:aspect-[4/5] rounded-[4rem] overflow-hidden shadow-3xl relative border border-white/5">
+            <div className="aspect-square lg:aspect-[4/5] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-3xl relative border border-white/5">
               <img src={aboutImg} alt="Marketing Architecture" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/20 to-transparent"></div>
               
               {/* Branding Stamp */}
-              <div className="absolute top-12 right-12 w-24 h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md rotate-12">
-                 <p className="text-[8px] font-black text-white/30 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
+              <div className="absolute top-8 right-8 md:top-12 md:right-12 w-20 h-20 md:w-24 md:h-24 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md rotate-12">
+                 <p className="text-[7px] md:text-[8px] font-black text-white/30 uppercase tracking-[0.2em] text-center leading-tight">Authentic <br/> Honest <br/> growth</p>
               </div>
             </div>
 
             {/* Quote Overlay */}
-            <div className="absolute -bottom-10 -left-10 glass-card !bg-brand-secondary !p-12 !rounded-[3rem] shadow-3xl max-w-[320px] reveal-up border-none group hover:-translate-y-4 hover:rotate-2">
-              <p className="text-2xl font-serif italic text-white leading-tight mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
+            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-left-10 glass-card !bg-brand-secondary !p-8 md:!p-12 !rounded-[2.5rem] md:!rounded-[3rem] shadow-3xl max-w-[280px] md:max-w-[320px] reveal-up border-none group hover:-translate-y-4 hover:rotate-2">
+              <p className="text-xl md:text-2xl font-serif italic text-white leading-tight mb-6 group-hover:scale-105 transition-transform">"Every great brand is an architectural masterpiece."</p>
               <div className="flex items-center gap-4">
-                 <div className="w-10 h-0.5 bg-white/30"></div>
-                 <p className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60">Honest Mantra</p>
+                 <div className="w-8 md:w-10 h-0.5 bg-white/30"></div>
+                 <p className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black text-white/60">Honest Mantra</p>
               </div>
             </div>
           </motion.div>

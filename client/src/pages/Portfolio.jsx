@@ -39,12 +39,12 @@ export default function Portfolio() {
                 <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Proven Impact Portfolio</span>
               </div>
 
-              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
+              <h1 className="text-5xl md:text-8xl lg:text-[7.5rem] mb-12 leading-[0.85] tracking-tighter text-white font-black">
                 Success <br />
                 <span className="premium-gradient-text italic font-serif block mt-4">Stories</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-xl border-l-2 border-brand-secondary/40 pl-10">
+              <p className="text-lg md:text-2xl text-white/50 leading-relaxed font-medium mb-16 max-w-xl border-l-2 border-brand-secondary/40 pl-10">
                 Architecting visibility for brands that demand the spotlight. From national OOH blitzes to precision digital scaling.
               </p>
 
