@@ -69,7 +69,7 @@ export default function Home() {
               <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-[2.75rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Offline Ho <br/>Ya Online <br/>
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
