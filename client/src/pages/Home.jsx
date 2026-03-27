@@ -66,10 +66,10 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl overflow-hidden group">
               <span className="w-2 h-2 bg-brand-secondary rounded-full animate-ping"></span>
-              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
+              <span className="text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-black text-white/60 group-hover:text-brand-secondary transition-colors">Marketing Architecture</span>
             </div>
             
-            <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Offline Ho <br/>Ya Online <br/>
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Brand Sab Jagah!</span>
             </h1>
@@ -129,8 +129,14 @@ export default function Home() {
 
 
       {/* Services Showcase - Editorial Layout */}
-      <section className="py-24 bg-white">
-        <div className="section-padding mb-20">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="section-padding mb-20"
+        >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-xl">
               <p className="text-xs uppercase tracking-[0.4em] font-black text-brand-secondary mb-4">Core Offerings</p>
@@ -140,7 +146,7 @@ export default function Home() {
               All Services <FiArrowRight className="text-brand-secondary" />
             </Link>
           </div>
-        </div>
+        </motion.div>
 
         {/* Infinite Sliding Carousel - Full Screen Width */}
         <div className="relative w-full overflow-hidden">

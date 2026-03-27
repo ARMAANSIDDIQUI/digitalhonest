@@ -99,7 +99,13 @@ const ServiceDetail = () => {
 
       {/* The Capability Audit (Asymmetric Grid) */}
       <section className="py-32 px-4 md:px-8 bg-white/50 backdrop-blur-sm relative z-20">
-        <div className="section-padding !max-w-screen-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="section-padding !max-w-screen-2xl mx-auto"
+        >
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 border-b border-gray-100 pb-12">
             <h2 className="text-4xl lg:text-5xl text-[#000613] font-display">The Capability Audit</h2>
             <p className="max-w-md text-brand-text-muted text-lg mt-4 md:mt-0 font-medium">Our systematic approach to performance, decoded for the elite enterprise.</p>
@@ -119,7 +125,7 @@ const ServiceDetail = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Impact Rail (Full-Width Auto Carousel) */}
@@ -169,7 +175,13 @@ const ServiceDetail = () => {
 
       {/* Deep Dive Case Study */}
       <section className="bg-white py-32 relative overflow-hidden">
-        <div className="section-padding !max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="section-padding !max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center"
+        >
           <motion.div variants={itemVariants} className="space-y-12 order-2 lg:order-1">
             <span className="text-[#ea580c] text-[10px] font-black uppercase tracking-[0.4em]">Featured Blueprint</span>
             <h2 className="text-5xl lg:text-6xl text-[#000613] font-display leading-tight">{service.caseStudy.title}</h2>
@@ -202,7 +214,7 @@ const ServiceDetail = () => {
               />
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Social Proof (Tonal Stats) */}

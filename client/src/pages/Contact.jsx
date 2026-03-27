@@ -52,10 +52,10 @@ export default function Contact() {
           >
             <div className="inline-flex items-center gap-4 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 mb-6 lg:mb-10 shadow-2xl group mx-auto">
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
-              <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
+              <span className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
             </div>
 
-            <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Start Your <br />
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Growth Audit</span>
             </h1>

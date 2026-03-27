@@ -32,7 +32,7 @@ export default function About() {
               <span className="w-2.5 h-2.5 bg-brand-secondary rounded-full"></span>
               <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Digital Honest Philosophy</span>
             </div>
-            <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Apne Brand Ko <br />
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Bada Banao</span>
             </h1>
@@ -43,11 +43,11 @@ export default function About() {
             
             <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-lg mb-16 lg:mb-0">
               <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-3xl md:text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
+                <p className="text-2xl md:text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
                 <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Brands Elevated</p>
               </div>
               <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-3xl md:text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
+                <p className="text-2xl md:text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
                 <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Years Tenure</p>
               </div>
             </div>
@@ -127,8 +127,14 @@ export default function About() {
       </section>
 
       {/* States / Presence Bar */}
-      <section className="py-12 bg-brand-bg">
-        <div className="section-padding">
+      <section className="py-12 bg-brand-bg relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="section-padding"
+        >
            <div className="glass-card !rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/5 rounded-full blur-[80px]"></div>
              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -154,7 +160,7 @@ export default function About() {
                 </div>
              </div>
            </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

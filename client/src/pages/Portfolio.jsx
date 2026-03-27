@@ -40,7 +40,7 @@ export default function Portfolio() {
                 <span className="text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Proven Impact Portfolio</span>
               </div>
 
-              <h1 className="text-[2.25rem] lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+              <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
                 Success <br />
                 <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Stories</span>
               </h1>
@@ -49,8 +49,12 @@ export default function Portfolio() {
                 Architecting visibility for brands that demand the spotlight. From national OOH blitzes to precision digital scaling.
               </p>
 
-              {/* Interactive Search Bar Overlay */}
-              <div className="w-full max-w-xl relative group">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="w-full max-w-xl relative group"
+              >
                 <FiSearch className="absolute left-6 top-1/2 -translate-y-1/2 text-white/40 text-xl group-focus-within:text-brand-secondary transition-colors" />
                 <input
                   type="text"
@@ -59,7 +63,7 @@ export default function Portfolio() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-              </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
