@@ -55,21 +55,21 @@ const ServiceDetail = () => {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/5 rounded-full blur-[140px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
         </div>
 
-        <div className="section-padding pt-40 pb-32 relative z-10 w-full grid grid-cols-12 gap-8 items-center">
-          <motion.div variants={itemVariants} className="col-span-12 lg:col-span-10">
+        <div className="section-padding pt-24 md:pt-28 pb-16 md:pb-20 relative z-10 w-full grid grid-cols-12 gap-6 md:gap-8 items-center">
+          <motion.div variants={itemVariants} className="col-span-12 lg:col-span-11 xl:col-span-10">
             <Link
               to="/services"
-              className="inline-flex items-center gap-3 text-brand-secondary font-black text-[10px] uppercase tracking-[0.3em] mb-6 group"
+              className="inline-flex items-center gap-3 text-brand-secondary font-black text-[9px] md:text-[10px] uppercase tracking-[0.3em] mb-4 md:mb-6 group"
             >
               <FiArrowLeft className="group-hover:-translate-x-2 transition-transform" />
               360° Strategy Hub
             </Link>
 
-            <h1 className="font-serif italic font-extrabold tracking-tight leading-none mb-12">
+            <h1 className="font-serif italic font-extrabold tracking-tight leading-none mb-8 md:mb-12">
               <span
-                className="inline-block bg-clip-text text-transparent text-[clamp(2.5rem,8vw,5.5rem)] leading-[1.05] pb-2"
+                className="inline-block bg-clip-text text-transparent text-[clamp(2rem,12vw,5.5rem)] leading-[1.05] pb-2 text-left"
                 style={{
-                  backgroundImage: 'linear-gradient(135deg, #ea580c 0%, #ea580c 35%, #0f172a 65%, #0f172a 100%)',
+                  backgroundImage: 'linear-gradient(135deg, #ea580c 0%, #ea580c 45%, #0f172a 75%, #0f172a 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -78,18 +78,18 @@ const ServiceDetail = () => {
               </span>
             </h1>
 
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-              <p className="font-body text-xl md:text-2xl text-brand-text-muted max-w-xl leading-relaxed font-medium">
+            <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+              <p className="font-body text-lg md:text-2xl text-brand-text-muted max-w-xl leading-relaxed font-medium">
                 {service.detailedDescription}
               </p>
 
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
-                <Link to="/contact" className="bg-[#ea580c] text-white px-12 py-6 font-display font-bold text-lg rounded-full hover:scale-105 transition-transform shadow-[0_20px_40px_-15px_rgba(234,88,12,0.3)]">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 md:gap-12">
+                <Link to="/contact" className="bg-[#ea580c] text-white px-8 md:px-12 py-5 md:py-6 font-display font-bold text-base md:text-lg rounded-full hover:scale-105 transition-transform shadow-[0_20px_40px_-15px_rgba(234,88,12,0.3)] text-center">
                   Launch Campaign
                 </Link>
-                <div className="flex flex-col border-l-4 border-[#ea580c] pl-6">
-                  <span className="font-display font-bold text-[#001f3f] text-4xl">{service.roi}</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted mt-1">Verified Performance</span>
+                <div className="flex flex-row sm:flex-col border-l-4 sm:border-l-4 border-[#ea580c] pl-6 items-center sm:items-start gap-4 sm:gap-0">
+                  <span className="font-display font-bold text-[#001f3f] text-3xl md:text-4xl">{service.roi}</span>
+                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-brand-text-muted mt-1 whitespace-nowrap">Verified Performance</span>
                 </div>
               </div>
             </div>
