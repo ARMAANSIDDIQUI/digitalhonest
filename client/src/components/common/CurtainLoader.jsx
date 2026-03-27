@@ -29,10 +29,26 @@ const CurtainLoader = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center"
           >
-            <div className="w-24 h-24 mb-8 mx-auto relative">
-              <span className="absolute inset-0 border-t-2 border-brand-secondary rounded-full animate-spin"></span>
-              <div className="absolute inset-2 bg-brand-secondary/10 rounded-full backdrop-blur-md flex items-center justify-center">
-                <span className="w-3 h-3 bg-brand-secondary rounded-full"></span>
+            <div className="w-24 h-24 mb-8 mx-auto relative group">
+              {/* Rotating Flare Layer 1 */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 border-r-2 border-brand-secondary rounded-full blur-[2px] opacity-60"
+              />
+              {/* Rotating Flare Layer 2 */}
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-8px] border-l-[1px] border-white/20 rounded-full blur-[1px]"
+              />
+              {/* Central Logo Container */}
+              <div className="absolute inset-2 bg-white/5 rounded-full backdrop-blur-xl border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
+                <img 
+                  src="/logo.png" 
+                  alt="Digital Honest" 
+                  className="w-full h-full object-cover brightness-110 contrast-125"
+                />
               </div>
             </div>
             
