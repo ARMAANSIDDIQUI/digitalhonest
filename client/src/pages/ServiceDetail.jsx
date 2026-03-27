@@ -265,7 +265,7 @@ const ServiceDetail = () => {
                 <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">Direct Identity</label>
                 <input
                   type="text"
-                  placeholder="Johnathan Doe"
+                  placeholder="Your Name"
                   className="w-full bg-transparent border-b-2 border-gray-100 py-4 focus:border-[#ea580c] outline-none transition-all text-xl font-display"
                 />
               </div>
