@@ -55,7 +55,7 @@ export default function Contact() {
               <span className="text-[8px] md:text-[10px] uppercase tracking-[0.5em] font-black text-white/50 group-hover:text-brand-secondary transition-colors">Strategic Consultation</span>
             </div>
 
-            <h1 className="text-3xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
+            <h1 className="text-4xl lg:text-[6rem] mb-8 lg:mb-10 leading-[1] lg:leading-[1.1] tracking-tighter text-white font-bold font-display">
               Start Your <br />
               <span className="premium-gradient-text italic font-serif block mt-3 tracking-tighter">Growth Audit</span>
             </h1>

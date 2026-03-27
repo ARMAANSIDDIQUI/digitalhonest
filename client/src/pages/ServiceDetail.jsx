@@ -67,7 +67,7 @@ const ServiceDetail = () => {
 
             <h1 className="font-serif italic font-extrabold tracking-tight leading-none mb-8 md:mb-12">
               <span
-                className="inline-block bg-clip-text text-transparent text-[clamp(2rem,12vw,5.5rem)] leading-[1.05] pb-2 text-left"
+                className="inline-block bg-clip-text text-transparent text-[clamp(2.5rem,12vw,5.5rem)] leading-[1.05] pb-2 text-left"
                 style={{
                   backgroundImage: 'linear-gradient(135deg, #ea580c 0%, #ea580c 45%, #0f172a 75%, #0f172a 100%)',
                   WebkitBackgroundClip: 'text',
