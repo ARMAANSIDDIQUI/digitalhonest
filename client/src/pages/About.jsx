@@ -12,7 +12,7 @@ export default function About() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-screen w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
         {/* Background Depth */}
         <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] translate-x-1/2 -translate-y-1/2 animate-pulse"></div>

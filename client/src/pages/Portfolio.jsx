@@ -21,7 +21,7 @@ export default function Portfolio() {
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
+      <section className="relative min-h-screen w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
         {/* Background Depth & Animated Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
@@ -152,7 +152,7 @@ export default function Portfolio() {
       </div>
 
       {/* Operational Sites Section (Special) */}
-      <section className="section-padding min-h-[90vh] lg:min-h-[95vh] py-12 lg:py-24 relative overflow-hidden flex items-center bg-brand-primary">
+      <section className="section-padding min-h-screen py-12 lg:py-24 relative overflow-hidden flex items-center bg-brand-primary">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10"></div>
 
         <div className="glass-card !bg-white/40 backdrop-blur-3xl !p-12 md:!p-20 !rounded-[4rem] border border-white">

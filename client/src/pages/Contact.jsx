@@ -39,7 +39,7 @@ export default function Contact() {
       </Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      <section className="relative min-h-[90vh] lg:min-h-[95vh] w-full flex items-center py-12 lg:py-24 overflow-hidden bg-brand-primary text-center">
+      <section className="relative min-h-screen w-full flex items-center py-12 lg:py-24 overflow-hidden bg-brand-primary text-center">
         {/* Background Depth & Animated Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] -z-10 translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
