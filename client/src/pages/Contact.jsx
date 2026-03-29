@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { FiPhone, FiMail, FiMapPin, FiSend, FiChevronDown } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,11 +8,19 @@ import { services } from '../constants/services';
 import api from '../utils/api';
 
 export default function Contact() {
+  const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeService, setActiveService] = useState("");
   const [selectedCountry, setSelectedCountry] = useState({ code: '+91', iso: 'IN', digits: 10, label: 'India' });
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const serviceId = searchParams.get('service');
+    if (serviceId && services.find(s => s.id === serviceId)) {
+      setActiveService(serviceId);
+    }
+  }, [searchParams]);
 
   const countries = [
     { code: '+91', iso: 'IN', digits: 10, label: 'India' },

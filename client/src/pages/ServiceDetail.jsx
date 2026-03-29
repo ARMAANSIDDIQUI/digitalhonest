@@ -84,7 +84,7 @@ const ServiceDetail = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 md:gap-12">
-                <Link to="/contact" className="bg-[#ea580c] text-white px-8 md:px-12 py-5 md:py-6 font-display font-bold text-base md:text-lg rounded-full hover:scale-105 transition-transform shadow-[0_20px_40px_-15px_rgba(234,88,12,0.3)] text-center">
+                <Link to={`/contact?service=${service.id}`} className="bg-[#ea580c] text-white px-8 md:px-12 py-5 md:py-6 font-display font-bold text-base md:text-lg rounded-full hover:scale-105 transition-transform shadow-[0_20px_40px_-15px_rgba(234,88,12,0.3)] text-center">
                   Launch Campaign
                 </Link>
                 <div className="flex flex-row sm:flex-col border-l-4 sm:border-l-4 border-[#ea580c] pl-6 items-center sm:items-start gap-4 sm:gap-0">
@@ -270,30 +270,19 @@ const ServiceDetail = () => {
             </div>
           </div>
 
-          <div className="glass-card !bg-white !p-12 !rounded-[3rem] shadow-2xl relative">
+          <div className="glass-card !bg-white !p-12 !rounded-[3rem] shadow-2xl relative flex flex-col items-center justify-center text-center">
             <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#ea580c]/10 rounded-full blur-[60px]"></div>
-            <form className="space-y-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">Direct Identity</label>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full bg-transparent border-b-2 border-gray-100 py-4 focus:border-[#ea580c] outline-none transition-all text-xl font-display"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">Primary Channel</label>
-                <select className="w-full bg-transparent border-b-2 border-gray-100 py-4 focus:border-[#ea580c] outline-none transition-all text-xl font-display appearance-none">
-                  <option>{service.title}</option>
-                  <option>Omnichannel Hybrid</option>
-                  <option>360 Strategy Audit</option>
-                </select>
-              </div>
-              <button className="w-full bg-[#001f3f] text-white py-6 rounded-2xl font-display font-bold text-xl hover:bg-[#ea580c] transition-all flex items-center justify-center gap-4 group">
-                Request Strategic Briefing
-                <FiArrowRight className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </form>
+            <h3 className="text-3xl font-display font-bold text-brand-text-main mb-6">Request Strategic Briefing</h3>
+            <p className="text-brand-text-muted mb-10 max-w-sm">
+              Our growth architects are ready to audit your brand footprint. Let's build your market dominance.
+            </p>
+            <Link 
+              to={`/contact?service=${service.id}`} 
+              className="w-full bg-[#001f3f] text-white py-6 rounded-2xl font-display font-bold text-xl hover:bg-[#ea580c] transition-all flex items-center justify-center gap-4 group"
+            >
+               Request Strategic Briefing
+               <FiArrowRight className="group-hover:translate-x-2 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
