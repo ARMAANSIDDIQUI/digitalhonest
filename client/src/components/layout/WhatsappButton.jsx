@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function WhatsappButton() {
   const phone = "9412246080";
-  const message = encodeURIComponent("Hi Digital Honest! 🔥 I'm interested in scaling my brand's visibility. Let's discuss a strategy session! #BrandSabJagah");
+  const message = encodeURIComponent(`Hi Digital Honest! \u{1F525} I'm interested in scaling my brand's visibility. Let's discuss a strategy session! #BrandSabJagah`);
   const waUrl = `https://wa.me/91${phone}?text=${message}`;
 
   return (

@@ -37,7 +37,10 @@ const connectDB = async () => {
     const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/digitalhonest';
     
     await mongoose.connect(uri, {
-      bufferCommands: false, // Disable Mongoose buffering to see errors faster
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+      maxPoolSize: 1, // Prevents exhausting Atlas connection pool on Vercel
     });
     
     cachedDb = mongoose.connection;
