@@ -5,8 +5,24 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Handle CORS for Vercel Serverless Functions
+const allowedOrigins = ['https://digitalhonest.in', 'http://localhost:5173', 'http://localhost:3000'];
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization');
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+  next();
+});
+
 app.use(express.json());
 
 // Main DB Connection
@@ -31,6 +47,7 @@ app.use('/api/admin', require('./routes/admin'));
 app.use('/api/enquiries', require('./routes/enquiries'));
 
 // Define Routes for API endpoints in one file for simplicity
+app.get('/', (req, res) => res.json({ message: 'Digital Honest API is Running! Brand Sab Jagah!', status: 'active' }));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', message: 'Digital Honest API Running' }));
 
 // Conditional listen for local dev

@@ -95,6 +95,19 @@ export default function Footer() {
                 <FiMail className="text-brand-secondary shrink-0" />
                 <a href="mailto:digitalhonest@gmail.com" className="text-sm font-bold border-b border-white/10 hover:border-brand-secondary transition-colors pb-1">digitalhonest@gmail.com</a>
               </li>
+              <li className="mt-8">
+                <div className="rounded-2xl overflow-hidden border border-white/10 w-full h-32">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3443.7857416075053!2d78.04133467556467!3d30.328611674781634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDE5JzQzLjAiTiA3OMKwMDInMzguMSJF!5e0!3m2!1sen!2sin!4v1774782545559!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </li>
             </ul>
           </div>
 
