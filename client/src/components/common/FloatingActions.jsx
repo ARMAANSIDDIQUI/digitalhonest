@@ -28,7 +28,7 @@ export default function FloatingActions() {
 
   const openWhatsApp = () => {
     const message = encodeURIComponent(`Hi Digital Honest! \u{1F525} I'm interested in scaling my brand's visibility. Let's discuss a strategy session! #BrandSabJagah`);
-    window.open(`https://wa.me/919412246080?text=${message}`, '_blank');
+    window.open(`https://wa.me/917310688048?text=${message}`, '_blank');
   };
 
   return (

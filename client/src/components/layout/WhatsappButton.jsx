@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function WhatsappButton() {
-  const phone = "9412246080";
+  const phone = "917310688048";
   const message = encodeURIComponent(`Hi Digital Honest! \u{1F525} I'm interested in scaling my brand's visibility. Let's discuss a strategy session! #BrandSabJagah`);
-  const waUrl = `https://wa.me/91${phone}?text=${message}`;
+  const waUrl = `https://wa.me/${phone}?text=${message}`;
 
   return (
     <motion.a
