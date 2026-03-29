@@ -7,7 +7,7 @@ const EnquirySchema = new mongoose.Schema({
   serviceInterested: { type: String, required: true },
   budget: { type: String },
   message: { type: String },
-  status: { type: String, enum: ['new', 'contacted'], default: 'new' }
+  status: { type: String, enum: ['pending', 'completed', 'active', 'fake'], default: 'pending' }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Enquiry', EnquirySchema);

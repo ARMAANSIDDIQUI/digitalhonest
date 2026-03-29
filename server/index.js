@@ -25,22 +25,51 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// Main DB Connection
+// DB Connection Management
+let cachedDb = null;
+
 const connectDB = async () => {
+  if (cachedDb && mongoose.connection.readyState === 1) {
+    return cachedDb;
+  }
+  
   try {
     const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/digitalhonest';
-    await mongoose.connect(uri);
-    console.log('MongoDB Connected...');
+    if (uri.includes('localhost') && process.env.NODE_ENV === 'production') {
+      console.warn('WARNING: Running in production but MONGO_URI is missing or pointing to localhost!');
+    }
+    
+    await mongoose.connect(uri, {
+      bufferCommands: false, // Disable Mongoose buffering to see errors faster
+    });
+    
+    cachedDb = mongoose.connection;
+    console.log('MongoDB Connected successfully.');
+    return cachedDb;
   } catch (err) {
-    console.error('MongoDB connection error:', err.message);
-    // Don't exit process in dev, let server run for UI testing
+    console.error('MongoDB connection CRITICAL error:', err.message);
     if (process.env.NODE_ENV === 'production') {
-      process.exit(1);
+      // On Vercel, we can't exit, but we can throw to let the function fail
+      throw err;
     }
   }
 };
 
-connectDB();
+// Initial connection for cold start
+connectDB().catch(err => console.error('Initial DB connection failed:', err.message));
+
+// Middleware to ensure DB is connected before any request
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(503).json({ 
+      error: 'Service Unavailable: Database Connection Failed', 
+      details: err.message 
+    });
+  }
+});
 
 // Routes
 app.use('/api/admin', require('./routes/admin'));

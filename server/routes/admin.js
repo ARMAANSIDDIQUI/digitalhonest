@@ -3,6 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/Admin');
+const Enquiry = require('../models/Enquiry');
+const auth = require('../middleware/auth');
+
 
 // @route   POST api/admin/login
 // @desc    Authenticate admin & get token
@@ -38,8 +41,52 @@ router.post('/login', async (req, res) => {
       }
     );
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
+    console.error('Admin Login Error:', err);
+    res.status(500).json({ 
+      msg: 'Server Error', 
+      error: err.message,
+      stack: process.env.NODE_ENV === 'production' ? null : err.stack 
+    });
+  }
+});
+
+// @route   GET api/admin/enquiries
+// @desc    Get all enquiries
+// @access  Private (Admin)
+router.get('/enquiries', auth, async (req, res) => {
+  try {
+    const enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    res.json(enquiries);
+  } catch (err) {
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
+// @route   PATCH api/admin/enquiries/:id
+// @desc    Update enquiry status
+// @access  Private (Admin)
+router.patch('/enquiries/:id', auth, async (req, res) => {
+  try {
+    const enquiry = await Enquiry.findByIdAndUpdate(
+      req.params.id,
+      { $set: { status: req.body.status } },
+      { new: true }
+    );
+    res.json(enquiry);
+  } catch (err) {
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
+// @route   DELETE api/admin/enquiries/:id
+// @desc    Delete an enquiry
+// @access  Private (Admin)
+router.delete('/enquiries/:id', auth, async (req, res) => {
+  try {
+    await Enquiry.findByIdAndDelete(req.params.id);
+    res.json({ msg: 'Enquiry deleted' });
+  } catch (err) {
+    res.status(500).json({ error: 'Server Error' });
   }
 });
 

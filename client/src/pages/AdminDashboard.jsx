@@ -9,6 +9,7 @@ import api from '../utils/api';
 export default function AdminDashboard() {
   const [enquiries, setEnquiries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filterStatus, setFilterStatus] = useState('all');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -92,15 +93,38 @@ export default function AdminDashboard() {
           </button>
         </div>
 
+        {/* Filter Navigation */}
+        <div className="flex bg-white/40 backdrop-blur-3xl p-2 rounded-[2rem] border border-white mb-10 w-fit mx-auto shadow-sm">
+          {['all', 'pending', 'completed', 'active', 'fake'].map((status) => (
+            <button
+              key={status}
+              onClick={() => setFilterStatus(status)}
+              className={`px-8 py-3.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-black transition-all duration-500
+                ${filterStatus === status 
+                  ? 'bg-brand-text-main text-white shadow-xl shadow-brand-text-main/20 scale-105' 
+                  : 'hover:bg-brand-secondary/5 text-brand-text-muted/60 hover:text-brand-secondary'
+                }
+              `}
+            >
+              {status}
+              {status !== 'all' && (
+                <span className="ml-2 px-2 py-0.5 bg-current/10 rounded-full text-[8px] opacity-70">
+                  {enquiries.filter(e => e.status === status).length}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+
         {loading ? (
           <div className="text-center py-24"><div className="animate-spin w-12 h-12 border-4 border-brand-secondary border-t-transparent rounded-full mx-auto"></div></div>
-        ) : enquiries.length === 0 ? (
+        ) : enquiries.filter(e => filterStatus === 'all' || e.status === filterStatus).length === 0 ? (
           <div className="glass-card !p-12 !rounded-[3rem] text-center">
-            <h3 className="text-xl font-bold text-brand-text-muted/40 italic">No incoming requests founded.</h3>
+            <h3 className="text-xl font-bold text-brand-text-muted/40 italic">No incoming requests founded in this category.</h3>
           </div>
         ) : (
-          <div className="glass-card !p-0 !rounded-[3rem] overflow-hidden border border-white">
-            <div className="overflow-x-auto">
+          <div className="glass-card !p-0 !rounded-[3rem] overflow-hidden border border-white shadow-premium">
+            <div className="overflow-x-auto overflow-y-hidden">
               <table className="min-w-full divide-y divide-gray-100">
                 <thead className="bg-gray-50/50">
                   <tr>
@@ -112,7 +136,9 @@ export default function AdminDashboard() {
                   </tr>
                 </thead>
                 <tbody className="bg-white/40 divide-y divide-gray-100 italic font-medium">
-                  {enquiries.map((enq) => (
+                  {enquiries
+                    .filter(e => filterStatus === 'all' || e.status === filterStatus)
+                    .map((enq) => (
                     <tr key={enq._id} className="hover:bg-white/60 transition-colors">
                       <td className="px-8 py-6 whitespace-nowrap text-xs text-brand-text-muted">
                         {new Date(enq.createdAt).toLocaleDateString(undefined, { day: '2-digit', month: 'short', year: 'numeric' })}
@@ -127,17 +153,43 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-8 py-6 whitespace-nowrap">
                         <span className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest uppercase
-                          ${enq.status === 'new' ? 'bg-orange-100 text-brand-secondary' : 'bg-gray-100 text-brand-text-muted'}
+                          ${enq.status === 'pending' ? 'bg-amber-100 text-amber-600' : 
+                            enq.status === 'completed' ? 'bg-emerald-100 text-emerald-600' : 
+                            enq.status === 'fake' ? 'bg-red-100 text-red-600' : 
+                            'bg-gray-100 text-brand-text-muted'}
                         `}>
-                          {enq.status === 'new' ? <FiClock /> : <FiCheckCircle />}
+                          {enq.status === 'pending' ? <FiClock /> : 
+                           enq.status === 'completed' ? <FiCheckCircle /> : 
+                           <FiLayout />}
                           {enq.status}
                         </span>
                       </td>
-                      <td className="px-8 py-6 whitespace-nowrap text-sm font-medium flex items-center gap-4">
-                        {enq.status === 'new' && (
-                          <button onClick={() => updateStatus(enq._id, 'contacted')} className="text-brand-secondary hover:text-brand-text-main font-black text-[9px] uppercase tracking-widest bg-orange-50 px-4 py-2 rounded-xl transition-all">Engage</button>
-                        )}
-                        <button onClick={() => deleteEnquiry(enq._id)} className="text-red-400 hover:text-red-600 transition-colors">
+                      <td className="px-8 py-6 whitespace-nowrap text-sm font-medium flex items-center gap-2">
+                        <div className="flex bg-gray-50 p-1 rounded-2xl border border-gray-100">
+                          {[
+                            { id: 'pending', color: 'amber', label: 'P' },
+                            { id: 'completed', color: 'emerald', label: 'C' },
+                            { id: 'fake', color: 'red', label: 'F' }
+                          ].map(status => (
+                            <button
+                              key={status.id}
+                              onClick={() => updateStatus(enq._id, status.id)}
+                              className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black transition-all duration-300
+                                ${enq.status === status.id 
+                                  ? `bg-brand-text-main text-white scale-110 shadow-lg` 
+                                  : `hover:bg-${status.color}-100 text-${status.color}-600`
+                                }`}
+                              title={`Mark as ${status.id}`}
+                            >
+                              {status.label}
+                            </button>
+                          ))}
+                        </div>
+                        
+                        <button 
+                          onClick={() => deleteEnquiry(enq._id)} 
+                          className="w-10 h-10 flex items-center justify-center text-red-400 hover:text-red-700 hover:bg-red-50 rounded-2xl transition-all duration-500 ml-2"
+                        >
                           <FiTrash2 size={16} />
                         </button>
                       </td>

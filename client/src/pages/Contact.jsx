@@ -10,6 +10,17 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeService, setActiveService] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState({ code: '+91', iso: 'IN', digits: 10, label: 'India' });
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+
+  const countries = [
+    { code: '+91', iso: 'IN', digits: 10, label: 'India' },
+    { code: '+1', iso: 'US', digits: 10, label: 'USA/Canada' },
+    { code: '+44', iso: 'GB', digits: 10, label: 'UK' },
+    { code: '+971', iso: 'AE', digits: 9, label: 'UAE' },
+    { code: '+61', iso: 'AU', digits: 9, label: 'Australia' },
+    { code: '+65', iso: 'SG', digits: 8, label: 'Singapore' },
+  ];
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -18,14 +29,26 @@ export default function Contact() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
+    // Validation: Check phone digits according to country rules
+    if (data.phone.length !== selectedCountry.digits) {
+      toast.error(`Invalid Number: ${selectedCountry.label} requires exactly ${selectedCountry.digits} digits.`);
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Combine prefix and number for database
+    data.phone = `${data.phonePrefix}${data.phone}`;
+    delete data.phonePrefix;
+
     try {
       await api.post('/enquiries', data);
-      toast.success('Strategy session requested! We will reach out shortly.');
+      toast.success('Strategy session requested! Our team will reach out within 24 hours.');
       e.target.reset();
+      setActiveService("");
     } catch (error) {
-      console.log("Submission error:", error);
-      toast.success('Mock Submission Successful: Backend simulation active.');
-      e.target.reset();
+      console.error("Submission error:", error);
+      const errorDetail = error.response?.data?.error || error.response?.data?.details || error.message;
+      toast.error(`Submission Failed: ${errorDetail}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -129,7 +152,64 @@ export default function Contact() {
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Registry Number</label>
-                    <input type="tel" name="phone" required pattern="[0-9]{10}" className="luxury-input !border-b !border-gray-100 focus:!border-brand-secondary" placeholder="+91 XXXX XXXX" />
+                    <div className="flex gap-2 relative">
+                      {/* Country Code Selection Container */}
+                      <div className="relative group/country">
+                        <button
+                          type="button"
+                          onClick={() => setIsCountryDropdownOpen(!isCountryDropdownOpen)}
+                          className="luxury-input !border-b !border-gray-100 focus:!border-brand-secondary flex items-center gap-2 px-4 transition-all duration-300 hover:bg-gray-50/50"
+                        >
+                          <span className="font-bold text-brand-text-main/70">{selectedCountry.iso}</span>
+                          <span className="text-brand-secondary font-black">{selectedCountry.code}</span>
+                          <FiChevronDown className={`transition-transform duration-500 text-brand-secondary/40 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} size={14} />
+                        </button>
+
+                        <AnimatePresence>
+                          {isCountryDropdownOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                              className="absolute z-[110] top-[calc(100%+8px)] left-0 min-w-[180px] bg-white rounded-3xl border border-gray-100 shadow-2xl overflow-hidden p-2"
+                            >
+                              <div className="max-h-[220px] overflow-y-auto custom-scrollbar space-y-1">
+                                {countries.map((country) => (
+                                  <button
+                                    key={country.iso}
+                                    type="button"
+                                    onClick={() => {
+                                      setSelectedCountry(country);
+                                      setIsCountryDropdownOpen(false);
+                                    }}
+                                    className={`w-full text-left px-5 py-3.5 rounded-2xl flex items-center justify-between group transition-all duration-300 ${selectedCountry.iso === country.iso ? 'bg-brand-secondary/10' : 'hover:bg-brand-text-main/5'}`}
+                                  >
+                                    <div className="flex flex-col">
+                                      <span className="text-[10px] uppercase tracking-widest font-black text-brand-text-main/80">{country.label}</span>
+                                      <span className="text-xs font-medium text-brand-text-muted">{country.iso}</span>
+                                    </div>
+                                    <span className={`text-xs font-black transition-colors ${selectedCountry.iso === country.iso ? 'text-brand-secondary' : 'text-brand-text-muted/40 group-hover:text-brand-secondary'}`}>
+                                      {country.code}
+                                    </span>
+                                  </button>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      <input 
+                        type="tel" 
+                        name="phone" 
+                        required 
+                        pattern={`[0-9]{${selectedCountry.digits}}`}
+                        title={`Phone number must be exactly ${selectedCountry.digits} digits for ${selectedCountry.label}`}
+                        className="luxury-input !border-b !border-gray-100 focus:!border-brand-secondary flex-1" 
+                        placeholder={`${selectedCountry.digits} Digits Number`} 
+                      />
+                      <input type="hidden" name="phonePrefix" value={selectedCountry.code} />
+                    </div>
                   </div>
                 </div>
 
