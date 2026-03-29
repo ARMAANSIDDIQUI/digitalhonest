@@ -17,7 +17,13 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    let admin = await Admin.findOne({ email });
+    let admin;
+    try {
+      admin = await Admin.findOne({ email });
+    } catch (e) {
+      // Retry once for stale connections
+      admin = await Admin.findOne({ email });
+    }
 
     // Auto-create default admin if none exists (for easy local setup)
     if (!admin && email === 'digitalhonest@gmail.com' && password === 'admin123') {
@@ -54,7 +60,12 @@ router.post('/login', async (req, res) => {
 // @access  Private (Admin)
 router.get('/enquiries', auth, async (req, res) => {
   try {
-    const enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    let enquiries;
+    try {
+      enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    } catch (e) {
+      enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    }
     res.json(enquiries);
   } catch (err) {
     res.status(500).json({ error: 'Server Error' });
@@ -66,11 +77,13 @@ router.get('/enquiries', auth, async (req, res) => {
 // @access  Private (Admin)
 router.patch('/enquiries/:id', auth, async (req, res) => {
   try {
-    const enquiry = await Enquiry.findByIdAndUpdate(
-      req.params.id,
-      { $set: { status: req.body.status } },
-      { new: true }
-    );
+    let enquiry;
+    const update = { $set: { status: req.body.status } };
+    try {
+      enquiry = await Enquiry.findByIdAndUpdate(req.params.id, update, { new: true });
+    } catch (e) {
+      enquiry = await Enquiry.findByIdAndUpdate(req.params.id, update, { new: true });
+    }
     res.json(enquiry);
   } catch (err) {
     res.status(500).json({ error: 'Server Error' });
@@ -82,7 +95,11 @@ router.patch('/enquiries/:id', auth, async (req, res) => {
 // @access  Private (Admin)
 router.delete('/enquiries/:id', auth, async (req, res) => {
   try {
-    await Enquiry.findByIdAndDelete(req.params.id);
+    try {
+      await Enquiry.findByIdAndDelete(req.params.id);
+    } catch (e) {
+      await Enquiry.findByIdAndDelete(req.params.id);
+    }
     res.json({ msg: 'Enquiry deleted' });
   } catch (err) {
     res.status(500).json({ error: 'Server Error' });
