@@ -12,6 +12,9 @@ const auth = require('../middleware/auth');
 // @access  Public
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ msg: 'Please provide both email and password' });
+  }
 
   try {
     let admin = await Admin.findOne({ email });
@@ -41,7 +44,6 @@ router.post('/login', async (req, res) => {
       }
     );
   } catch (err) {
-    console.error('Admin Login Error:', err);
     res.status(500).json({ 
       msg: 'Server Error', 
       error: err.message,

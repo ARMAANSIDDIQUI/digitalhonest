@@ -12,7 +12,6 @@ router.post('/', async (req, res) => {
     await newEnquiry.save();
     res.status(201).json({ msg: 'Enquiry submitted successfully' });
   } catch (err) {
-    console.error('Enquiry Submission Error:', err);
     res.status(500).json({ error: 'Failed to process lead.', details: err.message });
   }
 });

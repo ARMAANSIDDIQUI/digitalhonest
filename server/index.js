@@ -35,19 +35,14 @@ const connectDB = async () => {
   
   try {
     const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/digitalhonest';
-    if (uri.includes('localhost') && process.env.NODE_ENV === 'production') {
-      console.warn('WARNING: Running in production but MONGO_URI is missing or pointing to localhost!');
-    }
     
     await mongoose.connect(uri, {
       bufferCommands: false, // Disable Mongoose buffering to see errors faster
     });
     
     cachedDb = mongoose.connection;
-    console.log('MongoDB Connected successfully.');
     return cachedDb;
   } catch (err) {
-    console.error('MongoDB connection CRITICAL error:', err.message);
     if (process.env.NODE_ENV === 'production') {
       // On Vercel, we can't exit, but we can throw to let the function fail
       throw err;
@@ -56,7 +51,7 @@ const connectDB = async () => {
 };
 
 // Initial connection for cold start
-connectDB().catch(err => console.error('Initial DB connection failed:', err.message));
+connectDB().catch(err => {});
 
 // Middleware to ensure DB is connected before any request
 app.use(async (req, res, next) => {
@@ -82,7 +77,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok', message: 'Digital 
 // Conditional listen for local dev
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  app.listen(PORT, () => {});
 }
 
 // Export for Vercel
