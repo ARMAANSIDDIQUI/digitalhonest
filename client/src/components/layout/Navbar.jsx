@@ -31,7 +31,8 @@ export default function Navbar() {
   }, [scrolled]);
 
   const isServiceDetail = pathname.startsWith('/services/');
-  const forceDarkText = isServiceDetail && !scrolled;
+  const isAdmin = pathname.startsWith('/admin');
+  const forceDarkText = (isServiceDetail || isAdmin) && !scrolled;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 px-6 sm:px-10 lg:px-12 ${scrolled ? 'pt-4' : 'pt-8'}`}>
