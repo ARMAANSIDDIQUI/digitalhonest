@@ -77,12 +77,19 @@ export default function Footer() {
               <li className="flex items-start gap-4">
                 <FiMapPin className="mt-1 text-brand-secondary shrink-0" />
                 <span className="text-sm font-medium text-white/70 leading-relaxed">
-                  ISBT Road Mandi, Dehradun,<br /> Uttarakhand 248001 India
+                  17/17, Opposite Gandhi Park,<br />
+                  Near Chayadeep Cinema,<br />
+                  Rajpur Road, Dehradun-248001
                 </span>
               </li>
-              <li className="flex items-center gap-4">
-                <FiPhone className="text-brand-secondary shrink-0" />
-                <a href="tel:+917310688048" className="text-lg font-black hover:text-brand-secondary transition-colors">+91 73106 88048</a>
+              <li className="flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <FiPhone className="text-brand-secondary shrink-0" />
+                  <div className="flex flex-col">
+                    <a href="tel:+919412246080" className="text-lg font-black hover:text-brand-secondary transition-colors">+91 94122 46080</a>
+                    <a href="tel:+917310688048" className="text-lg font-black hover:text-brand-secondary transition-colors">+91 73106 88048</a>
+                  </div>
+                </div>
               </li>
               <li className="flex items-center gap-4">
                 <FiMail className="text-brand-secondary shrink-0" />

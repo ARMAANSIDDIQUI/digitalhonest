@@ -82,9 +82,14 @@ export default function Contact() {
                 <div className="space-y-12">
                   <div className="group">
                     <p className="text-[10px] uppercase tracking-widest font-black text-white/30 mb-4">Direct Connection</p>
-                    <a href="tel:+917310688048" className="text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
-                      +91 73106 88048
-                    </a>
+                    <div className="space-y-4">
+                      <a href="tel:+919412246080" className="text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
+                        +91 94122 46080
+                      </a>
+                      <a href="tel:+917310688048" className="text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
+                        +91 73106 88048
+                      </a>
+                    </div>
                   </div>
 
                   <div className="group">
@@ -96,7 +101,9 @@ export default function Contact() {
 
                   <div className="group">
                     <p className="text-xl font-medium leading-relaxed text-white/70">
-                      ISBT Road Mandi, Dehradun,<br /> Uttarakhand 248001 India
+                      17/17, Opposite Gandhi Park,<br />
+                      Near Chayadeep Cinema,<br />
+                      Rajpur Road, Dehradun-248001
                     </p>
                   </div>
                 </div>
