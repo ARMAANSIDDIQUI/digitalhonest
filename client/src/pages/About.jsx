@@ -157,10 +157,32 @@ export default function About() {
                   <p className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-secondary mb-4">Our Presence</p>
                   <h3 className="text-4xl lg:text-5xl tracking-tighter mb-6 underline decoration-brand-secondary/30 underline-offset-8">National Footprint</h3>
                   <p className="text-brand-text-muted font-medium text-lg leading-relaxed mb-10 max-w-xl">Headquartered in Dehradun, our operational network expands across 8+ states, dominating major transit routes and city hubs.</p>
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
-                    {['UK', 'UP', 'Delhi', 'PB', 'HR', 'RJ', 'MP', 'MH'].map(s => (
-                       <span key={s} className="px-4 py-2 bg-white rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-100 shadow-sm">{s}</span>
-                    ))}
+                  <div className="flex flex-wrap gap-4 sm:gap-6">
+                    {['UK', 'UP', 'Delhi', 'PB', 'HR', 'RJ', 'MP', 'MH'].map(s => {
+                      const names = {
+                        'UK': 'Uttarakhand',
+                        'UP': 'Uttar Pradesh',
+                        'Delhi': 'Delhi',
+                        'PB': 'Punjab',
+                        'HR': 'Haryana',
+                        'RJ': 'Rajasthan',
+                        'MP': 'Madhya Pradesh',
+                        'MH': 'Maharashtra'
+                      };
+                      return (
+                       <div key={s} className="group relative">
+                         <span className="px-6 py-4 bg-white rounded-2xl text-[10px] font-black uppercase tracking-widest border border-gray-100 shadow-sm cursor-help hover:bg-brand-secondary hover:text-white hover:border-brand-secondary transition-all duration-300 block">
+                            {s}
+                         </span>
+                         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-50 group-hover:scale-100">
+                            <div className="bg-brand-primary text-white text-[10px] font-black uppercase tracking-widest px-5 py-2.5 rounded-xl shadow-2xl relative whitespace-nowrap border border-white/10 backdrop-blur-md">
+                              {names[s]}
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-brand-primary rotate-45 -translate-y-1"></div>
+                            </div>
+                         </div>
+                       </div>
+                      );
+                    })}
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4 sm:gap-6">
