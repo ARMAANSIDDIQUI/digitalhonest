@@ -4,6 +4,7 @@ import { FiArrowRight, FiCheckCircle, FiZap } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { services } from '../constants/services';
 import { useState, useEffect } from 'react';
+import TestimonialSection from '../components/common/Testimonials';
 
 const Carousel = () => {
   const [index, setIndex] = useState(0);
@@ -184,6 +185,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Testimonials Section - Strategic Social Proof */}
+      <TestimonialSection />
 
       {/* Brand Trust Bar */}
       <section className="py-24 bg-brand-bg relative overflow-hidden">

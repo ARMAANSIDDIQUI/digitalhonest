@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiSearch, FiArrowRight, FiMapPin } from 'react-icons/fi';
-import { projects } from '../constants/projects';
+import { projects, heroImages } from '../constants/projects';
 import { operationalStates } from '../constants/services';
+import { FiExternalLink, FiSearch, FiArrowRight, FiMapPin, FiDownload, FiX } from 'react-icons/fi';
+import TestimonialSection from '../components/common/Testimonials';
 
 export default function Portfolio() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedImg, setSelectedImg] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const filteredProjects = projects.filter(p =>
     p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -15,20 +18,26 @@ export default function Portfolio() {
     p.category.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Lock scroll when modal is open
+  useEffect(() => {
+    if (selectedImg) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [selectedImg]);
+
   return (
     <div className="bg-white min-h-screen">
       <Helmet><title>Portfolio | Our Best Campaigns | Digital Honest</title></Helmet>
 
       {/* Hero Section - High-Fidelity Architectural Monolith */}
-      {/* Hero Section - High-Fidelity Architectural Monolith */}
       <section className="relative min-h-screen w-full flex items-center pt-32 pb-12 lg:py-24 overflow-hidden bg-brand-primary">
-        {/* Background Depth & Animated Accents */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-secondary/10 rounded-full blur-[140px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
         <div className="section-padding relative z-10 w-full">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Content Column */}
             <motion.div
               className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left"
               initial={{ opacity: 0, x: -50 }}
@@ -64,7 +73,22 @@ export default function Portfolio() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </motion.div>
-            </motion.div>
+
+              <motion.div 
+                 className="mt-12 flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 0.8 }}
+               >
+                 <a 
+                   href="/documents/Client_Result.pdf" 
+                   download="Digital_Honest_Impact_Results.pdf"
+                   className="btn-conversion !bg-white/10 !border-white/20 !backdrop-blur-md overflow-hidden group flex items-center justify-center gap-3 !py-6 !px-10"
+                 >
+                   Download Proven Results <FiDownload className="group-hover:translate-y-1 transition-transform" />
+                 </a>
+               </motion.div>
+             </motion.div>
 
             <motion.div
               className="lg:col-span-5 relative mt-16 lg:mt-0"
@@ -73,24 +97,20 @@ export default function Portfolio() {
               transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative aspect-square">
-                {/* Layer 1 - Main Background Image */}
                 <div className="absolute top-0 right-0 w-[80%] aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl rotate-3">
-                  <img src={projects[0].image} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Portfolio Highlight" />
+                  <img src={heroImages.billboard} className="w-full h-full object-cover transition-all duration-700 hover:scale-105" alt="Portfolio Highlight" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-transparent to-transparent"></div>
                 </div>
 
-                {/* Layer 2 - Overlapping Secondary Image */}
                 <div className="absolute bottom-10 left-0 w-[60%] aspect-square rounded-[2.5rem] overflow-hidden border border-white/20 shadow-3xl -rotate-6 transition-transform hover:rotate-0 duration-700">
-                  <img src={projects[1].image} className="w-full h-full object-cover" alt="Campaign Impact" />
+                  <img src={heroImages.hoarding} className="w-full h-full object-cover" alt="Campaign Impact" />
                   <div className="absolute inset-0 bg-brand-secondary/20 mix-blend-overlay"></div>
                 </div>
 
-                {/* Layer 3 - Floating Decorative Element */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-white/10 backdrop-blur-md flex items-center justify-center rotate-12 bg-white/5">
                   <div className="text-center">
                     <p className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em]">Marketing</p>
                     <p className="text-xl font-serif italic text-brand-secondary">Architecture</p>
-                    {/* <p className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em]">2024</p> */}
                   </div>
                 </div>
               </div>
@@ -99,10 +119,10 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <div className="section-padding !py-4">
+      <div className="section-padding !py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, i) => (
+            {filteredProjects.slice(0, visibleCount).map((project, i) => (
               <motion.div
                 key={project.id}
                 layout
@@ -118,8 +138,11 @@ export default function Portfolio() {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-brand-text-main/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                    <span className="px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-black text-[10px] uppercase tracking-widest border border-white/30">View Case Study</span>
+                  <div 
+                    className="absolute inset-0 bg-brand-text-main/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center cursor-pointer"
+                    onClick={() => setSelectedImg(project.image)}
+                  >
+                    <span className="px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-black text-[10px] uppercase tracking-widest border border-white/30">See Detailed Image</span>
                   </div>
                   <div className="absolute top-6 right-6">
                     <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-brand-secondary font-black text-[9px] uppercase tracking-widest shadow-lg">{project.tag}</span>
@@ -138,6 +161,19 @@ export default function Portfolio() {
           </AnimatePresence>
         </div>
 
+        {filteredProjects.length > visibleCount && (
+          <div className="mt-16 text-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount(filteredProjects.length)}
+              className="px-12 py-5 rounded-full border-2 border-brand-primary text-brand-primary font-black text-[12px] uppercase tracking-[0.3em] hover:bg-brand-primary hover:text-white transition-all duration-500 shadow-xl"
+            >
+              Show All {filteredProjects.length} Campaigns
+            </motion.button>
+          </div>
+        )}
+
         {filteredProjects.length === 0 && (
           <div className="text-center py-20">
             <p className="text-brand-text-muted text-lg italic">No campaigns found matching your search. Try a different keyword.</p>
@@ -151,29 +187,72 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Operational Sites Section (Special) */}
-      <section className="section-padding min-h-screen py-12 lg:py-24 relative overflow-hidden flex items-center bg-brand-primary">
+      {/* Testimonials - Client Success Stories */}
+      <TestimonialSection />
+
+      {/* Strategic Footprint - Full Width Dark */}
+      <section className="bg-brand-primary py-24 lg:py-32 relative overflow-hidden flex items-center">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-secondary/5 rounded-full blur-[120px] -z-10"></div>
 
-        <div className="glass-card !bg-white/40 backdrop-blur-3xl !p-12 md:!p-20 !rounded-[4rem] border border-white">
-          <div className="text-center mb-16">
-            <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-4">Strategic Footprint</p>
-            <h2 className="text-4xl md:text-5xl tracking-tighter font-display leading-tight">Live in <span className="premium-gradient-text italic">8+ Operational States</span></h2>
-          </div>
+        <div className="section-padding w-full relative z-10">
+          <div className="glass-card !bg-white/5 backdrop-blur-3xl !p-12 md:!p-20 !rounded-[4rem] border border-white/10 shadow-4xl">
+            <div className="text-center mb-16">
+              <p className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-secondary mb-4">Market Presence</p>
+              <h2 className="text-4xl md:text-7xl tracking-tighter font-display leading-tight text-white font-bold">
+                Live in <br/>
+                <span className="premium-gradient-text italic font-serif">8+ Operational States</span>
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            {operationalStates.map((item, idx) => (
-              <div key={idx} className="p-8 rounded-[2.5rem] bg-white shadow-sm border border-gray-100 hover:shadow-premium transition-all duration-500">
-                <div className="w-12 h-12 rounded-2xl bg-brand-secondary/10 flex items-center justify-center text-brand-secondary mb-6">
-                  <FiMapPin size={24} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left">
+              {operationalStates.map((item, idx) => (
+                <div key={idx} className="p-10 rounded-[3rem] bg-white/5 border border-white/5 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 group">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-secondary/20 flex items-center justify-center text-brand-secondary mb-8 group-hover:scale-110 transition-transform">
+                    <FiMapPin size={28} />
+                  </div>
+                  <h4 className="text-2xl font-bold mb-4 text-white uppercase tracking-tighter">{item.region}</h4>
+                  <p className="text-white/40 text-sm font-medium leading-relaxed group-hover:text-white/60 transition-colors uppercase tracking-widest">{item.states}</p>
                 </div>
-                <h4 className="text-xl font-bold mb-3">{item.region}</h4>
-                <p className="text-brand-text-muted text-sm font-medium leading-relaxed">{item.states}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* High-Fidelity Image Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImg && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[500] flex items-center justify-center p-4 md:p-10 bg-brand-primary/95 backdrop-blur-3xl overflow-y-auto"
+            onClick={() => setSelectedImg(null)}
+          >
+            <motion.button 
+              className="fixed top-8 right-8 z-[510] text-white/40 hover:text-white bg-white/10 p-4 rounded-full backdrop-blur-md transition-all border border-white/10"
+              onClick={() => setSelectedImg(null)}
+              whileHover={{ rotate: 90, scale: 1.1 }}
+            >
+              <FiX size={32} />
+            </motion.button>
+            
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-6xl h-fit flex items-center justify-center pointer-events-none p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img 
+                src={selectedImg} 
+                alt="Detailed Campaign View" 
+                className="max-w-full max-h-[85vh] object-contain rounded-[2rem] shadow-4xl border border-white/10 pointer-events-auto"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

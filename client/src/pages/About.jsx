@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiUsers, FiTrendingUp, FiMapPin, FiAward } from 'react-icons/fi';
+import { FiCheckCircle, FiUsers, FiTrendingUp, FiMapPin, FiAward, FiDownload } from 'react-icons/fi';
 import aboutImg from '../assets/extreme_photorealistic_billboard_1774478569369.png';
 
 export default function About() {
@@ -38,17 +38,32 @@ export default function About() {
             </h1>
             
             <p className="text-[10px] lg:text-base text-white/50 leading-relaxed font-medium mb-6 lg:mb-12 max-w-2xl border-brand-secondary/40 lg:border-l-2 pl-0 lg:pl-10">
-              Digital Honest is more than an agency; it's a strategic hub where physical mass-visibility meets precision digital infrastructure. We build the architecture that allows brands to scale without limits.
+              The Digital Honest is a leading digital marketing agency headquartered in Dehradun, with over 5 years of domain expertise. We believe in the power of digital transformations to elevate brands to new heights, helping clients navigate the dynamic online landscape through innovative strategies and creative solutions.
             </p>
+
+            <motion.div 
+              className="w-full flex justify-center lg:justify-start mb-12"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <a 
+                href="/documents/Digital_Honest_Proposal.pdf" 
+                download="Digital_Honest_Full_Proposal.pdf"
+                className="btn-conversion !bg-white/10 !border-white/20 !backdrop-blur-md overflow-hidden group flex items-center gap-3 !py-5 !px-10"
+              >
+                Download Full Proposal <FiDownload className="group-hover:translate-y-1 transition-transform" />
+              </a>
+            </motion.div>
             
-            <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-lg mb-16 lg:mb-0">
+            <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-xl mb-16 lg:mb-0">
               <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-2xl md:text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">500+</p>
-                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Brands Elevated</p>
+                <p className="text-2xl md:text-5xl font-black text-brand-secondary mb-3 group-hover:scale-110 transition-transform origin-left">75%+</p>
+                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Follower Growth</p>
               </div>
               <div className="glass-card !bg-white/5 !backdrop-blur-md !p-6 md:!p-10 !rounded-[2rem] md:!rounded-[3rem] border-white/5 group hover:!bg-white/10 transition-all duration-500">
-                <p className="text-2xl md:text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">10+</p>
-                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Years Tenure</p>
+                <p className="text-2xl md:text-5xl font-black text-white mb-3 group-hover:scale-110 transition-transform origin-left">50%+</p>
+                <p className="text-[8px] md:text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-white/60">Organic Traffic Lift</p>
               </div>
             </div>
           </motion.div>
@@ -100,18 +115,18 @@ export default function About() {
             {[
               {
                 title: "360° Lifecycle",
-                desc: "Assistance from Brand Launch to national Promotion. We handle the entire growth pipeline.",
+                desc: "Assistance from Brand Launch to national Promotion. We handle the entire growth pipeline through Social Media Advertising, SMM, Google Ads, and custom Web Design.",
                 icon: <FiTrendingUp size={32} />
               },
               {
-                title: "Asset Dominance",
-                desc: "High-impact highway hoardings, transit moving media, and premium cinema placements.",
-                icon: <FiMapPin size={32} />
+                title: "Architectural Precision",
+                desc: "Our team of seasoned experts brings a wealth of knowledge in digital marketing, web design, and SEO to every project, ensuring top-notch service.",
+                icon: <FiCheckCircle size={32} />
               },
               {
-                title: "Data Precision",
-                desc: "Custom audience targeting ensuring zero waste and maximum conversion on digital spends.",
-                icon: <FiCheckCircle size={32} />
+                title: "Results-Driven Focus",
+                desc: "We measure our success by the tangible growth of our clients—increased traffic, high-quality leads, and enhanced brand visibility.",
+                icon: <FiAward size={32} />
               }
             ].map((item, i) => (
               <div key={i} className="group">

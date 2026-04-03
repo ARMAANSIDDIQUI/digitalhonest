@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { services } from '../constants/services';
-import { FiArrowLeft, FiArrowRight, FiCheckCircle, FiTrendingUp, FiMapPin, FiPhoneCall } from 'react-icons/fi';
+import { projects } from '../constants/projects';
+import ImpactRail from '../components/common/ImpactRail';
+import { 
+  FiArrowLeft, 
+  FiArrowRight, 
+  FiCheckCircle, 
+  FiTrendingUp, 
+  FiMapPin, 
+  FiPhoneCall,
+  FiX,
+  FiMaximize2
+} from 'react-icons/fi';
 
 const ServiceDetail = () => {
   const { id } = useParams();
+  const [selectedImage, setSelectedImage] = useState(null);
   const service = services.find(s => s.id === id);
 
   if (!service) {
@@ -46,7 +58,7 @@ const ServiceDetail = () => {
       <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-surface">
         <div className="absolute inset-0 z-0">
           <img
-            className="w-full h-full object-cover grayscale opacity-20 transition-transform duration-[3s] hover:scale-105"
+            className="w-full h-full object-cover opacity-20 transition-transform duration-[3s] hover:scale-105"
             src={service.image}
             alt={service.title}
           />
@@ -128,50 +140,31 @@ const ServiceDetail = () => {
         </motion.div>
       </section>
 
-      {/* Impact Rail (Full-Width Auto Carousel) */}
-      <section className="py-24 bg-[#000613] overflow-hidden relative">
-        <div className="mx-auto px-8 md:px-16 mb-16 flex justify-between items-end">
-          <div className="space-y-4">
-            <h2 className="text-4xl lg:text-5xl text-white font-display">Impact Rail</h2>
-            <p className="text-white/60 text-xl max-w-md font-medium">Global wins delivered with architectural precision.</p>
-          </div>
-        </div>
+      <ImpactRail />
 
-        <div className="relative">
-          <motion.div
-            className="flex gap-8"
-            animate={{
-              x: [0, -1904], // Approximate width of 3 items (600+32)*3
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1000] bg-brand-primary/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12 lg:p-24"
+            onClick={() => setSelectedImage(null)}
           >
-            {[1, 2, 3, 1, 2, 3].map((item, idx) => (
-              <div key={idx} className="flex-none w-[85vw] md:w-[600px] group">
-                <div className="aspect-[16/10] overflow-hidden mb-8 rounded-[2rem] bg-gray-800 relative">
-                  <img
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80"
-                    src={service.image}
-                    alt="Impact Case"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000613] to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                </div>
-                <div className="flex flex-col space-y-4">
-                  <span className="text-[#ea580c] text-[10px] font-black uppercase tracking-[0.2em]">{service.tag}</span>
-                  <h4 className="text-3xl text-white font-bold">Project: Visionary Scale</h4>
-                  <p className="text-white/40 text-lg font-medium max-w-md italic">Re-architecting reach for market leaders.</p>
-                </div>
-              </div>
-            ))}
+            <button className="fixed top-8 right-8 text-white/50 hover:text-white transition-colors bg-white/10 p-4 rounded-full backdrop-blur-md border border-white/10 z-[1001]">
+              <FiX size={32} />
+            </button>
+            <motion.img 
+              initial={{ scale: 0.9, y: 50, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 50, opacity: 0 }}
+              src={selectedImage} 
+              className="max-w-full max-h-full object-contain rounded-2xl md:rounded-[3rem] shadow-4xl pointer-events-none"
+            />
           </motion.div>
-        </div>
-      </section>
+        )}
+      </AnimatePresence>
 
       {/* Deep Dive Case Study */}
       <section className="bg-white py-32 relative overflow-hidden">
@@ -208,7 +201,7 @@ const ServiceDetail = () => {
             <div className="absolute -inset-8 bg-[#ea580c]/5 blur-[100px] rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-1000"></div>
             <div className="relative z-10 aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-premium">
               <img
-                className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover brightness-110 group-hover:scale-105 transition-all duration-1000"
                 src={service.image}
                 alt="Case Study"
               />
@@ -260,7 +253,7 @@ const ServiceDetail = () => {
               </div>
               <div className="flex items-center gap-6 group text-white decoration-brand-secondary">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-[#ea580c] group-hover:bg-[#ea580c] group-hover:text-white transition-all">
-                  <FiPhoneCall />
+                   <FiPhoneCall />
                 </div>
                 <a href="tel:+917310688048" className="hover:text-[#ea580c] transition-colors">
                   <h4 className="text-sm font-bold">+91 73106 88048</h4>
