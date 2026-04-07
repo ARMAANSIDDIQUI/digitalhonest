@@ -52,7 +52,7 @@ export default function FloatingActions() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={openWhatsApp}
-        className="flex w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg items-center justify-center text-3xl hover:bg-green-600 transition-all shadow-green-500/20 group relative"
+        className="hidden md:flex w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg items-center justify-center text-3xl hover:bg-green-600 transition-all shadow-green-500/20 group relative"
         aria-label="Contact on WhatsApp"
       >
         <span className="absolute -top-12 right-0 bg-brand-text-main text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover:translate-y-0 shadow-xl border border-white/10">
