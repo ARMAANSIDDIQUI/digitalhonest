@@ -16,7 +16,7 @@ export default function WhatsappButton() {
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.9 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className="fixed bottom-10 right-10 z-[9999] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_40px_-10px_rgba(37,211,102,0.5)] border-4 border-white group"
+      className="fixed bottom-10 right-10 z-[9999] w-16 h-16 bg-[#25D366] rounded-full hidden md:flex items-center justify-center shadow-[0_10px_40px_-10px_rgba(37,211,102,0.5)] border-4 border-white group"
     >
       <div className="absolute -top-12 right-0 bg-brand-text-main text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover:translate-y-0">
         Chat Strategy

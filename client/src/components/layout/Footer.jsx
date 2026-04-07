@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiFacebook, FiInstagram, FiTwitter, FiPhone, FiMail, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiPhone, FiMail, FiMapPin, FiArrowRight } from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 
 export default function Footer() {
@@ -28,9 +28,18 @@ export default function Footer() {
               India's premier 360° marketing hub. Dominating the physical and digital landscape with architectural precision and "Full Support" growth strategy.
             </p>
             <div className="flex space-x-4">
-              {[FiFacebook, FiInstagram, FiTwitter].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-white hover:text-brand-text-main transition-all duration-500 border border-white/10 shadow-sm">
-                  <Icon size={18} />
+              {[
+                { Icon: FiFacebook, url: "https://www.facebook.com/share/1AYSfb8R4C/" },
+                { Icon: FiInstagram, url: "https://www.instagram.com/ankurparashar2783?igsh=dDhiZGU3c2lia2d4" }
+              ].map((social, i) => (
+                <a 
+                  key={i} 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-white hover:text-brand-text-main transition-all duration-500 border border-white/10 shadow-sm"
+                >
+                  <social.Icon size={18} />
                 </a>
               ))}
             </div>
