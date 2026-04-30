@@ -115,10 +115,10 @@ export default function Contact() {
                   <div className="group">
                     <p className="text-[10px] uppercase tracking-widest font-black text-white/30 mb-4">Direct Connection</p>
                     <div className="space-y-4">
-                      <a href="tel:+919412246080" className="text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
+                      <a href="tel:+919412246080" className="text-2xl sm:text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
                         +91 94122 46080
                       </a>
-                      <a href="tel:+917310688048" className="text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
+                      <a href="tel:+917310688048" className="text-2xl sm:text-3xl font-bold block hover:text-brand-secondary transition-all duration-500 ease-out">
                         +91 73106 88048
                       </a>
                     </div>
@@ -153,8 +153,8 @@ export default function Contact() {
             <div className="lg:col-span-7 p-12 lg:p-20 bg-white rounded-b-[3rem] sm:rounded-b-[4rem] lg:rounded-r-[4rem] lg:rounded-bl-none">
               <h3 className="text-xs uppercase tracking-[0.4em] font-black text-brand-text-main mb-12">Growth Audit Request</h3>
 
-              <form onSubmit={onSubmit} className="space-y-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <form onSubmit={onSubmit} className="space-y-8 md:space-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   <div className="space-y-3">
                     <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Principal Name</label>
                     <input type="text" name="name" required className="luxury-input !border-b !border-gray-100 focus:!border-brand-secondary" placeholder="Full Name" />
@@ -222,7 +222,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   <div className="space-y-3">
                     <label className="text-[10px] uppercase tracking-widest font-black text-brand-text-muted">Entity Type</label>
                     <input type="text" name="businessType" className="luxury-input !border-b !border-gray-100 focus:!border-brand-secondary" placeholder="e.g. Real Estate" />
@@ -247,7 +247,7 @@ export default function Contact() {
                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            className="absolute z-[100] top-full left-0 w-full mt-4 bg-white/95 backdrop-blur-2xl rounded-[2.5rem] border border-white/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
+                            className="absolute z-[100] top-full left-0 w-full mt-4 bg-white/95 backdrop-blur-2xl rounded-2xl md:rounded-[2.5rem] border border-white/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden"
                           >
                             <div className="max-h-[280px] overflow-y-auto custom-scrollbar p-4 space-y-2">
                             {/* Dynamic Service Options from Constants */}
@@ -295,19 +295,20 @@ export default function Contact() {
       </div>
 
       {/* Location Map Section */}
-      <section className="pb-32 px-4 md:px-8">
+      <section className="pb-24 lg:pb-32 px-4 md:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="rounded-[3rem] sm:rounded-[4rem] overflow-hidden border border-gray-100 shadow-premium aspect-[21/9] min-h-[400px]"
+            className="rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-gray-100 shadow-premium aspect-[4/5] sm:aspect-video md:aspect-[21/9] min-h-[450px] md:min-h-[500px] lg:min-h-[600px]"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3443.7857416075053!2d78.04133467556467!3d30.328611674781634!2m3!1f0!2f0!3f0!3m2!i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDE5JzQzLjAiTiA3OMKwMDInMzguMSJF!5e0!3m2!1sen!2sin!4v1774782545559!5m2!1sen!2sin" 
               width="100%" 
               height="100%" 
+              className="w-full h-full grayscale-[20%] contrast-[1.1] hover:grayscale-0 transition-all duration-700"
               style={{ border: 0 }} 
               allowFullScreen="" 
               loading="lazy" 
